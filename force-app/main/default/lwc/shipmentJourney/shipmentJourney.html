@@ -1,0 +1,185 @@
+<template>
+    <lightning-card icon-name="standard:location" title="Shipment Tracker">
+        <lightning-spinner if:true={isLoading} variant="brand" size="small"></lightning-spinner>
+        <div slot="actions">
+            <lightning-button-icon title="Refresh" icon-name="utility:refresh"
+                onclick={getStatuses}></lightning-button-icon>
+        </div>
+        <div class="slds-scrollable slds-var-m-around_medium">
+            <ul class="slds-timeline">
+                <template for:each={events} for:item="e">
+                    <li key={e.eventId}>
+                        <div class="slds-timeline__item_expandable slds-timeline__item_task slds-is-open">
+                            <div class="slds-media">
+                                <div class="slds-media__figure">
+                                    <button class="slds-button slds-button_icon" aria-controls="task-item-expanded-65"
+                                        aria-expanded="true">
+                                        <lightning-icon data-delivery-code={e.eventTypeCode}
+                                            onclick={openShipmentDetails} icon-name={e.dropDownIcon}
+                                            size="x-small"></lightning-icon>
+                                    </button>
+                                    <lightning-avatar variant="circle" fallback-icon-name="standard:task2"
+                                        size="small"></lightning-avatar>
+                                </div>
+                                <div class="slds-media__body">
+                                    <div class="slds-grid slds-grid_align-spread slds-timeline__trigger">
+                                        <div class="slds-grid slds-grid_vertical-align-center slds-no-space">
+                                            <h3 class="slds-truncate">
+                                                <strong>{e.eventTypeName}</strong>
+                                            </h3>
+                                        </div>
+                                    </div>
+                                    <p class="slds-m-horizontal_xx-small">
+                                        {e.deliveryDateTime}
+                                    </p>
+                                    <div if:true={e.showDeliveryDetails}
+                                        class="slds-box slds-timeline__item_details slds-theme_shade slds-var-m-around_small slds-var-p-around_small"
+                                        id="task-item-expanded-65">
+                                        <div class="slds-var-m-bottom_small">
+                                            <span class="slds-text-title"><strong>Description</strong></span>
+                                            <p class="slds-var-p-top_xx-small">{e.eventDescription}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </template>
+                <!-- <li>
+                    <div class="slds-timeline__item_expandable slds-timeline__item_call">
+                        <div class="slds-media">
+                            <div class="slds-media__figure">
+                                <button class="slds-button slds-button_icon" aria-controls="task-item-expanded-65"
+                                    aria-expanded="true">
+                                    <lightning-icon data-delivery-type="parcel" onclick={openShipmentDetails}
+                                        icon-name="utility:chevronright" size="x-small"></lightning-icon>
+                                </button>
+                                <lightning-icon variant="success" icon-name="utility:hourglass"
+                                    size="small"></lightning-icon>
+                            </div>
+                            <div class="slds-media__body">
+                                <div class="slds-grid slds-grid_align-spread slds-timeline__trigger">
+                                    <div
+                                        class="slds-grid slds-grid_vertical-align-center slds-truncate_container_75 slds-no-space">
+                                        <h3 class="slds-truncate">
+                                            <strong>Parcel delivery</strong>
+                                        </h3>
+                                    </div>
+                                </div>
+                                <p class="slds-m-horizontal_xx-small">
+                                    You logged a call with Adam Chan
+                                </p>
+                                <div if:true={parcel}
+                                    class="slds-var-m-around_small slds-var-m-around_small slds-box slds-theme_shade"
+                                    id="call-item-expanded-66">
+                                    <div class="slds-var-m-bottom_small">
+                                        <span class="slds-text-title"><strong>Name</strong></span>
+                                        <p class="slds-var-p-top_xx-small">Charlie Gomez</p>
+                                    </div>
+                                    <div class="slds-var-m-bottom_small">
+                                        <span class="slds-text-title"><strong>Related To</strong></span>
+                                        <p class="slds-var-p-top_xx-small">Tesla Cloudhub + Anypoint Connectors</p>
+                                    </div>
+                                    <div class="slds-var-m-bottom_small">
+                                        <span class="slds-text-title"><strong>Description</strong></span>
+                                        <p class="slds-var-p-top_xx-small">Need to finalize proposals and brand details
+                                            before the meeting</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="slds-timeline__item_expandable slds-timeline__item_email">
+                        <div class="slds-media">
+                            <div class="slds-media__figure">
+                                <button class="slds-button slds-button_icon" aria-controls="task-item-expanded-65"
+                                    aria-expanded="true">
+                                    <lightning-icon data-delivery-type="delivered" onclick={openShipmentDetails}
+                                        icon-name="utility:chevronright" size="x-small"></lightning-icon>
+                                </button>
+                                <lightning-icon onclick={openShipmentDetails} icon-name="utility:record"
+                                    size="small"></lightning-icon>
+                            </div>
+                            <div class="slds-media__body">
+                                <div class="slds-grid slds-grid_align-spread slds-timeline__trigger">
+                                    <div
+                                        class="slds-grid slds-grid_vertical-align-center slds-truncate_container_75 slds-no-space">
+                                        <h3 class="slds-truncate">
+                                            <strong>Delivered</strong>
+                                        </h3>
+                                    </div>
+                                </div>
+                                <p class="slds-m-horizontal_xx-small">
+                                    You created an event with Aida Lee and 5 others
+                                </p>
+                                <div if:true={delivered}
+                                    class="slds-var-m-around_small slds-var-p-around_small slds-box slds-theme_shade"
+                                    id="email-item-expanded-67">
+                                    <div class="slds-var-m-bottom_small">
+                                        <span class="slds-text-title"><strong>Name</strong></span>
+                                        <p class="slds-var-p-top_xx-small">Charlie Gomez</p>
+                                    </div>
+                                    <div class="slds-var-m-bottom_small">
+                                        <span class="slds-text-title"><strong>Related To</strong></span>
+                                        <p class="slds-var-p-top_xx-small">Tesla Cloudhub + Anypoint Connectors</p>
+                                    </div>
+                                    <div class="slds-var-m-bottom_small">
+                                        <span class="slds-text-title"><strong>Description</strong></span>
+                                        <p class="slds-var-p-top_xx-small">Need to finalize proposals and brand details
+                                            before the meeting</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="slds-timeline__item_expandable slds-timeline__item_event">
+                        <div class="slds-media">
+                            <div class="slds-media__figure">
+                                <button class="slds-button slds-button_icon" aria-controls="task-item-expanded-65"
+                                    aria-expanded="true">
+                                    <lightning-icon data-delivery-type="package" onclick={openShipmentDetails}
+                                        icon-name="utility:chevronright" size="x-small"></lightning-icon>
+                                </button>
+                                <lightning-icon icon-name="utility:record" size="small"></lightning-icon>
+                            </div>
+                            <div class="slds-media__body">
+                                <div class="slds-grid slds-grid_align-spread slds-timeline__trigger">
+                                    <div
+                                        class="slds-grid slds-grid_vertical-align-center slds-truncate_container_75 slds-no-space">
+                                        <h3 class="slds-truncate">
+                                            <strong>Package delivered</strong>
+                                        </h3>
+                                    </div>
+                                </div>
+                                <p class="slds-m-horizontal_x-small">
+                                    You created an event with Aida Lee and 5 others
+                                </p>
+                                <div if:true={package}
+                                    class="slds-var-m-around_small slds-var-p-around_small slds-box slds-theme_shade"
+                                    id="event-item-expanded-68">
+                                    <div class="slds-var-m-bottom_small">
+                                        <span class="slds-text-title"><strong>Name</strong></span>
+                                        <p class="slds-var-p-top_xx-small">Charlie Gomez</p>
+                                    </div>
+                                    <div class="slds-var-m-bottom_small">
+                                        <span class="slds-text-title"><strong>Related To</strong></span>
+                                        <p class="slds-var-p-top_xx-small">Tesla Cloudhub + Anypoint Connectors</p>
+                                    </div>
+                                    <div class="slds-var-m-bottom_small">
+                                        <span class="slds-text-title"><strong>Description</strong></span>
+                                        <p class="slds-var-p-top_xx-small">Need to finalize proposals and brand details
+                                            before the meeting</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li> -->
+            </ul>
+        </div>
+    </lightning-card>
+</template>

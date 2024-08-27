@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomMetadata xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <label>Protrac DP Receipt</label>
+    <protected>false</protected>
+    <values>
+        <field>Access_Token__c</field>
+        <value xsi:type="xsd:string">eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJGTmFtZSI6IlMiLCJEaXNwbGF5TmFtZSI6IkFqYXkgUyIsIkxOYW1lIjoiQWpheSIsIkVtYWlsIjoiQWpheS5TaGFubXVnYXN1bmRyYW1AbmVvZ2VuZS5jb20iLCJPcGVyYXRvcklEIjoxLCJJc0FjdGl2ZSI6dHJ1ZSwiSXNEZWxldGVkIjpmYWxzZSwiUm9sZSI6eyJSb2xlSUQiOjMsIlJvbGVOYW1lIjoiQWRtaW4iLCJJc0FjdGl2ZSI6dHJ1ZSwiY3JlYXRlZEF0IjoiMjAyNC0wNy0wOVQxNjoxNDo1OS4wNzVaIiwidXBkYXRlZEF0IjoiMjAyNC0wNy0wOVQxNjoxNDo1OS4wNzVaIn0sIk9wZXJhdG9yc1NpdGVzIjpbeyJSb2xlSUQiOjMsIk9wZXJhdG9ySUQiOjEsIlNvdXJjZVN5c3RlbUlEIjoxLCJSb2xlIjp7IlJvbGVOYW1lIjoiQWRtaW4ifX0seyJSb2xlSUQiOjMsIk9wZXJhdG9ySUQiOjEsIlNvdXJjZVN5c3RlbUlEIjozLCJSb2xlIjp7IlJvbGVOYW1lIjoiQWRtaW4ifX1dLCJTZXNzaW9uSWQiOiJmMGI3NWUwNi0yYjliLTQyYjQtODk4OS0wOWIzMWI1YTFiZDAiLCJ1c2VySWQiOjEsImlhdCI6MTcyMTI5MTcyNiwiZXhwIjoxNzIzODgzNzI2fQ.3M5esuzCfiQjpoDxni_XaIraTsHiluJkNvcchaLK8LI</value>
+    </values>
+    <values>
+        <field>Endpoint__c</field>
+        <value xsi:type="xsd:string">https://7bsf5g092b.execute-api.us-east-1.amazonaws.com/api/notifyDPReceipt</value>
+    </values>
+    <values>
+        <field>Method__c</field>
+        <value xsi:type="xsd:string">POST</value>
+    </values>
+</CustomMetadata>

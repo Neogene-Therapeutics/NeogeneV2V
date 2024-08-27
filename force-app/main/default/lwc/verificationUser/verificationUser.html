@@ -1,0 +1,20 @@
+<template>
+    <div class="slds-var-p-around_x-small slds-grid slds-gutters">
+        <div class="slds-col">
+            <lightning-input type="text" label="Username" value={userInfo.username} readonly>
+            </lightning-input>
+        </div>
+        <div class="slds-col">
+            <lightning-input onchange={handleInputChange} type="password" label="Password">
+            </lightning-input>
+        </div>
+    </div>
+    <div class="slds-var-p-around_x-small">
+        <lightning-textarea label="Comments" onchange={commentHandler}></lightning-textarea>
+    </div>
+    <div class="slds-var-m-top_small slds-float_right">
+        <lightning-button label="Verify" onclick={handleVerifyClick} variant="brand"></lightning-button>
+        <lightning-button class="slds-var-m-left_small" label="Cancel" onclick={handleCancel}
+            variant="Cancel"></lightning-button>
+    </div>
+</template>

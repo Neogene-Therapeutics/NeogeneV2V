@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomMetadata xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <label>CREATE_SHIPMENT</label>
+    <protected>false</protected>
+    <values>
+        <field>Biocair_Subscription_Key__c</field>
+        <value xsi:type="xsd:string">a45187151eb34e958fd6d8a714db3b47</value>
+    </values>
+    <values>
+        <field>Endpoint__c</field>
+        <value xsi:type="xsd:string">https://sandboxconnect.biocair.com/v3/shipments</value>
+    </values>
+    <values>
+        <field>IntegrationKey__c</field>
+        <value xsi:type="xsd:string">A0ABA944-D10A-4A2F-8C52-C01D02CD81D8</value>
+    </values>
+    <values>
+        <field>Method__c</field>
+        <value xsi:type="xsd:string">POST</value>
+    </values>
+</CustomMetadata>

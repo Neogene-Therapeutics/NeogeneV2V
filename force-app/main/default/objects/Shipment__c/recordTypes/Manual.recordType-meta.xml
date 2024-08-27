@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RecordType xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Manual</fullName>
+    <active>true</active>
+    <label>Manual</label>
+    <picklistValues>
+        <picklist>Courier__c</picklist>
+        <values>
+            <fullName>BioCair</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Marken</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>QuickStat</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Status__c</picklist>
+        <values>
+            <fullName>Manufacturing Completed</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Manufacturing Started</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Manufacturing Terminated</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Quality Check Complete</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Quality Check Failed</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Shipped to Clinical Site</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Type__c</picklist>
+        <values>
+            <fullName>Apheresis</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Drug Product</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+</RecordType>

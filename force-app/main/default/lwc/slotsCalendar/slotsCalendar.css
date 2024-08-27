@@ -1,0 +1,23 @@
+.calendar {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.fc-header-toolbar {
+    background-color: #f4f6f9;
+    border-bottom: 1px solid #d8dde6;
+    padding: 10px;
+}
+
+.fc-view-container {
+    border: 1px solid #d8dde6;
+    border-top: none;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.fc-daygrid-event {
+    background-color: #0070d2;
+    color: #ffffff;
+    border: none;
+}

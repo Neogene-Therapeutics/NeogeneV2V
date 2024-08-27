@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Local_institutional_requirements__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>Local/institutional requirements for additional patient identifiers on label?</inlineHelpText>
+    <label>Local/institutional requirements?</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <type>TextArea</type>
+</CustomField>

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Role__c</fullName>
+    <externalId>false</externalId>
+    <label>Role</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Principal Investigator</fullName>
+                <default>false</default>
+                <label>Principal Investigator</label>
+            </value>
+            <value>
+                <fullName>Clinical Research Co-Ordinator</fullName>
+                <default>false</default>
+                <label>Clinical Research Co-Ordinator</label>
+            </value>
+            <value>
+                <fullName>Site User</fullName>
+                <default>false</default>
+                <label>Site User</label>
+            </value>
+            <value>
+                <fullName>Manufacturing Scheduler</fullName>
+                <default>false</default>
+                <label>Manufacturing Scheduler</label>
+            </value>
+            <value>
+                <fullName>QA</fullName>
+                <default>false</default>
+                <label>QA</label>
+            </value>
+            <value>
+                <fullName>CRO</fullName>
+                <default>false</default>
+                <label>CRO</label>
+            </value>
+            <value>
+                <fullName>Cell Therapy Logistics</fullName>
+                <default>false</default>
+                <label>Cell Therapy Logistics</label>
+            </value>
+            <value>
+                <fullName>Supply Chain</fullName>
+                <default>false</default>
+                <label>Supply Chain</label>
+            </value>
+            <value>
+                <fullName>Primary Contact</fullName>
+                <default>false</default>
+                <label>Primary Contact</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

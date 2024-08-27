@@ -1,0 +1,10 @@
+<apex:page renderAs="pdf" contentType="application/pdf" standardController="Account">
+    <apex:variable var="accRecord" value="{!Account}">
+        <h1>Account Details</h1>
+        <p>Account Name: {!accRecord.Name}</p>
+        <!--<p>City: {!accRecord.City__c}</p>
+        <p>Country: {!accRecord.Country__c}</p>-->
+        <p>Account Number: {!accRecord.AccountNumber}</p>
+        <!-- Add more fields as needed -->
+    </apex:variable>
+</apex:page>

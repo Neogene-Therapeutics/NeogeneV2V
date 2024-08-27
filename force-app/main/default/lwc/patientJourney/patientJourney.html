@@ -1,0 +1,461 @@
+<template>
+	<article class="slds-card user-journey">
+		<!-- <div class="slds-p-around_medium">
+			<article class="slds-card slds-card_boundary">
+				<div class="slds-card__body slds-card__body_inner slds-p-around_none slds-m-around_none">
+					<article class="slds-card">
+						<div class="slds-card__header slds-grid">
+							<header class="slds-media slds-media_center slds-has-flexi-truncate slds-p-bottom_small">
+								<div class="slds-media__figure">
+									<span class="slds-icon_container slds-icon-standard-account" title="account">
+										<svg class="slds-icon slds-icon_small" aria-hidden="true">
+											<use xlink:href="./assets/icons/standard-sprite/svg/symbols.svg#account">
+											</use>
+										</svg>
+										<span class="slds-assistive-text">Registration</span>
+									</span>
+								</div>
+								<div class="slds-media__body">
+									<h2 class="slds-card__header-title">
+										<a href="#" class="slds-card__header-link slds-truncate" title="Accounts">
+											<span>Registration</span>
+										</a>
+									</h2>
+								</div>
+								<div class="slds-no-flex">
+									<lightning-button variant="brand" label="Save" title="Primary action"
+										onclick={handleClick} class="slds-m-left_x-small"></lightning-button>
+									<lightning-button variant="brand" label="Mark Stage as Complete"
+										title="Primary action" onclick={handleClick}
+										class="slds-m-left_x-small"></lightning-button>
+								</div>
+							</header>
+						</div>
+						<div class="slds-card__body slds-card__body_inner ">
+							<div class="slds-form" role="list">
+								<div class="slds-form__row">
+									<div class="slds-form__item" role="listitem">
+										<div
+											class="slds-form-element slds-form-element_edit slds-form-element_readonly slds-form-element_stacked slds-hint-parent">
+											<span class="slds-form-element__label">Patient Journey Name</span>
+											<div class="slds-form-element__control">
+												<div class="slds-form-element__static">
+													<a href="#">User name</a>
+												</div>
+												<button class="slds-button slds-button_icon" title="Edit: Team Name">
+													<svg class="slds-button__icon slds-button__icon_hint"
+														aria-hidden="true">
+														<use
+															xlink:href="./assets/icons/utility-sprite/svg/symbols.svg#edit">
+														</use>
+													</svg>
+													<span class="slds-assistive-text">Edit: Team Name</span>
+												</button>
+											</div>
+										</div>
+									</div>
+									<div class="slds-form__item" role="listitem">
+										<div
+											class="slds-form-element slds-form-element_edit slds-form-element_readonly slds-form-element_stacked slds-hint-parent">
+											<span class="slds-form-element__label">Year Of Birth</span>
+											<div class="slds-form-element__control">
+												<div class="slds-form-element__static">1/1/2018</div>
+												<button class="slds-button slds-button_icon"
+													title="Edit: SLA Expiration Date">
+													<svg class="slds-button__icon slds-button__icon_hint"
+														aria-hidden="true">
+														<use
+															xlink:href="./assets/icons/utility-sprite/svg/symbols.svg#edit">
+														</use>
+													</svg>
+													<span class="slds-assistive-text">Edit: SLA Expiration Date</span>
+												</button>
+											</div>
+										</div>
+									</div>
+									<div class="slds-form__item" role="listitem">
+										<div
+											class="slds-form-element slds-form-element_edit slds-form-element_readonly slds-form-element_stacked slds-hint-parent">
+											<span class="slds-form-element__label">Study Protocol</span>
+											<div class="slds-form-element__control">
+												<div class="slds-form-element__static">
+													<a href="#">User name</a>
+												</div>
+												<button class="slds-button slds-button_icon" title="Edit: Team Name">
+													<svg class="slds-button__icon slds-button__icon_hint"
+														aria-hidden="true">
+														<use
+															xlink:href="./assets/icons/utility-sprite/svg/symbols.svg#edit">
+														</use>
+													</svg>
+													<span class="slds-assistive-text">Study Protocol</span>
+												</button>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="slds-form__row">
+									<div class="slds-form__item" role="listitem">
+										<div
+											class="slds-form-element slds-form-element_edit slds-form-element_readonly slds-form-element_stacked slds-hint-parent">
+											<span class="slds-form-element__label">Stage</span>
+											<div class="slds-form-element__control">
+												<div class="slds-form-element__static"></div>
+												<button class="slds-button slds-button_icon" title="Edit: Status">
+													<svg class="slds-button__icon slds-button__icon_hint"
+														aria-hidden="true">
+														<use
+															xlink:href="./assets/icons/utility-sprite/svg/symbols.svg#edit">
+														</use>
+													</svg>
+													<span class="slds-assistive-text">Status</span>
+												</button>
+											</div>
+										</div>
+									</div>
+									<div class="slds-form__item" role="listitem">
+										<div
+											class="slds-form-element slds-form-element_edit slds-form-element_readonly slds-form-element_stacked slds-hint-parent">
+											<span class="slds-form-element__label">Subject ID</span>
+											<div class="slds-form-element__control">
+												<div class="slds-form-element__static"></div>
+												<button class="slds-button slds-button_icon" title="Edit: Status">
+													<svg class="slds-button__icon slds-button__icon_hint"
+														aria-hidden="true">
+														<use
+															xlink:href="./assets/icons/utility-sprite/svg/symbols.svg#edit">
+														</use>
+													</svg>
+													<span class="slds-assistive-text">Subject ID</span>
+												</button>
+											</div>
+										</div>
+									</div>
+									<div class="slds-form__item" role="listitem">
+										<div
+											class="slds-form-element slds-form-element_edit slds-form-element_readonly slds-form-element_stacked slds-hint-parent">
+											<span class="slds-form-element__label">Disease Type</span>
+											<div class="slds-form-element__control">
+												<div class="slds-form-element__static"></div>
+												<button class="slds-button slds-button_icon" title="Edit: Status">
+													<svg class="slds-button__icon slds-button__icon_hint"
+														aria-hidden="true">
+														<use
+															xlink:href="./assets/icons/utility-sprite/svg/symbols.svg#edit">
+														</use>
+													</svg>
+													<span class="slds-assistive-text">Disease Type</span>
+												</button>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="slds-form__row">
+									<div class="slds-form__item" role="listitem">
+										<div
+											class="slds-form-element slds-form-element_edit slds-form-element_readonly slds-form-element_stacked slds-hint-parent">
+											<span class="slds-form-element__label">Clinical Site</span>
+											<div class="slds-form-element__control">
+												<div class="slds-form-element__static"></div>
+												<button class="slds-button slds-button_icon" title="Edit: Status">
+													<svg class="slds-button__icon slds-button__icon_hint"
+														aria-hidden="true">
+														<use
+															xlink:href="./assets/icons/utility-sprite/svg/symbols.svg#edit">
+														</use>
+													</svg>
+													<span class="slds-assistive-text">Clinical Site</span>
+												</button>
+											</div>
+										</div>
+									</div>
+
+									<div class="slds-form__item" role="listitem">
+										<div
+											class="slds-form-element slds-form-element_edit slds-form-element_readonly slds-form-element_stacked slds-hint-parent">
+											<span class="slds-form-element__label">
+												<abbr class="slds-required" title="required">* </abbr>Owner</span>
+											<div class="slds-form-element__control">
+												<div class="slds-form-element__static">
+													<span
+														class="slds-avatar slds-avatar_x-small slds-avatar_circle slds-m-right_xx-small">
+														<img alt="Jack Rogers" src="/assets/images/avatar1.jpg"
+															title="Jack Rogers" />
+													</span>
+													<a href="#">Jack Rogers</a>
+												</div>
+												<button class="slds-button slds-button_icon" title="Edit: Assigned To">
+													<svg class="slds-button__icon slds-button__icon_hint"
+														aria-hidden="true">
+														<use
+															xlink:href="./assets/icons/utility-sprite/svg/symbols.svg#edit">
+														</use>
+													</svg>
+													<span class="slds-assistive-text">Edit: Assigned To</span>
+												</button>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</article>
+				</div>
+			</article>
+		</div> -->
+		<div class="slds-p-around_medium journey-progress">
+			<div class="slds-progress">
+				<ol class="slds-progress__list">
+					<template lwc:if={showMiletones}>
+						<template for:each={milestones} for:item="milestone">
+							<li key={milestone.Id} class={milestone.classNames}>
+								<div class="slds-progress__marker" tabindex="0">
+									{milestone.count}
+								</div>
+								<span class="tooltip">{milestone.Name}</span>
+							</li>
+						</template>
+					</template>
+				</ol>
+				<div class="slds-progress-bar slds-progress-bar_x-small" aria-valuemin="0" aria-valuemax="100"
+					aria-valuenow="50" aria-label="Placeholder for description of progress bar" role="progressbar">
+					<span class="slds-progress-bar__value" style="width:0%">
+						<span class="slds-assistive-text"></span>
+					</span>
+				</div>
+			</div>
+		</div>
+		<template if:true={showMiletones}>
+			<lightning-spinner if:true={isLoading} variant="brand" size="medium"></lightning-spinner>
+			<template for:each={milestones} for:item="milestone">
+				<div key={milestone.Id} class="slds-p-horizontal_medium slds-step">
+					<article class="slds-card slds-card_boundary">
+						<div class="slds-card__header slds-grid slds-m-bottom_none">
+							<header class="slds-media slds-media_center slds-has-flexi-truncate slds-p-bottom_small">
+								<div class="slds-media__figure">
+									<span class="slds-icon_container slds-icon-standard-account" title={milestone.Name}>
+										<span class="slds-icon slds-icon_small"
+											aria-hidden="true">{milestone.count}</span>
+										<span class="slds-assistive-text">{milestone.Name}</span>
+									</span>
+								</div>
+								<div class="slds-media__body">
+									<h2 class="slds-card__header-title">
+										<a href={milestone.milestoneId} target="_blank"
+											class="slds-card__header-link slds-truncate" title={milestone.Name}>
+											<span>{milestone.Name}</span>
+										</a>
+									</h2>
+								</div>
+							</header>
+						</div>
+						<template lwc:if={milestone.hasMilestoneTasks}>
+							<template for:each={milestone.patientMilestoneTasks} for:item="mileTask">
+								<div key={mileTask.Id} class="slds-var-m-around_small">
+									<article class="slds-card slds-card_boundary">
+										<div class="slds-card__header slds-grid slds-m-bottom_none">
+											<header
+												class="slds-media slds-media_center slds-has-flexi-truncate slds-p-bottom_small">
+												<div class="slds-media__figure">
+													<span class="slds-icon_container slds-icon-standard-contact">
+														<lightning-icon size="small"
+															icon-name="standard:task"></lightning-icon>
+													</span>
+												</div>
+												<div class="slds-media__body">
+													<h2 class="slds-card__header-title">
+														<a href={mileTask.milestoneTaskId} target="_blank"
+															class="slds-card__header-link slds-truncate"
+															title={mileTask.Name}>
+															<span>{mileTask.Name}</span>
+														</a>
+													</h2>
+												</div>
+												<div class="slds-no-flex">
+													<lightning-button disabled={mileTask.taskStatusButton}
+														onclick={saveTaskHandler} data-milestone-task-id={mileTask.Id}
+														variant="brand" label="Save"
+														class="slds-var-m-right_small"></lightning-button>
+													<lightning-button disabled={mileTask.taskStatusButton}
+														onclick={markAsCompleteHandler} variant="brand" label="Submit"
+														data-milestone-task-id={mileTask.Id}></lightning-button>
+													<lightning-button disabled={mileTask.hasVerifiedUser}
+														class="slds-var-p-around_small" lwc:if={mileTask.showVerify}
+														onclick={verifyShowHandler} variant="brand" label="Verify"
+														data-milestone-task-id={mileTask.Id}></lightning-button>
+													<lightning-button class="slds-var-p-around_small"
+														lwc:if={mileTask.isManualShipment} onclick={createShipment}
+														variant="brand" label="Create Shipment"
+														data-milestone-id={milestone.Id}
+														data-milestone-task-id={mileTask.Id}></lightning-button>
+												</div>
+											</header>
+										</div>
+										<div class="slds-card__body slds-var-p-around_small">
+											<template if:true={mileTask.sections}>
+												<div class="slds-box slds-theme_shade slds-var-p-around_x-small">
+													<lightning-accordion allow-multiple-sections-open>
+														<template for:each={mileTask.sections.formSections}
+															for:item="sec">
+															<lightning-accordion-section title={sec.Name} key={sec.Id}
+																name={sec.Id} label={sec.Name}>
+																<div class="slds-grid slds-wrap">
+																	<template
+																		if:true={mileTask.Patient_Milestone_Task_Form_Questions__r}>
+																		<template
+																			for:each={mileTask.Patient_Milestone_Task_Form_Questions__r}
+																			for:item="ques">
+																			<div key={ques.Id}
+																				class="slds-col slds-size_1-of-2 slds-var-p-around_small">
+																				<lightning-input if:true={ques.isInput}
+																					onchange={inputChangeHandler}
+																					data-task-question-id={ques.Id}
+																					data-mile-task-id={mileTask.Id}
+																					required={ques.Required__c}
+																					name={valueField}
+																					value={ques.Value__c}
+																					disabled={ques.Read_Only__c}
+																					checked={ques.Value__c}
+																					field-level-help={ques.Help_Text__c}
+																					read-only={ques.Read_Only__c}
+																					type={ques.Type__c}
+																					label={ques.Label__c}></lightning-input>
+																				<lightning-textarea
+																					field-level-help={ques.Help_Text__c}
+																					if:true={ques.isTextarea}
+																					data-mile-task-id={mileTask.Id}
+																					data-task-question-id={ques.Id}
+																					onchange={inputChangeHandler}
+																					name={valueField}
+																					value={ques.Value__c}
+																					required={ques.Required__c}
+																					read-only={ques.Read_Only__c}
+																					label={ques.Label__c}></lightning-textarea>
+																				<lightning-combobox
+																					field-level-help={ques.Help_Text__c}
+																					if:true={ques.isPicklist}
+																					data-task-question-id={ques.Id}
+																					onchange={inputChangeHandler}
+																					name={valueField}
+																					data-mile-task-id={mileTask.Id}
+																					value={ques.Value__c}
+																					required={ques.Required__c}
+																					read-only={ques.Read_Only__c}
+																					label={ques.Label__c}
+																					options={ques.picklistArray}></lightning-combobox>
+																				<lightning-file-upload
+																					if:true={ques.isFile}
+																					data-task-question-id={ques.Id}
+																					required={ques.Required__c}
+																					name="fileUploader"
+																					data-mile-task-id={mileTask.Id}
+																					record-id={ques.Id}
+																					disabled={ques.Read_Only__c}
+																					label={ques.Label__c}
+																					onuploadfinished={handleUploadFinished}>
+																				</lightning-file-upload>
+																			</div>
+																		</template>
+																	</template>
+																	<div
+																		class="slds-col slds-size_1-of-2 slds-var-p-around_small">
+																	</div>
+																</div>
+
+															</lightning-accordion-section>
+														</template>
+													</lightning-accordion>
+												</div>
+											</template>
+											<div class="slds-var-m-around_small" if:true={mileTask.hasVerifiedUser}>
+												Verified By -
+												<a href={mileTask.hasVerifiedUserId} target="_blank"
+													class="slds-text-link_reset slds-text-link">{mileTask.verifyUserName}</a>
+											</div>
+										</div>
+										<footer class="slds-card__footer"></footer>
+									</article>
+								</div>
+							</template>
+						</template>
+					</article>
+					<div if:true={milestone.showEndLine}
+						class="step-indicator slds-m-horizontal_large slds-m-vertical_x-small"></div>
+				</div>
+			</template>
+			<div class="slds-var-m-top_small"></div>
+		</template>
+	</article>
+	<template if:true={showModalVerify}>
+		<section role="dialog" tabindex="-1" aria-modal="true" aria-label="Meaningful description of the modal content"
+			class="slds-modal slds-fade-in-open">
+			<div class="slds-modal__container">
+				<div class="slds-modal__content slds-p-around_medium slds-modal__content_headless"
+					id="modal-content-id-1">
+					<c-verification-user onclose={closeHandler} user-info={userInfo} onverify={verifyHandler}
+						task-id={verifyTaskId}></c-verification-user>
+				</div>
+			</div>
+		</section>
+		<div class="slds-backdrop slds-backdrop_open" role="presentation"></div>
+	</template>
+	<template lwc:if={showShipmentCreateModal}>
+		<section role="dialog" tabindex="-1" aria-modal="true" aria-labelledby="modal-heading-01"
+			class="slds-modal slds-fade-in-open slds-modal_small">
+			<div class="slds-modal__container">
+				<div class="slds-modal__header">
+					<h1 id="modal-heading-01" class="slds-modal__title slds-hyphenate" tabindex="-1">Manual Shipment
+					</h1>
+				</div>
+				<div class="slds-modal__content slds-p-around_medium" id="modal-content-id-2">
+					<lightning-record-edit-form onerror={handleError} onsuccess={successHandler}
+						onsubmit={submitHandler} object-api-name={shipmentObject}>
+						<lightning-layout multiple-rows horizontal-align="center">
+							<lightning-layout-item flexibility="auto" size="5" padding="around-small">
+								<lightning-input-field required field-name='Tracking_ID__c'>
+								</lightning-input-field>
+							</lightning-layout-item>
+							<lightning-layout-item flexibility="auto" size="5" padding="around-small">
+								<!-- <lightning-input-field required field-name='Waybill_Number__c'> </lightning-input-field> -->
+								<lightning-input-field required field-name='Order_Id__c'> </lightning-input-field>
+							</lightning-layout-item>
+							<lightning-layout-item flexibility="auto" size="5" padding="around-small">
+								<lightning-input readonly label="Consignor Name"
+									value={pickupAddress.consignor}></lightning-input>
+							</lightning-layout-item>
+							<lightning-layout-item flexibility="auto" size="5" padding="around-small">
+								<lightning-input readonly label="Consigee Name"
+									value={dropoffAddress.consignee}></lightning-input>
+							</lightning-layout-item>
+							<lightning-layout-item flexibility="auto" size="5" padding="around-small">
+								<lightning-input-address read-only address-label="Pick Up Address" street-label="Street"
+									city-label="City" country-label="Country" province-label="State"
+									postal-code-label="Postal Code" city={pickupAddress.city}
+									street={pickupAddress.street} postal-code={pickupAddress.postalCode}
+									country={pickupAddress.country} province={pickupAddress.state}>
+								</lightning-input-address>
+							</lightning-layout-item>
+							<lightning-layout-item flexibility="auto" size="5" padding="around-small">
+								<lightning-input-address read-only address-label="Drop Off Address"
+									street-label="Street" city-label="City" country-label="Country"
+									province-label="State" postal-code-label="Postal Code" city={dropoffAddress.city}
+									street={dropoffAddress.street} postal-code={dropoffAddress.postalCode}
+									country={dropoffAddress.country} province={dropoffAddress.state}>
+								</lightning-input-address>
+							</lightning-layout-item>
+						</lightning-layout>
+						<div class="slds-var-m-top_medium slds-align_absolute-center">
+							<lightning-button data-milestone-id={milestoneId} class="slds-var-p-around_xx-small"
+								variant="brand" type="submit" label="Save">
+							</lightning-button>
+							<lightning-button onclick={closeShipmentCreate} variant="brand"
+								class="slds-var-p-around_xx-small" type="button" label="Cancel">
+							</lightning-button>
+						</div>
+					</lightning-record-edit-form>
+				</div>
+			</div>
+		</section>
+		<div class="slds-backdrop slds-backdrop_open" role="presentation"></div>
+	</template>
+</template>

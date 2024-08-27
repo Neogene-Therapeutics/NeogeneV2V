@@ -1,0 +1,69 @@
+.user-journey {
+  background: #fff url("./User_Journey_BG.png");
+}
+
+.user-journey .slds-card__header {
+  background: var(--slds-g-color-neutral-base-95);
+}
+
+.user-journey .slds-card__header .slds-icon {
+  display: flex;
+  font-size: 1rem;
+  color: var(--slds-g-color-neutral-base-100);
+  align-items: center;
+  justify-content: center;
+}
+
+.journey-progress .slds-progress__marker {
+  background: var(--slds-g-color-neutral-base-90);
+  width: 3rem;
+  height: 3rem;
+}
+
+.journey-progress .slds-is-completed .slds-progress__marker {
+  background: var(--slds-g-color-brand-base-50);
+  width: 3rem;
+  height: 3rem;
+}
+
+.slds-step .step-indicator {
+  height: 1.5rem;
+  width: 0.15rem;
+  background: var(--slds-g-color-neutral-base-60);
+  border-radius: 2px;
+}
+
+.slds-step .step-indicator.in-progress {
+  background: var(--slds-g-color-palette-blue-50);
+}
+
+.slds-step .step-indicator.complete {
+  background: var(--slds-g-color-palette-blue-50);
+}
+
+.tooltip_con {
+  position: relative;
+}
+
+.tooltip {
+  position: absolute;
+  bottom: 50px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 120px;
+  background: #000;
+  color: #fff;
+  padding: 8px;
+  text-align: center;
+  border-radius: 8px;
+  display: none;
+}
+
+.tooltip_con:hover .tooltip {
+  display: block;
+}
+.completed{
+  border-radius: 50%;
+  padding: 0;
+  border: 5px solid green;
+}

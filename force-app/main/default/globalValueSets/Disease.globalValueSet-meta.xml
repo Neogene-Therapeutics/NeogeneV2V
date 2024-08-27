@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customValue>
+        <fullName>Breast Cancer</fullName>
+        <default>false</default>
+        <label>Breast Cancer</label>
+    </customValue>
+    <customValue>
+        <fullName>HNSCC</fullName>
+        <default>false</default>
+        <label>HNSCC</label>
+    </customValue>
+    <customValue>
+        <fullName>Pancreatic Adenocarcinoma</fullName>
+        <default>false</default>
+        <label>Pancreatic Adenocarcinoma</label>
+    </customValue>
+    <customValue>
+        <fullName>Colorectal Adenocarcinoma</fullName>
+        <default>false</default>
+        <label>Colorectal Adenocarcinoma</label>
+    </customValue>
+    <customValue>
+        <fullName>NSCLC</fullName>
+        <default>false</default>
+        <label>NSCLC</label>
+    </customValue>
+    <customValue>
+        <fullName>Ovarian Cancer</fullName>
+        <default>false</default>
+        <label>Ovarian Cancer</label>
+    </customValue>
+    <masterLabel>Disease</masterLabel>
+    <sorted>false</sorted>
+</GlobalValueSet>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Verify_Patient__c</fullName>
+    <externalId>false</externalId>
+    <formula>AND(
+
+$User.ProfileId = CreatedBy.ProfileId,
+CreatedBy.Username &lt;&gt; $User.Username
+
+)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Verify Patient</label>
+    <type>Checkbox</type>
+</CustomField>

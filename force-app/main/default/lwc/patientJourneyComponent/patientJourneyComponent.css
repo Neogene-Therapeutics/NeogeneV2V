@@ -1,0 +1,116 @@
+/* Existing styles */
+.milestone-card {
+    border-left: 4px solid #1589ee;
+    padding: 1rem;
+    background: #f4f6f9;
+    border-radius: 0.5rem;
+    margin-bottom: 1rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.task-item {
+    padding: 0.5rem 0;
+    border-bottom: 1px solid #ddd;
+}
+
+.status-badge {
+    padding: 0.2rem 0.5rem;
+    border-radius: 0.25rem;
+    font-weight: bold;
+    font-size: 0.875rem;
+}
+
+.status-in-progress {
+    background-color: #d4edda;
+    color: #155724;
+}
+
+.status-completed {
+    background-color: #cce5ff;
+    color: #004085;
+}
+
+.status-not-started {
+    background-color: #e2e3e5;
+    color: #383d41;
+}
+
+.task-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.question-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* New styles */
+.progress-section {
+    background-color: #f8f9fa;
+    border-radius: 0.5rem;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.current-milestone {
+    font-size: 1.1rem;
+    color: #1589ee;
+    margin-top: 0.5rem;
+}
+
+.milestone-lists {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1rem;
+}
+
+.milestone-list {
+    flex: 1;
+    padding: 1rem;
+    background-color: #ffffff;
+    border-radius: 0.5rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.milestone-list h3 {
+    font-size: 1rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    color: #1589ee;
+}
+
+.milestone-list ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.milestone-list li {
+    padding: 0.3rem 0;
+    font-size: 0.9rem;
+}
+
+.completed-milestones {
+    margin-right: 1rem;
+}
+
+.completed-milestones li {
+    color: #155724;
+}
+
+.pending-milestones li {
+    color: #383d41;
+}
+
+.task-title {
+    font-weight: bold;
+    color: #1589ee;
+}
+
+.question-list li {
+    font-size: 0.9rem;
+    color: #6c757d;
+    padding: 0.2rem 0;
+}

@@ -1,0 +1,81 @@
+<template>
+    <lightning-card title="Patient Journey">
+        <!-- Progress Bar -->
+        <div class="progress-section">
+            <lightning-progress-bar 
+                value={progressValue} 
+                size="large"
+                variant="circular"
+            ></lightning-progress-bar>
+            <div class="slds-text-align_center current-milestone">
+                <strong>Current Milestone: </strong>{currentMilestone}
+            </div>
+        </div>
+        
+        <!-- Milestone Status -->
+        <div class="milestone-lists">
+            <div class="milestone-list completed-milestones">
+                <h3>Completed Milestones</h3>
+                <ul>
+                    <template for:each={completedMilestones} for:item="milestone">
+                        <li key={milestone}>{milestone}</li>
+                    </template>
+                </ul>
+            </div>
+            <div class="milestone-list pending-milestones">
+                <h3>Pending Milestones</h3>
+                <ul>
+                    <template for:each={pendingMilestones} for:item="milestone">
+                        <li key={milestone}>{milestone}</li>
+                    </template>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Existing Milestones and Tasks Content -->
+        <div class="slds-p-around_medium">
+            <template if:true={milestones}>
+                <template for:each={milestones} for:item="milestoneWrapper">
+                    <div key={milestoneWrapper.milestone.Id} class="milestone-card">
+                        <div class="slds-grid slds-grid_align-spread slds-grid_vertical-align-center slds-m-bottom_small">
+                            <h2 class="slds-text-heading_medium">
+                                {milestoneWrapper.milestone.Name}
+                            </h2>
+                            <span class="status-badge {milestoneWrapper.milestone.statusClass}">
+                                {milestoneWrapper.milestone.Status__c}
+                            </span>
+                        </div>
+                        <template if:true={milestoneWrapper.tasks}>
+                            <ul class="task-list">
+                                <template for:each={milestoneWrapper.tasks} for:item="taskWrapper">
+                                    <li key={taskWrapper.task.Id} class="task-item">
+                                        <div class="slds-grid slds-grid_align-spread slds-grid_vertical-align-center">
+                                            <span class="task-title">
+                                                {taskWrapper.task.Name}
+                                            </span>
+                                            <span class="status-badge {taskWrapper.task.statusClass}">
+                                                {taskWrapper.task.Status__c}
+                                            </span>
+                                        </div>
+                                        <template if:true={taskWrapper.formQuestions}>
+                                            <ul class="question-list slds-p-left_large slds-m-top_small">
+                                                <template for:each={taskWrapper.formQuestions} for:item="question">
+                                                    <li key={question.Id}>
+                                                        {question.Question__c}
+                                                    </li>
+                                                </template>
+                                            </ul>
+                                        </template>
+                                    </li>
+                                </template>
+                            </ul>
+                        </template>
+                    </div>
+                </template>
+            </template>
+            <template if:true={error}>
+                <p class="slds-text-color_error">{error}</p>
+            </template>
+        </div>
+    </lightning-card>
+</template>

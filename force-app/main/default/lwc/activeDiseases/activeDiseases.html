@@ -1,0 +1,9 @@
+<template>
+    <lightning-card>
+        <div class="slds-var-p-around_small">
+            <lightning-dual-listbox if:true={showDualBox} name="disease" label="Select Diseases"
+                source-label="Available" selected-label="Selected" field-level-help="Select your disease"
+                options={diseasesOptions} onchange={selectedDiseaseHandler}></lightning-dual-listbox>
+        </div>
+    </lightning-card>
+</template>
