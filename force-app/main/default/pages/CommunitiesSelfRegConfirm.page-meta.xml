@@ -5,4 +5,5 @@
     <confirmationTokenRequired>false</confirmationTokenRequired>
     <description>Default experiences self registration confirmation page</description>
     <label>CommunitiesSelfRegConfirm</label>
+    
 </ApexPage>

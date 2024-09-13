@@ -3,5 +3,6 @@ public with sharing class COITriggerHandler extends TriggerHandler {
         this.setMaxLoopCount(2);
     }
     public override void afterInsert(){
+        
     }
 }

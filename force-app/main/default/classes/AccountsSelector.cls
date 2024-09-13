@@ -7,6 +7,7 @@ public class AccountsSelector extends SObjectSelectorImpl {
                 Account.Name,
                 Account.Description,
                 Account.AnnualRevenue
+                
         };
     }
 
