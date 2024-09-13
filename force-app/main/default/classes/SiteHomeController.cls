@@ -25,8 +25,6 @@ public without sharing class SiteHomeController {
         public String studyId{get; set;}
     }
 
-    @AuraEnabled(cacheable=true)
-    public static void getOpenPatientTasks(String studyId) {}
 
     @AuraEnabled(cacheable=true)
     public static JourneyOverviewDetails getJourneyOverview(String studyId) {
