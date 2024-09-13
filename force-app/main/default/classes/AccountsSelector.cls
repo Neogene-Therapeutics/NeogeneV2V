@@ -5,6 +5,7 @@ public class AccountsSelector extends SObjectSelectorImpl {
     public override List<SObjectField> getSObjectFieldList() {
         return new List<SObjectField>{
                 Account.Name,
+                Account.Id,
                 Account.Description,
                 Account.AnnualRevenue
         };
