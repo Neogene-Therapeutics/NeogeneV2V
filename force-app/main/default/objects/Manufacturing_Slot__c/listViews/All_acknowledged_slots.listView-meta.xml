@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>All_acknowledged_slots</fullName>
+    <columns>NAME</columns>
+    <columns>Start_Date__c</columns>
+    <columns>Capacity_Pool__c</columns>
+    <columns>Study_Protocol__c</columns>
+    <columns>Clinical_Site__c</columns>
+    <columns>Booking_Status__c</columns>
+    <columns>Subject_ID__c</columns>
+    <columns>Manufacturing_Site__c</columns>
+    <filterScope>Mine</filterScope>
+    <filters>
+        <field>Booking_Status__c</field>
+        <operation>equals</operation>
+        <value>Acknowledged</value>
+    </filters>
+    <label>All acknowledged slots</label>
+</ListView>

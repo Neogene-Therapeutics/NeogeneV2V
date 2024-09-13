@@ -17,11 +17,15 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Disease__c</field>
+                <field>COI__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
-                <field>COI__c</field>
+                <behavior>Readonly</behavior>
+                <field>Subject_ID__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Study_Protocol__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
@@ -32,10 +36,6 @@
             <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>Study_Definition__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Status__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -82,37 +82,24 @@
         </platformActionListItems>
     </platformActionList>
     <relatedLists>
-        <fields>TASK.SUBJECT</fields>
-        <fields>TASK.WHO_NAME</fields>
-        <fields>ACTIVITY.TASK</fields>
-        <fields>TASK.DUE_DATE</fields>
-        <fields>CORE.USERS.FULL_NAME</fields>
-        <fields>TASK.LAST_UPDATE</fields>
-        <relatedList>RelatedHistoryList</relatedList>
-    </relatedLists>
-    <relatedLists>
-        <fields>TASK.SUBJECT</fields>
-        <fields>TASK.WHO_NAME</fields>
-        <fields>ACTIVITY.TASK</fields>
-        <fields>TASK.DUE_DATE</fields>
-        <fields>TASK.STATUS</fields>
-        <fields>TASK.PRIORITY</fields>
-        <fields>CORE.USERS.FULL_NAME</fields>
-        <relatedList>RelatedActivityList</relatedList>
-    </relatedLists>
-    <relatedLists>
         <fields>NAME</fields>
-        <fields>Status__c</fields>
-        <fields>Order__c</fields>
-        <relatedList>Patient_Milestone__c.Patient_Journey__c</relatedList>
+        <fields>Booking_Status__c</fields>
+        <fields>Slot_Quantity__c</fields>
+        <fields>Subject_ID__c</fields>
+        <fields>Study_Protocol__c</fields>
+        <relatedList>Manufacturing_Slot__c.Patient_Journey__c</relatedList>
     </relatedLists>
     <relatedLists>
-        <fields>NAME</fields>
-        <relatedList>Shipment__c.Patient_Journey__c</relatedList>
-    </relatedLists>
-    <relatedLists>
-        <fields>NAME</fields>
+        <fields>COINumber__c</fields>
         <relatedList>Chain_of_Identity__c.Patient_Journey_ID__c</relatedList>
+    </relatedLists>
+    <relatedLists>
+        <fields>NAME</fields>
+        <fields>Type__c</fields>
+        <fields>Tracking_ID__c</fields>
+        <fields>Current_Status__c</fields>
+        <fields>Courier__c</fields>
+        <relatedList>Shipment__c.Patient_Journey__c</relatedList>
     </relatedLists>
     <relatedLists>
         <relatedList>RelatedFileList</relatedList>
@@ -123,7 +110,7 @@
     <showRunAssignmentRulesCheckbox>false</showRunAssignmentRulesCheckbox>
     <showSubmitAndAttachButton>false</showSubmitAndAttachButton>
     <summaryLayout>
-        <masterLabel>00hWE000000V1w0</masterLabel>
+        <masterLabel>00hdz0000004Cql</masterLabel>
         <sizeX>4</sizeX>
         <sizeY>0</sizeY>
         <summaryLayoutStyle>Default</summaryLayoutStyle>

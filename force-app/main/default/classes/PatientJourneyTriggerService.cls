@@ -1,9 +1,12 @@
 public with sharing class PatientJourneyTriggerService {
 
     public static void createPaitentJourneyData(List<Patient_Journey__c> patientJourneyList){
-        List<Patient_Milestone__c> patientMilestones =  createPatientMilestone(patientJourneyList);
-        List<Patient_Milestone_Task__c> patientMilestoneTasks =  createPatientMilestoneTask(patientMilestones);
-        List<Patient_Milestone_Task_Form_Question__c> patientMilestoneTaskQuestion =  createPatientMilestoneTaskQuestion(patientMilestoneTasks);
+        List<Patient_Journey__c> patientJourneys = [SELECT Study_Definition__c, Patient__r.Name, Patient__r.Year_Of_Birth__c FROM Patient_Journey__c WHERE Id IN:patientJourneyList];
+        for(Patient_Journey__c p : patientJourneys){
+            List<Patient_Milestone__c> patientMilestones =  createPatientMilestone(patientJourneyList);
+            List<Patient_Milestone_Task__c> patientMilestoneTasks =  createPatientMilestoneTask(patientMilestones);
+            List<Patient_Milestone_Task_Form_Question__c> patientMilestoneTaskQuestion =  createPatientMilestoneTaskQuestion(patientMilestoneTasks, p);
+        }
     }
 
     public static List<Patient_Milestone__c> createPatientMilestone(List<Patient_Journey__c> patientJourneyList){
@@ -13,7 +16,7 @@ public with sharing class PatientJourneyTriggerService {
         for(Patient_Journey__c p : patientJourneyList){
             studyDefinitionSet.add(p.Study_Definition__c);
         }
-        List<Study_Milestone__c> studyMilestons = [SELECT Id,Display_Name__c, Order__c, Study_Definition__c FROM Study_Milestone__c WHERE Study_Definition__c IN : studyDefinitionSet];
+        List<Study_Milestone__c> studyMilestons = [SELECT Id,Sponsor_Facing__c,Site_Facing__c,Display_Name__c,Read_Access_Queues__c,Write_Access_Queues__c, Order__c, Study_Definition__c FROM Study_Milestone__c WHERE Study_Definition__c IN : studyDefinitionSet];
         for(Study_Milestone__c sm : studyMilestons){
             if(studyMilestoneMap.containsKey(sm.Study_Definition__c)) {
                 studyMilestoneMap.get(sm.Study_Definition__c).add(sm);
@@ -30,6 +33,10 @@ public with sharing class PatientJourneyTriggerService {
                     Patient_Milestone__c pm = new Patient_Milestone__c();
                     pm.Name = sm.Display_Name__c;
                     pm.Order__c = sm.Order__c;
+                    pm.Sponsor_Facing__c = sm.Sponsor_Facing__c;
+                    pm.Site_Facing__c = sm.Site_Facing__c;
+                    pm.Write_Access_Queues__c = sm.Write_Access_Queues__c;
+                    pm.Read_Access_Queues__c = sm.Read_Access_Queues__c;
                     if(sm.Order__c == 1){
                         pm.Status__c = 'In Progress';
                     } else {
@@ -55,7 +62,7 @@ public with sharing class PatientJourneyTriggerService {
         for(Patient_Milestone__c pm : patientMilestones){
             studyMilestoneSet.add(pm.Study_Milestone__c);
         }
-        List<Study_Milestone_Task__c> studyMilestonTasks = [SELECT Id,Task_Owner__c,Display_Name__c, Verify__c, Order__c, Form__c , Study_Milestone__c FROM Study_Milestone_Task__c WHERE Study_Milestone__c IN :studyMilestoneSet];
+        List<Study_Milestone_Task__c> studyMilestonTasks = [SELECT Id,Task_Owner__c,Write_Access_Queues__c,Read_Access_Queues__c,Display_Name__c, Verify__c, Order__c, Form__c , Study_Milestone__c FROM Study_Milestone_Task__c WHERE Study_Milestone__c IN :studyMilestoneSet];
         for(Study_Milestone_Task__c smt : studyMilestonTasks){
             if(studyMilestoneTaskMap.containsKey(smt.Study_Milestone__c)) {
                 studyMilestoneTaskMap.get(smt.Study_Milestone__c).add(smt);
@@ -80,6 +87,8 @@ public with sharing class PatientJourneyTriggerService {
                     pmt.Patient_Milestone__c = pm.Id;
                     pmt.Study_Milestone_Task__c = smt.Id;
                     pmt.Task_Owner__c= smt.Task_Owner__c;
+                    pmt.Read_Access_Queues__c= smt.Read_Access_Queues__c;
+                    pmt.Write_Access_Queues__c= smt.Write_Access_Queues__c;
                     pmt.Verify__c = smt.Verify__c;
                     // pmt.OwnerId = smt.OwnerId;
                     pmt.Form__c = smt.Form__c;
@@ -95,7 +104,7 @@ public with sharing class PatientJourneyTriggerService {
     }
 
 
-    public static List<Patient_Milestone_Task_Form_Question__c> createPatientMilestoneTaskQuestion(List<Patient_Milestone_Task__c> patientMilestoneTasks){
+    public static List<Patient_Milestone_Task_Form_Question__c> createPatientMilestoneTaskQuestion(List<Patient_Milestone_Task__c> patientMilestoneTasks, Patient_Journey__c p){
         List<Patient_Milestone_Task_Form_Question__c> patientMilestoneTaskQuestionList = new List<Patient_Milestone_Task_Form_Question__c>();
         Set<Id> formSet = new Set<Id>();
         Map<String , List<Form_Question__c>> studyMilestoneTaskFormQuestionMap = new Map<String, List<Form_Question__c>>();
@@ -104,7 +113,7 @@ public with sharing class PatientJourneyTriggerService {
             formSet.add(pmt.Form__c);
         }
 
-        List<Form_Question__c> formQuestions = [SELECT Id,Slot_Booking_Task__c, Picklist_Values__c, Label__c, Read_Only__c , Required__c, Visible__c , Order__c, Form_Section__r.Form__c, Type__c FROM Form_Question__c WHERE Form_Section__r.Form__c IN :formSet];
+        List<Form_Question__c> formQuestions = [SELECT Id,Is_Subject__c, Is_DIN__c, Slot_Booking_Task__c, Picklist_Values__c, Label__c,isManufacturingStatus__c, Read_Only__c , Required__c, Visible__c , Order__c, Form_Section__r.Form__c, Type__c FROM Form_Question__c WHERE Form_Section__r.Form__c IN :formSet];
         for(Form_Question__c fq : formQuestions){
             if(studyMilestoneTaskFormQuestionMap.containsKey(fq.Form_Section__r.Form__c)) {
                 studyMilestoneTaskFormQuestionMap.get(fq.Form_Section__r.Form__c).add(fq);
@@ -122,6 +131,7 @@ public with sharing class PatientJourneyTriggerService {
                  //   pm.Name = sm.Display_Name__c;
                  //   pmtfq.Study_Milestone_Task__c = smt.Id;
                     pmtfq.Label__c = fq.Label__c;
+                    pmtfq.Is_Manufacturing__c = fq.isManufacturingStatus__c;
                     pmtfq.Slot_Booking_Task__c = fq.Slot_Booking_Task__c;
                     pmtfq.Read_Only__c = fq.Read_Only__c;
                     pmtfq.Required__c = fq.Required__c;
@@ -129,6 +139,8 @@ public with sharing class PatientJourneyTriggerService {
                     pmtfq.Order__c = fq.Order__c;
                     pmtfq.Type__c = fq.Type__c;
                     pmtfq.Picklist_Values__c = fq.Picklist_Values__c;
+                    pmtfq.Is_DIN__c = fq.Is_DIN__c;
+                    pmtfq.Is_Subject__c = fq.Is_Subject__c;
                     pmtfq.Form_Question__c = fq.Id;
                     pmtfq.Patient_Milestone_Task__c = pmt.id;
                     patientMilestoneTaskQuestionList.add(pmtfq);

@@ -4,11 +4,14 @@
     <columns>Leukapheresis_Date__c</columns>
     <columns>NAME</columns>
     <columns>Capacity_Pool__c</columns>
-    <columns>Study_ID__c</columns>
     <columns>Slot_Quantity__c</columns>
     <columns>Clinical_Site__c</columns>
+    <columns>Study_Protocol__c</columns>
     <columns>Booking_Status__c</columns>
+    <columns>Start_Date__c</columns>
     <columns>Manufacturing_Site__c</columns>
+    <columns>Subject_ID__c</columns>
+    <columns>Patient__c</columns>
     <filterScope>Everything</filterScope>
     <label>All</label>
 </ListView>

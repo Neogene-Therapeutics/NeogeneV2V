@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Study Template Form --></label>
+    <name>Study_Template_Form__c</name>
+    <relationshipLabel><!-- Form --></relationshipLabel>
+</CustomFieldTranslation>

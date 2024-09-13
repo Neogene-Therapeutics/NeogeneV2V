@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Status --></label>
+    <name>Status__c</name>
+    <picklistValues>
+        <masterLabel>Manufacturing Completed</masterLabel>
+        <translation><!-- Manufacturing Completed --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Manufacturing Started</masterLabel>
+        <translation><!-- Manufacturing Started --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Manufacturing Terminated</masterLabel>
+        <translation><!-- Manufacturing Terminated --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Quality Check Complete</masterLabel>
+        <translation><!-- Quality Check Complete --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Quality Check Failed</masterLabel>
+        <translation><!-- Quality Check Failed --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Shipped to Clinical Site</masterLabel>
+        <translation><!-- Shipped to Clinical Site --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

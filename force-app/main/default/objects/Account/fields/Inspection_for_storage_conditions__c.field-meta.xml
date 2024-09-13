@@ -4,6 +4,5 @@
     <defaultValue>false</defaultValue>
     <externalId>false</externalId>
     <label>Inspection for storage conditions</label>
-    <trackFeedHistory>false</trackFeedHistory>
     <type>Checkbox</type>
 </CustomField>

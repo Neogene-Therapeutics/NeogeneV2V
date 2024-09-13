@@ -12,14 +12,41 @@
         <valueSetDefinition>
             <sorted>false</sorted>
             <value>
-                <fullName>Logistic Coordinator Queue</fullName>
+                <fullName>Logistics Co-ordinator</fullName>
                 <default>false</default>
-                <label>Logistic Coordinator Queue</label>
+                <label>Logistics Co-ordinator</label>
+            </value>
+            <value>
+                <fullName>Clinical Site</fullName>
+                <default>false</default>
+                <label>Clinical Site</label>
+            </value>
+            <value>
+                <fullName>Manufacturing Scheduler</fullName>
+                <default>false</default>
+                <label>Manufacturing Scheduler</label>
+            </value>
+            <value>
+                <fullName>QA</fullName>
+                <default>false</default>
+                <label>QA</label>
+            </value>
+            <value>
+                <fullName>Warehouse Operator</fullName>
+                <default>false</default>
+                <label>Warehouse Operator</label>
             </value>
             <value>
                 <fullName>Clinical site user Queue</fullName>
                 <default>false</default>
+                <isActive>false</isActive>
                 <label>Clinical site user Queue</label>
+            </value>
+            <value>
+                <fullName>Logistic Coordinator Queue</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Logistic Coordinator Queue</label>
             </value>
         </valueSetDefinition>
     </valueSet>

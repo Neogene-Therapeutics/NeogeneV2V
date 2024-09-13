@@ -1,0 +1,37 @@
+<template>
+    <lightning-card title="Manufacturing Slots Overview" icon-name="custom:custom63" class="custom-card">
+        <!-- Study Protocol Filter -->
+        <div class="slds-m-bottom_medium">
+            <lightning-combobox
+                name="studySelector"
+                label="Filter by Study Protocol"
+                placeholder="Select Study Protocol"
+                value={selectedStudy}
+                options={studyOptions}
+                onchange={handleFilterChange}>
+            </lightning-combobox>
+        </div>
+
+        <!-- Data Table -->
+        <template if:true={isDataAvailable}>
+            <div class="slds-table_header-fixed_container custom-table-container">
+                <div class="slds-scrollable_x">
+                    <lightning-datatable
+                        key-field="Id"
+                        data={filteredData}
+                        columns={columns}
+                        draft-values={draftValues}
+                        hide-checkbox-column="true"
+                        onsave={handleSave}
+                        class="custom-datatable">
+                    </lightning-datatable>
+                </div>
+            </div>
+        </template>
+
+        <!-- Display when no data is available -->
+        <template if:false={isDataAvailable}>
+            <p class="no-records">No records found for the selected study protocol.</p>
+        </template>
+    </lightning-card>
+</template>

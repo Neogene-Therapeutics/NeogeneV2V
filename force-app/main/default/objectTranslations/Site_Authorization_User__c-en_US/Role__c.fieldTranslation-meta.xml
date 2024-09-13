@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Role --></label>
+    <name>Role__c</name>
+    <picklistValues>
+        <masterLabel>Apheresis Center</masterLabel>
+        <translation><!-- Apheresis Center --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Cell Therapy Lab</masterLabel>
+        <translation><!-- Cell Therapy Lab --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Clinical Research Coordinator</masterLabel>
+        <translation><!-- Clinical Research Coordinator --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Principal Investigator</masterLabel>
+        <translation><!-- Principal Investigator --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

@@ -4,6 +4,5 @@
     <defaultValue>false</defaultValue>
     <externalId>false</externalId>
     <label>Inspect IT System Setup</label>
-    <trackFeedHistory>false</trackFeedHistory>
     <type>Checkbox</type>
 </CustomField>

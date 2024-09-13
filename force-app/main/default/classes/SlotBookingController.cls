@@ -124,8 +124,7 @@ public class SlotBookingController {
 
     @AuraEnabled(cacheable=false)
     public static Boolean bookSlot(String recordId, String dateStr) {
-        List<Patient_Journey__c> pjList = [SELECT Id, Study_Definition__c, Clinical_Site__c  FROM Patient_Journey__c WHERE Id = :recordId];
-        
+        List<Patient_Journey__c> pjList = [SELECT Id, Study_Definition__c, Patient__c, Clinical_Site__c  FROM Patient_Journey__c WHERE Id = :recordId];        
         if(pjList.isEmpty()){
             return false;
         }
@@ -143,6 +142,8 @@ public class SlotBookingController {
             if(!manufacturingSlots.isEmpty()) {
                 Manufacturing_Slot__c slot = manufacturingSlots[0];
                 slot.Booking_Status__c = 'Requested';
+                slot.Patient_Journey__c = pjList[0].Id;
+                slot.Patient__c = pjList[0].Patient__c;
                 slot.Clinical_Site__c = pjList[0].Clinical_Site__c;
                 update slot;
                updateQuestion(pjList[0], dt); // slot Booking Task - checkbox
@@ -163,6 +164,12 @@ public class SlotBookingController {
             }
             update patientFormQuestions;
         }
+    }
+
+    @AuraEnabled(cacheable=true)
+    public static List<Patient_Milestone_Task_Form_Question__c> getRequestedSlot(String recordId){
+        List<Patient_Milestone_Task_Form_Question__c> requestedSlots = [SELECT Value__c FROM Patient_Milestone_Task_Form_Question__c WHERE Patient_Milestone_Task__r.Patient_Milestone__r.Patient_Journey__c =: recordId AND Slot_Booking_Task__c = true];
+        return requestedSlots;
     }
 
   /*  @AuraEnabled(cacheable=false)

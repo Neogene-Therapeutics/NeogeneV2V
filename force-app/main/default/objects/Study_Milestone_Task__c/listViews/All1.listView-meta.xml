@@ -5,6 +5,8 @@
     <columns>Display_Name__c</columns>
     <columns>Study_Milestone__c</columns>
     <columns>Form__c</columns>
+    <columns>Write_Access_Queues__c</columns>
+    <columns>Read_Access_Queues__c</columns>
     <filterScope>Everything</filterScope>
     <label>All</label>
 </ListView>

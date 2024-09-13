@@ -37,7 +37,7 @@
         <inputAssignments>
             <field>Status__c</field>
             <value>
-                <stringValue>Not Started</stringValue>
+                <stringValue>In Progress</stringValue>
             </value>
         </inputAssignments>
         <inputReference>$Record</inputReference>

@@ -5,7 +5,7 @@
         <name>Assign_in_progress_status</name>
         <label>Assign in progress status</label>
         <locationX>50</locationX>
-        <locationY>863</locationY>
+        <locationY>971</locationY>
         <assignmentItems>
             <assignToReference>Get_Patient_Milestone_Task.Status__c</assignToReference>
             <operator>Assign</operator>
@@ -34,7 +34,7 @@
                 </rightValue>
             </conditions>
             <connector>
-                <targetReference>Get_Patient_Milestone_Task</targetReference>
+                <targetReference>Update_Patient_Journey_Status</targetReference>
             </connector>
             <label>Milestone task is found</label>
         </rules>
@@ -129,7 +129,7 @@
         <name>Get_Patient_Milestone_Task</name>
         <label>Get Patient Milestone Task</label>
         <locationX>50</locationX>
-        <locationY>755</locationY>
+        <locationY>863</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>Assign_in_progress_status</targetReference>
@@ -187,10 +187,34 @@
         <object>Patient_Milestone__c</object>
     </recordUpdates>
     <recordUpdates>
+        <name>Update_Patient_Journey_Status</name>
+        <label>Update Patient Journey Status</label>
+        <locationX>50</locationX>
+        <locationY>755</locationY>
+        <connector>
+            <targetReference>Get_Patient_Milestone_Task</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>Get_Next_Milestone.Patient_Journey__c</elementReference>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>Current_Stage__c</field>
+            <value>
+                <elementReference>Get_Next_Milestone.Name</elementReference>
+            </value>
+        </inputAssignments>
+        <object>Patient_Journey__c</object>
+    </recordUpdates>
+    <recordUpdates>
         <name>Update_Records_2</name>
         <label>Update Records 2</label>
         <locationX>50</locationX>
-        <locationY>971</locationY>
+        <locationY>1079</locationY>
         <inputReference>Get_Patient_Milestone_Task</inputReference>
     </recordUpdates>
     <start>

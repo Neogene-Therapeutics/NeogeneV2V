@@ -5,6 +5,13 @@
     <columns>Display_Name__c</columns>
     <columns>Study_Template_Milestone__c</columns>
     <columns>Study_Definition__c</columns>
+    <columns>Site_Facing__c</columns>
+    <columns>Sponsor_Facing__c</columns>
     <filterScope>Everything</filterScope>
+    <filters>
+        <field>Study_Definition__c</field>
+        <operation>equals</operation>
+        <value>SP-0027</value>
+    </filters>
     <label>All</label>
 </ListView>

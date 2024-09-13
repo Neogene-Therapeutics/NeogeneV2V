@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Patient</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Patient</value>
+    </caseValues>
+    <layouts>
+        <layout>Patient Registration Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <quickActions>
+        <label><!-- Start Patient Journey --></label>
+        <name>Start_Patient_Journey</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- Verify --></label>
+        <name>Verify</name>
+    </quickActions>
+    <startsWith>Consonant</startsWith>
+    <validationRules>
+        <errorMessage><!-- The year of birth cannot be in the future. --></errorMessage>
+        <name>Year_validation</name>
+    </validationRules>
+</CustomObjectTranslation>

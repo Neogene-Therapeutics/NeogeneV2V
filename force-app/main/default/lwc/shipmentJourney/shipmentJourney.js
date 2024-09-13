@@ -1,12 +1,32 @@
 import { api, LightningElement, wire } from 'lwc';
 import getShipmentStatus from '@salesforce/apex/ShipmentJourneyController.getShipmentStatus';
+import { getRecord, getFieldValue } from "lightning/uiRecordApi";
+import CREATED_DATE from "@salesforce/schema/Shipment__c.CreatedDate";
+
+const FIELDS = [CREATED_DATE];
+
 export default class ShipmentTracker extends LightningElement {
     @api recordId;
     events = [];
     isLoading = false;
+    showDefault = false;
+    hasStatuses = false;
+    createdDate;
+
+    @wire(getRecord, { recordId: "$recordId", fields: FIELDS })
+    shipmentFields({ data, error }) {
+        if (data) {
+            this.createdDate = this.formatDateTime(data?.fields?.CreatedDate?.value)
+        }
+    }
 
     async connectedCallback() {
         this.getStatuses();
+    }
+
+    openDefault(event) {
+        event.target.iconName = event.target.iconName == 'utility:chevronright' ? 'utility:chevrondown' : 'utility:chevronright';
+        this.showDefault = !this.showDefault;
     }
 
     openShipmentDetails(event) {
@@ -25,12 +45,17 @@ export default class ShipmentTracker extends LightningElement {
     async getStatuses() {
         this.isLoading = true;
         let response = await getShipmentStatus({ recordId: this.recordId })
-        this.events = JSON.parse(response)?.responseData?.events?.map(e => {
-            let showDeliveryDetails = false;
-            let dropDownIcon = 'utility:chevronright';
-            let deliveryDateTime = this.formatDateTime(e.eventDateTime);
-            return { ...e, showDeliveryDetails, dropDownIcon, deliveryDateTime };
-        });
+        if (response) {
+            this.events = JSON.parse(response)?.responseData?.events?.map(e => {
+                let showDeliveryDetails = false;
+                let dropDownIcon = 'utility:chevronright';
+                let deliveryDateTime = this.formatDateTime(e.eventDateTime);
+                return { ...e, showDeliveryDetails, dropDownIcon, deliveryDateTime };
+            });
+            this.hasStatuses = true;
+        } else {
+            this.hasStatuses = false;
+        }
         this.isLoading = false;
     }
 

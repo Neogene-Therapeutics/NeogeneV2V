@@ -13,7 +13,7 @@
             <sorted>false</sorted>
             <value>
                 <fullName>Available</fullName>
-                <default>false</default>
+                <default>true</default>
                 <label>Available</label>
             </value>
             <value>
@@ -22,14 +22,29 @@
                 <label>Requested</label>
             </value>
             <value>
+                <fullName>Acknowledged</fullName>
+                <default>false</default>
+                <label>Acknowledged</label>
+            </value>
+            <value>
                 <fullName>Booked</fullName>
                 <default>false</default>
                 <label>Booked</label>
             </value>
             <value>
-                <fullName>Expired</fullName>
+                <fullName>Canceled</fullName>
                 <default>false</default>
-                <label>Expired</label>
+                <label>Canceled</label>
+            </value>
+            <value>
+                <fullName>Elapsed</fullName>
+                <default>false</default>
+                <label>Elapsed</label>
+            </value>
+            <value>
+                <fullName>Frozen</fullName>
+                <default>false</default>
+                <label>Frozen</label>
             </value>
         </valueSetDefinition>
     </valueSet>

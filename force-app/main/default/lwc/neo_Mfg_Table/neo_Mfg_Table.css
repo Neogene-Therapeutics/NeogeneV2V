@@ -1,0 +1,44 @@
+.custom-card {
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    border-radius: 6px;
+    padding: 20px;
+}
+
+.custom-datatable .slds-cell-edit {
+    background-color: #f4f6f9; /* Light gray background for editable cells */
+    border-left: 2px solid #1589ee; /* Highlighting editable cells */
+}
+
+.custom-datatable .slds-table {
+    font-size: 0.9rem;
+}
+
+.custom-table-container {
+    padding: 10px;
+}
+
+.no-records {
+    color: #d83b01;
+    font-weight: bold;
+    text-align: center;
+    padding: 20px;
+}
+
+.slds-combobox {
+    margin-bottom: 1rem;
+}
+
+/* Custom Scrollbar for the table */
+.custom-table-container .slds-scrollable_x {
+    scrollbar-width: thin;
+    scrollbar-color: #1589ee #e0e5eb;
+}
+
+.custom-table-container .slds-scrollable_x::-webkit-scrollbar {
+    height: 8px;
+}
+
+.custom-table-container .slds-scrollable_x::-webkit-scrollbar-thumb {
+    background-color: #1589ee;
+    border-radius: 10px;
+}

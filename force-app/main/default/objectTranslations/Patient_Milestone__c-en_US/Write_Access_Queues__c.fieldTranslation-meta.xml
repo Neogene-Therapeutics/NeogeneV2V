@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Write Access Queues --></label>
+    <name>Write_Access_Queues__c</name>
+    <picklistValues>
+        <masterLabel>Clinical Site</masterLabel>
+        <translation><!-- Clinical Site --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Logistics Co-ordinator</masterLabel>
+        <translation><!-- Logistics Co-ordinator --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Manufacturing Scheduler</masterLabel>
+        <translation><!-- Manufacturing Scheduler --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>QA</masterLabel>
+        <translation><!-- QA --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Warehouse Operator</masterLabel>
+        <translation><!-- Warehouse Operator --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

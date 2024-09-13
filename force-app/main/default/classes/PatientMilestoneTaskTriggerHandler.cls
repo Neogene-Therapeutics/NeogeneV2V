@@ -4,6 +4,7 @@ public with sharing class PatientMilestoneTaskTriggerHandler extends TriggerHand
     }
 
     public override void afterUpdate() {
+        updateManufacturingSite();
         checkMilestoneTaskStatus();
         createShipmentMilestoneTask();
         createSharingRecords();
@@ -18,7 +19,45 @@ public with sharing class PatientMilestoneTaskTriggerHandler extends TriggerHand
         if(Trigger.IsBefore && Trigger.IsUpdate){
              validateQueueMember();
         }
-       
+    }
+
+    public void updateManufacturingSite() {
+        List<Patient_Milestone_Task__c> listOfTasks = (List<Patient_Milestone_Task__c>) Trigger.new;
+        List<Patient_Milestone_Task__c> patientTasks = [
+            SELECT Id, Patient_Milestone__r.Patient_Journey__c, 
+                (SELECT Id, Value__c, Type__c FROM Patient_Milestone_Task_Form_Questions__r) 
+            FROM Patient_Milestone_Task__c 
+            WHERE Id IN :listOfTasks AND Name = 'Slot Reserved'
+        ];
+        Map<Id, Patient_Milestone_Task_Form_Question__c> patientFormQuesMap = new Map<Id, Patient_Milestone_Task_Form_Question__c>();
+        List<String> siteNames = new List<String>();
+        for (Patient_Milestone_Task__c pmt : patientTasks) {
+            for (Patient_Milestone_Task_Form_Question__c pmtfq : pmt.Patient_Milestone_Task_Form_Questions__r) {
+                if (pmtfq.Type__c == 'Picklist') {
+                    siteNames.add(pmtfq.Value__c);
+                    patientFormQuesMap.put(pmt.Patient_Milestone__r.Patient_Journey__c, pmtfq);
+                }
+            }
+        }
+        List<Account> accountList = [SELECT Id, Name FROM Account WHERE Name IN :siteNames];
+        Map<String, Id> manufactureMap = new Map<String, Id>();
+        for (Account acc : accountList) {
+            manufactureMap.put(acc.Name, acc.Id);
+        }
+        if (!patientFormQuesMap.isEmpty()) {
+            List<Manufacturing_Slot__c> manuSlots = [
+                SELECT Manufacturing_Site__c, Patient_Journey__c, Name, Id 
+                FROM Manufacturing_Slot__c 
+                WHERE Patient_Journey__c IN :patientFormQuesMap.keySet()
+            ];
+            for (Manufacturing_Slot__c man : manuSlots) {
+                if (patientFormQuesMap.containsKey(man.Patient_Journey__c)) {
+                    man.Booking_Status__c = 'Booked';
+                    man.Manufacturing_Site__c = manufactureMap.get(patientFormQuesMap.get(man.Patient_Journey__c).Value__c);
+                }
+            }
+            update manuSlots;
+        }
     }
     
     public static void validateQueueMember(){
@@ -77,42 +116,42 @@ public with sharing class PatientMilestoneTaskTriggerHandler extends TriggerHand
     
     public static void createSharingRecords(){
         List<Patient_Milestone_Task__Share> sharesToCreate = new List<Patient_Milestone_Task__Share>();
-	List<Patient_Milestone_Task__c> patientMilestoneTasks = (List<Patient_Milestone_Task__c>) Trigger.new;
-    for (Patient_Milestone_Task__c task : patientMilestoneTasks) {
-        // Read access queues
-        if (task.Read_Access_Queues__c != null) {
-            List<String> readQueueNames = task.Read_Access_Queues__c.split(';');
-            System.debug('readQueueNames: '+readQueueNames);
-            List<Group> readGroups = [SELECT Id FROM Group WHERE Type = 'Queue' AND Name IN :readQueueNames];
-            System.debug('readGroups: '+readGroups);
-            for (Group rGroup : readGroups) {
-                Patient_Milestone_Task__Share share = new Patient_Milestone_Task__Share();
-                share.ParentId = task.Id;
-                share.UserOrGroupId = rGroup.Id;
-                share.AccessLevel = 'Read';
-                sharesToCreate.add(share);
+        List<Patient_Milestone_Task__c> patientMilestoneTasks = (List<Patient_Milestone_Task__c>) Trigger.new;
+        for (Patient_Milestone_Task__c task : patientMilestoneTasks) {
+            // Read access queues
+            if (task.Read_Access_Queues__c != null) {
+                List<String> readQueueNames = task.Read_Access_Queues__c.split(';');
+                System.debug('readQueueNames: '+readQueueNames);
+                List<Group> readGroups = [SELECT Id FROM Group WHERE Type = 'Queue' AND Name IN :readQueueNames];
+                System.debug('readGroups: '+readGroups);
+                for (Group rGroup : readGroups) {
+                    Patient_Milestone_Task__Share share = new Patient_Milestone_Task__Share();
+                    share.ParentId = task.Id;
+                    share.UserOrGroupId = rGroup.Id;
+                    share.AccessLevel = 'Read';
+                    sharesToCreate.add(share);
+                }
             }
-        }
 
-        // Write access queues
-        if (task.Write_Access_Queues__c != null) {
-            List<String> writeQueueNames = task.Write_Access_Queues__c.split(';');
-            System.debug('writeQueueNames: '+writeQueueNames);
-            List<Group> writeGroups = [SELECT Id FROM Group WHERE Type = 'Queue' AND Name IN :writeQueueNames];
-            System.debug('writeGroups: '+writeGroups);
-            for (Group wGroup : writeGroups) {
-                Patient_Milestone_Task__Share share = new Patient_Milestone_Task__Share();
-                share.ParentId = task.Id;
-                share.UserOrGroupId = wGroup.Id;
-                share.AccessLevel = 'Edit';
-                sharesToCreate.add(share);
+            // Write access queues
+            if (task.Write_Access_Queues__c != null) {
+                List<String> writeQueueNames = task.Write_Access_Queues__c.split(';');
+                System.debug('writeQueueNames: '+writeQueueNames);
+                List<Group> writeGroups = [SELECT Id FROM Group WHERE Type = 'Queue' AND Name IN :writeQueueNames];
+                System.debug('writeGroups: '+writeGroups);
+                for (Group wGroup : writeGroups) {
+                    Patient_Milestone_Task__Share share = new Patient_Milestone_Task__Share();
+                    share.ParentId = task.Id;
+                    share.UserOrGroupId = wGroup.Id;
+                    share.AccessLevel = 'Edit';
+                    sharesToCreate.add(share);
+                }
             }
         }
-    }
-	System.debug('sharesToCreate: '+sharesToCreate);
-    if (!sharesToCreate.isEmpty()) {
-        insert sharesToCreate;
-    }
+        System.debug('sharesToCreate: '+sharesToCreate);
+        if (!sharesToCreate.isEmpty()) {
+            insert sharesToCreate;
+        }
     }
 
     public static void checkMilestoneTaskStatus() {
@@ -164,7 +203,7 @@ public with sharing class PatientMilestoneTaskTriggerHandler extends TriggerHand
         }
 
         if (!patientMilestoneTaskShipment.isEmpty()) {
-            List<Patient_Milestone_Task__c> shipmentTasks = [SELECT Id, Drug_Product_Shipment__c, Apheresis_Shipment__c, Courier__c, Patient_Milestone__r.Patient_Journey__r.Clinical_Site__c, Patient_Milestone__r.Patient_Journey__r.Study_Definition__c FROM Patient_Milestone_Task__c WHERE Id IN :patientMilestoneTaskShipment];
+            List<Patient_Milestone_Task__c> shipmentTasks = [SELECT Id,Patient_Milestone__r.Patient_Journey__r.Patient__r.Subject_ID__c, Drug_Product_Shipment__c, Apheresis_Shipment__c, Courier__c, Patient_Milestone__r.Patient_Journey__r.Clinical_Site__c, Patient_Milestone__r.Patient_Journey__r.Study_Definition__c FROM Patient_Milestone_Task__c WHERE Id IN :patientMilestoneTaskShipment];
             if (!shipmentTasks.isEmpty()) {
                 
                 Map<Id, Patient_Milestone_Task__c> clinicalIdToMilestoneMap = new Map<Id, Patient_Milestone_Task__c>();
@@ -186,6 +225,12 @@ public with sharing class PatientMilestoneTaskTriggerHandler extends TriggerHand
     }
 
     public static void createShipmentRecords(Map<Id, Patient_Milestone_Task__c> clinicalIdToMilestoneMap, Map<Id, Patient_Milestone_Task__c> studyToMilestoneMap) {
+        Set<Id> patientIds = new Set<Id>();
+        for(Patient_Milestone_Task__c pmt : clinicalIdToMilestoneMap.values()){
+            if(pmt.Patient_Milestone__r.Patient_Journey__r.Patient__r.Id != null){
+                patientIds.add(pmt.Patient_Milestone__r.Patient_Journey__r.Patient__r.Id);
+            }
+        }
         Map<Id, Account> clinicalAccounts = new Map<Id, Account>([
             SELECT Id, Name, Study__c, BillingCity, BillingCountry, BillingPostalCode, BillingState, BillingStreet,
                    Apheresis_center__r.BillingCity, Apheresis_center__r.BillingCountry, Apheresis_center__r.BillingPostalCode, 
@@ -194,7 +239,7 @@ public with sharing class PatientMilestoneTaskTriggerHandler extends TriggerHand
             WHERE Id IN :clinicalIdToMilestoneMap.keySet()]
         );
         Map<Id, Manufacturing_Slot__c> manufacturingMap = new Map<Id,Manufacturing_Slot__c>();
-        for(Manufacturing_Slot__c man : [SELECT Clinical_Site__c, Manufacturing_Site__r.BillingCity, Manufacturing_Site__r.BillingState, Manufacturing_Site__r.BillingStreet, Manufacturing_Site__r.BillingCountry, Manufacturing_Site__r.BillingPostalCode FROM Manufacturing_Slot__c Where Study_ID__c IN: studyToMilestoneMap.keySet() AND Booking_Status__c = 'Booked' AND Clinical_Site__c =: clinicalIdToMilestoneMap.keySet()]){
+        for(Manufacturing_Slot__c man : [SELECT Clinical_Site__c, Manufacturing_Site__r.BillingCity, Manufacturing_Site__r.BillingState, Manufacturing_Site__r.BillingStreet, Manufacturing_Site__r.BillingCountry, Manufacturing_Site__r.BillingPostalCode FROM Manufacturing_Slot__c Where Study_ID__c IN: studyToMilestoneMap.keySet() AND Booking_Status__c = 'Booked' AND Clinical_Site__c =: clinicalIdToMilestoneMap.keySet() AND Patient__c IN:patientIds]){
             if(man.Manufacturing_Site__c != null){
                 manufacturingMap.put(man.Clinical_Site__c,man);
             }
@@ -210,6 +255,9 @@ public with sharing class PatientMilestoneTaskTriggerHandler extends TriggerHand
                     ship.Type__c = 'Apheresis';
                 }else if(clinicalIdToMilestoneMap.get(clinicalId).Drug_Product_Shipment__c){
                     ship.Type__c = 'Drug Product';
+                }
+                if(clinicalIdToMilestoneMap.get(clinicalId).Courier__c == 'BioCair'){
+                    ship.Courier__c = 'BioCair';
                 }
                 ship.RecordTypeId = Schema.getGlobalDescribe().get('Shipment__c').getDescribe().getRecordTypeInfosByName().get(clinicalIdToMilestoneMap.get(clinicalId).Courier__c).getRecordTypeId();
                 ship.Patient_Milestone__c = clinicalIdToMilestoneMap.get(clinicalId).Patient_Milestone__r.Id;

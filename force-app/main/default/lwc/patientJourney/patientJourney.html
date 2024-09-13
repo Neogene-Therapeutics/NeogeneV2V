@@ -306,7 +306,8 @@
 																			for:each={mileTask.Patient_Milestone_Task_Form_Questions__r}
 																			for:item="ques">
 																			<div key={ques.Id}
-																				class="slds-col slds-size_1-of-2 slds-var-p-around_small">
+																				class="slds-col slds-size_1-of-2 slds-var-p-around_small"
+																				if:true={ques.readableTask}>
 																				<lightning-input if:true={ques.isInput}
 																					onchange={inputChangeHandler}
 																					data-task-question-id={ques.Id}
@@ -343,17 +344,31 @@
 																					read-only={ques.Read_Only__c}
 																					label={ques.Label__c}
 																					options={ques.picklistArray}></lightning-combobox>
-																				<lightning-file-upload
-																					if:true={ques.isFile}
+																				<lightning-input if:true={ques.isFile}
+																					onchange={handleFileInput}
 																					data-task-question-id={ques.Id}
-																					required={ques.Required__c}
-																					name="fileUploader"
 																					data-mile-task-id={mileTask.Id}
-																					record-id={ques.Id}
+																					required={ques.Required__c}
 																					disabled={ques.Read_Only__c}
-																					label={ques.Label__c}
-																					onuploadfinished={handleUploadFinished}>
-																				</lightning-file-upload>
+																					field-level-help={ques.Help_Text__c}
+																					read-only={ques.Read_Only__c}
+																					type={ques.Type__c}
+																					name={mileTask.Name}
+																					label={ques.Label__c}></lightning-input>
+																				<div class="slds-var-m-bottom_small">
+																					<lightning-badge
+																						data-task-ques-id={ques.Id}
+																						label=""></lightning-badge>
+																				</div>
+
+																				<template
+																					if:true={ques.ContentDocumentLinks}
+																					for:each={ques.ContentDocumentLinks}
+																					for:item="doc">
+																					Existing File: <lightning-badge
+																						key={doc.Id}
+																						label={doc.ContentDocument.Title}></lightning-badge>
+																				</template>
 																			</div>
 																		</template>
 																	</template>
@@ -368,9 +383,24 @@
 												</div>
 											</template>
 											<div class="slds-var-m-around_small" if:true={mileTask.hasVerifiedUser}>
-												Verified By -
+												<strong>Verified By : </strong>
 												<a href={mileTask.hasVerifiedUserId} target="_blank"
 													class="slds-text-link_reset slds-text-link">{mileTask.verifyUserName}</a>
+											</div>
+											<div lwc:if={mileTask.isComplete} class="slds-var-m-around_x-small">
+												<div class="slds-var-m-around_xx-small">
+													<strong>Submitted By : </strong>
+													<a href={mileTask.submittedById} target="_blank"
+														class="slds-text-link_reset slds-text-link">{mileTask.LastModifiedBy.Name}</a>
+													<!-- <lightning-formatted-text value=></lightning-formatted-text> -->
+												</div>
+												<div class="slds-var-m-around_xx-small">
+													<strong>Submitted At : </strong>
+													<lightning-formatted-date-time value={mileTask.LastModifiedDate}
+														year="numeric" month="numeric" day="numeric" hour="2-digit"
+														minute="2-digit"
+														time-zone-name="short"></lightning-formatted-date-time>
+												</div>
 											</div>
 										</div>
 										<footer class="slds-card__footer"></footer>
@@ -416,7 +446,6 @@
 								</lightning-input-field>
 							</lightning-layout-item>
 							<lightning-layout-item flexibility="auto" size="5" padding="around-small">
-								<!-- <lightning-input-field required field-name='Waybill_Number__c'> </lightning-input-field> -->
 								<lightning-input-field required field-name='Order_Id__c'> </lightning-input-field>
 							</lightning-layout-item>
 							<lightning-layout-item flexibility="auto" size="5" padding="around-small">

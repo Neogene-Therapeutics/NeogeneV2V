@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Disease --></label>
+    <name>Disease__c</name>
+    <picklistValues>
+        <masterLabel>Breast Cancer</masterLabel>
+        <translation><!-- Breast Cancer --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Colorectal Adenocarcinoma</masterLabel>
+        <translation><!-- Colorectal Adenocarcinoma --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>HNSCC</masterLabel>
+        <translation><!-- HNSCC --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>NSCLC</masterLabel>
+        <translation><!-- NSCLC --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Ovarian Cancer</masterLabel>
+        <translation><!-- Ovarian Cancer --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Pancreatic Adenocarcinoma</masterLabel>
+        <translation><!-- Pancreatic Adenocarcinoma --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

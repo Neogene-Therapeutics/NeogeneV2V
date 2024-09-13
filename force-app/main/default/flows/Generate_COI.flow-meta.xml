@@ -28,7 +28,7 @@
             <assignToReference>NewCOI.COINumber__c</assignToReference>
             <operator>Assign</operator>
             <value>
-                <stringValue>AZD0120{!generate_random}</stringValue>
+                <elementReference>generate_random</elementReference>
             </value>
         </assignmentItems>
         <assignmentItems>
@@ -39,30 +39,7 @@
             </value>
         </assignmentItems>
         <connector>
-            <targetReference>Create_COI_AZ</targetReference>
-        </connector>
-    </assignments>
-    <assignments>
-        <name>Generate_COI_NG</name>
-        <label>Generate COI NG</label>
-        <locationX>314</locationX>
-        <locationY>539</locationY>
-        <assignmentItems>
-            <assignToReference>newNT.COINumber__c</assignToReference>
-            <operator>Assign</operator>
-            <value>
-                <elementReference>VAR_NG</elementReference>
-            </value>
-        </assignmentItems>
-        <assignmentItems>
-            <assignToReference>newNT.Patient_Journey_ID__c</assignToReference>
-            <operator>Assign</operator>
-            <value>
-                <elementReference>$Record.Patient_Journey__c</elementReference>
-            </value>
-        </assignmentItems>
-        <connector>
-            <targetReference>Create_record_COI_NT</targetReference>
+            <targetReference>Create_COI</targetReference>
         </connector>
     </assignments>
     <constants>
@@ -82,7 +59,7 @@
     <decisions>
         <name>Check_For_status</name>
         <label>Check For status</label>
-        <locationX>314</locationX>
+        <locationX>182</locationX>
         <locationY>431</locationY>
         <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
         <rules>
@@ -99,21 +76,6 @@
                 <targetReference>generate_random_number</targetReference>
             </connector>
             <label>Status Completed</label>
-        </rules>
-        <rules>
-            <name>Status_Complete_NG</name>
-            <conditionLogic>and</conditionLogic>
-            <conditions>
-                <leftValueReference>$Record.Patient_Journey__r.Study_Definition__r.Display_Name__c</leftValueReference>
-                <operator>StartsWith</operator>
-                <rightValue>
-                    <stringValue>NT</stringValue>
-                </rightValue>
-            </conditions>
-            <connector>
-                <targetReference>Generate_COI_NG</targetReference>
-            </connector>
-            <label>Status Complete NG</label>
         </rules>
     </decisions>
     <environments>Default</environments>
@@ -156,29 +118,19 @@ TEXT(MOD(FLOOR((NOW() - DATETIMEVALUE(&quot;1900-01-01 00:00:00&quot;)) * 864000
     </processMetadataValues>
     <processType>AutoLaunchedFlow</processType>
     <recordCreates>
-        <name>Create_COI_AZ</name>
-        <label>Create COI AZ</label>
+        <name>Create_COI</name>
+        <label>Create COI</label>
         <locationX>50</locationX>
         <locationY>755</locationY>
         <connector>
-            <targetReference>Update_Records_1</targetReference>
+            <targetReference>Update_Records_In_patient_Journey</targetReference>
         </connector>
         <inputReference>NewCOI</inputReference>
-    </recordCreates>
-    <recordCreates>
-        <name>Create_record_COI_NT</name>
-        <label>Create record COI NT</label>
-        <locationX>314</locationX>
-        <locationY>647</locationY>
-        <connector>
-            <targetReference>Update_Records_2</targetReference>
-        </connector>
-        <inputReference>newNT</inputReference>
     </recordCreates>
     <recordLookups>
         <name>Get_records</name>
         <label>Get records</label>
-        <locationX>314</locationX>
+        <locationX>182</locationX>
         <locationY>323</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
@@ -197,8 +149,8 @@ TEXT(MOD(FLOOR((NOW() - DATETIMEVALUE(&quot;1900-01-01 00:00:00&quot;)) * 864000
         <storeOutputAutomatically>true</storeOutputAutomatically>
     </recordLookups>
     <recordUpdates>
-        <name>Update_Records_1</name>
-        <label>Update Records 1</label>
+        <name>Update_Records_In_patient_Journey</name>
+        <label>Update Records In patient Journey</label>
         <locationX>50</locationX>
         <locationY>863</locationY>
         <filterLogic>and</filterLogic>
@@ -223,29 +175,8 @@ TEXT(MOD(FLOOR((NOW() - DATETIMEVALUE(&quot;1900-01-01 00:00:00&quot;)) * 864000
         </inputAssignments>
         <object>Patient_Journey__c</object>
     </recordUpdates>
-    <recordUpdates>
-        <name>Update_Records_2</name>
-        <label>Update Records 2</label>
-        <locationX>314</locationX>
-        <locationY>755</locationY>
-        <filterLogic>and</filterLogic>
-        <filters>
-            <field>Id</field>
-            <operator>EqualTo</operator>
-            <value>
-                <elementReference>$Record.Patient_Journey__c</elementReference>
-            </value>
-        </filters>
-        <inputAssignments>
-            <field>COI__c</field>
-            <value>
-                <elementReference>newNT.COINumber__c</elementReference>
-            </value>
-        </inputAssignments>
-        <object>Patient_Journey__c</object>
-    </recordUpdates>
     <start>
-        <locationX>188</locationX>
+        <locationX>56</locationX>
         <locationY>0</locationY>
         <connector>
             <targetReference>Get_records</targetReference>

@@ -36,7 +36,7 @@ public with sharing class StudyTemplateMilestoneTaskHandler extends TriggerHandl
                 }
                 formQuestions.add(formQues);
             }
-            new SecurityCheckController().doInsert(formQuestions);
+            insert formQuestions;
         }
     }
 }

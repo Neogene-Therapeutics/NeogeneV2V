@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Cell_Therapy_Lab</fullName>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>Site_ID__c</columns>
+    <columns>ACCOUNT.RECORDTYPE</columns>
+    <columns>Site_Status__c</columns>
+    <columns>Email__c</columns>
+    <columns>Phone_No__c</columns>
+    <filterScope>Mine</filterScope>
+    <filters>
+        <field>ACCOUNT.RECORDTYPE</field>
+        <operation>equals</operation>
+        <value>Account.Cell_Therapy_Lab</value>
+    </filters>
+    <label>All Cell Therapy Lab</label>
+</ListView>

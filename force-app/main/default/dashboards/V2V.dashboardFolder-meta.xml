@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DashboardFolder xmlns="http://soap.sforce.com/2006/04/metadata">
+    <folderShares>
+        <accessLevel>Manage</accessLevel>
+        <sharedTo>aakriti_nexus_admin02@neogene.com</sharedTo>
+        <sharedToType>User</sharedToType>
+    </folderShares>
+    <name>V2V</name>
+</DashboardFolder>

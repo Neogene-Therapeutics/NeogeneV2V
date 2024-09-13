@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Warehouse_Operator_Study_Template_Milestone</fullName>
+    <filterScope>Queue</filterScope>
+    <label>Warehouse Operator</label>
+    <queue>Warehouse_Operator</queue>
+    <sharedTo>
+        <allInternalUsers></allInternalUsers>
+    </sharedTo>
+</ListView>

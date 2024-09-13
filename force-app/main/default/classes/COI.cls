@@ -1,36 +1,31 @@
 public class COI {
-    
-    // Public method to generate a unique 3-digit number
-    @InvocableMethod(label='Generate COI' description='Return Unique COI Number')
-    public static List<String> generateUniqueThreeDigitNumber() {
-        Set<String> existingNumbers = new Set<String>();
-
-        // Query existing records to ensure uniqueness of the last 3 digits
-        for (Chain_of_Identity__c coi : [SELECT COINumber__c FROM Chain_of_Identity__c WHERE COINumber__c != null]) {
-            String lastThreeDigits = coi.COINumber__c.length() >= 3 
-                                    ? coi.COINumber__c.substring(coi.COINumber__c.length() - 3) 
-                                    : null;
-            if (lastThreeDigits != null) {
-                existingNumbers.add(lastThreeDigits);
-            }
-        }
-
-        
-        String newNumber;
+    @InvocableMethod(label='Generate Unique COI Number' description='Generate a unique COI number following the pattern "number, alpha, num, alpha, num"')
+    public static List<String> generateUniqueCOINumber() {
+        String newCOINumber;
         Boolean unique = false;
-        
         while (!unique) {
-            newNumber = generateRandomThreeDigitNumber(); // Generate a random 3-digit number
-            if (!existingNumbers.contains(newNumber)) {
+            newCOINumber = generateRandomCOINumber();
+            Integer countExisting = [SELECT COUNT() FROM Chain_of_Identity__c WHERE COINumber__c = :newCOINumber];
+            
+            if (countExisting == 0) {
                 unique = true;
             }
         }
-
-        return new List<String>{newNumber};
+        return new List<String>{newCOINumber};
     }
-    // Private method to generate a random 3-digit number
-    private static String generateRandomThreeDigitNumber() {
-        Integer randomNumber = Math.round(Math.random() * 899) + 100; // Generates a number between 100 and 999
-        return String.valueOf(randomNumber);
+
+    private static String generateRandomCOINumber() {
+        String numPart1 = String.valueOf(Integer.valueOf(Math.floor(Math.random() * 10)));
+        String alphaPart1 = getRandomAlpha();
+        String numPart2 = String.valueOf(Integer.valueOf(Math.floor(Math.random() * 10))); 
+        String alphaPart2 = getRandomAlpha(); 
+        String numPart3 = String.valueOf(Integer.valueOf(Math.floor(Math.random() * 10))); 
+        return numPart1 + alphaPart1 + numPart2 + alphaPart2 + numPart3 + '';
+    }
+
+    private static String getRandomAlpha() {
+        String alphabets = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        Integer index = (Integer) Math.floor(Math.random() * alphabets.length());
+        return alphabets.substring(index, index + 1);
     }
 }

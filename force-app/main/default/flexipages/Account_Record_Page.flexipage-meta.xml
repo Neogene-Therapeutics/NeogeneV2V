@@ -178,16 +178,6 @@
                     <name>uiBehavior</name>
                     <value>none</value>
                 </fieldInstanceProperties>
-                <fieldItem>Record.Site_Number__c</fieldItem>
-                <identifier>RecordSite_ID_Number__cField</identifier>
-            </fieldInstance>
-        </itemInstances>
-        <itemInstances>
-            <fieldInstance>
-                <fieldInstanceProperties>
-                    <name>uiBehavior</name>
-                    <value>none</value>
-                </fieldInstanceProperties>
                 <fieldItem>Record.Site_ID__c</fieldItem>
                 <identifier>RecordSite_ID__cField</identifier>
             </fieldInstance>
@@ -230,6 +220,18 @@
                 </fieldInstanceProperties>
                 <fieldItem>Record.Cell_Therapy_Lab__c</fieldItem>
                 <identifier>RecordCell_Therapy_Lab_Address__cField</identifier>
+            </fieldInstance>
+        </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldItem>Record.Verify_By__c</fieldItem>
+                <identifier>RecordVerify_By__cField</identifier>
+            </fieldInstance>
+        </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldItem>Record.Verify_At__c</fieldItem>
+                <identifier>RecordVerify_At__cField</identifier>
             </fieldInstance>
         </itemInstances>
         <name>Facet-a42875e1-5ee9-4962-a201-8a20dffd816e</name>

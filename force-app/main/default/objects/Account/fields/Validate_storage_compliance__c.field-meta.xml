@@ -4,6 +4,5 @@
     <defaultValue>false</defaultValue>
     <externalId>false</externalId>
     <label>Validate storage compliance</label>
-    <trackFeedHistory>false</trackFeedHistory>
     <type>Checkbox</type>
 </CustomField>

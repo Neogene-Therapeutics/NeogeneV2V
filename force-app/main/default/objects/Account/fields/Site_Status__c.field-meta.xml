@@ -5,7 +5,6 @@
     <externalId>false</externalId>
     <label>Site Status</label>
     <required>true</required>
-    <trackFeedHistory>false</trackFeedHistory>
     <type>Picklist</type>
     <valueSet>
         <restricted>true</restricted>

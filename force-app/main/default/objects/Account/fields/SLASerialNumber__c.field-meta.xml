@@ -5,7 +5,6 @@
     <label>SLA Serial Number</label>
     <length>10</length>
     <required>false</required>
-    <trackFeedHistory>false</trackFeedHistory>
     <type>Text</type>
     <unique>false</unique>
 </CustomField>

@@ -161,7 +161,7 @@
     <externalSharingModel>Private</externalSharingModel>
     <label>Study Protocol</label>
     <nameField>
-        <displayFormat>SD-{0000}</displayFormat>
+        <displayFormat>SP-{0000}</displayFormat>
         <label>Name</label>
         <trackHistory>true</trackHistory>
         <type>AutoNumber</type>

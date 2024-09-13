@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Booking Status --></label>
+    <name>Booking_Status__c</name>
+    <picklistValues>
+        <masterLabel>Acknowledged</masterLabel>
+        <translation><!-- Acknowledged --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Available</masterLabel>
+        <translation><!-- Available --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Booked</masterLabel>
+        <translation><!-- Booked --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Canceled</masterLabel>
+        <translation><!-- Canceled --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Elapsed</masterLabel>
+        <translation><!-- Elapsed --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Frozen</masterLabel>
+        <translation><!-- Frozen --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Requested</masterLabel>
+        <translation><!-- Requested --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

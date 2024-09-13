@@ -1,0 +1,126 @@
+<template>
+    <div class="dash-bord slds-p-top_x-large slds-p-bottom_x-large">
+        <div class="dash-bord-bg-img">
+            <img src="https://nexushub--v2vdevorg--c.sandbox.vf.force.com/resource/1726134077000/Background?" alt="">
+        </div>
+        <div class="container">
+            <div class="dash-bord-wrapper slds-grid_align-center slds-grid">
+                <div class="dash-container slds-p-horizontal_xx-large ">
+                    <div class="cardcon slds-p-around_medium slds-grid slds-nowrap slds-d-box">
+                        <div class="d-graph">
+                            <img src="images/graph.png">
+                        </div>
+                        <div class="c-slds-row">
+                            <div class="slds-grid w100 slds-grid_vertical-align-start ">
+                                <div class="slds-col slds-size_1-of-3 d-card">
+                                    <div>{totalJourney}</div>
+                                    <label class="c-Mulberry">Total Patients Journeys</label>
+                                </div>
+                                <div class="slds-col slds-size_1-of-3 d-card">
+                                    <div>{ApheresisCompletedCount}</div>
+                                    <label class="c-Lime-green">Apheresis Completed</label>
+                                </div>
+                                <div class="slds-col slds-size_1-of-3 d-card">
+                                    <div>{ManufacturingStartedCount}</div>
+                                    <label class="c-Gold">Manufacturing Started</label>
+                                </div>
+                            </div>
+                            <div class="slds-grid w100 bg-grey slds-grid_vertical-align-start">
+                                <div class="slds-col slds-size_1-of-3 d-card small">
+                                    <div>{IPPackOutCompletedCount}</div>
+                                    <label>IP Pack-Out Completed</label>
+                                </div>
+                                <div class="slds-col slds-size_1-of-3 d-card small">
+                                    <div>{IPInfusionCompletedCount}</div>
+                                    <label>IP Infusion Completed</label>
+                                </div>
+                                <div class="slds-col slds-size_1-of-3 d-card small">
+                                    <div>{activeJourney}</div>
+                                    <label>Active Patient Journeys</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slds-grid mytask slds-p-top_x-large slds-p-bottom_x-small">
+                        <h2>My Open Tasks</h2>
+                        <button class="btn nevyblue small">View All Tasks</button>
+                    </div>
+                    <div class="slds-grid slds-grid_vertical-align-start slds-wrap taskwrap slds-gutters">
+                        <div class="slds-col slds-size_1-of-3 slds-p-around_medium">
+                            <div class="taskcard slds-p-around_medium">
+                                <label>Apheresis Collection</label>
+                                <div class="slds-m-bottom_x-small"><span>Subject ID : </span>PT78609UD</div>
+                                <div class="slds-m-bottom_x-small"><span>Year of Birth : </span>1968</div>
+                                <button class="slds-m-top_x-small btn nevyblue small">View Patient Journey</button>
+                            </div>
+                        </div>
+                        <div class="slds-col slds-size_1-of-3 slds-p-around_medium">
+                            <div class="taskcard slds-p-around_medium">
+                                <label>Apheresis Collection</label>
+                                <div class="slds-m-bottom_x-small"><span>Subject ID : </span>PT78619UD</div>
+                                <div class="slds-m-bottom_x-small"><span>Year of Birth : </span>1965</div>
+                                <button class="slds-m-top_x-small btn nevyblue small">View Patient Journey</button>
+                            </div>
+                        </div>
+                        <div class="slds-col slds-size_1-of-3 slds-p-around_medium">
+                            <div class="taskcard slds-p-around_medium">
+                                <label>Confirm Patient Identifier</label>
+                                <div class="slds-m-bottom_x-small"><span>Subject ID : </span>PT78344UD</div>
+                                <div class="slds-m-bottom_x-small"><span>Year of Birth : </span>1985</div>
+                                <button class="slds-m-top_x-small btn nevyblue small">View Patient Journey</button>
+                            </div>
+                        </div>
+                        <div class="slds-col slds-size_1-of-3 slds-p-around_medium">
+                            <div class="taskcard slds-p-around_medium">
+                                <label>Input Temptale Serial Number</label>
+                                <div class="slds-m-bottom_x-small"><span>Subject ID : </span>PT78254UD</div>
+                                <div class="slds-m-bottom_x-small"><span>Year of Birth : </span>1982</div>
+                                <button class="slds-m-top_x-small btn nevyblue small">View Patient Journey</button>
+                            </div>
+                        </div>
+                        <div class="slds-col slds-size_1-of-3 slds-p-around_medium">
+                            <div class="taskcard slds-p-around_medium">
+                                <label>Apheresis Collection</label>
+                                <div class="slds-m-bottom_x-small"><span>Subject ID : </span>PT78765UD</div>
+                                <div class="slds-m-bottom_x-small"><span>Year of Birth : </span>1975</div>
+                                <button class="slds-m-top_x-small btn nevyblue small">View Patient Journey</button>
+                            </div>
+                        </div>
+                        <div class="slds-col slds-size_1-of-3 slds-p-around_medium">
+                            <div class="taskcard slds-p-around_medium">
+                                <label>Apheresis Collection</label>
+                                <div class="slds-m-bottom_x-small"><span>Subject ID : </span>PT78676UD</div>
+                                <div class="slds-m-bottom_x-small"><span>Year of Birth : </span>1972</div>
+                                <button class="slds-m-top_x-small btn nevyblue small">View Patient Journey</button>
+                            </div>
+                        </div>
+                        <div class="slds-col slds-size_1-of-3 slds-p-around_medium">
+                            <div class="taskcard slds-p-around_medium">
+                                <label>Confirm Patient Identifier</label>
+                                <div class="slds-m-bottom_x-small"><span>Subject ID : </span>PT78624UD</div>
+                                <div class="slds-m-bottom_x-small"><span>Year of Birth : </span>1987</div>
+                                <button class="slds-m-top_x-small btn nevyblue small">View Patient Journey</button>
+                            </div>
+                        </div>
+                        <div class="slds-col slds-size_1-of-3 slds-p-around_medium">
+                            <div class="taskcard slds-p-around_medium">
+                                <label>Apheresis Collection</label>
+                                <div class="slds-m-bottom_x-small"><span>Subject ID : </span>PT78671UD</div>
+                                <div class="slds-m-bottom_x-small"><span>Year of Birth : </span>1991</div>
+                                <button class="slds-m-top_x-small btn nevyblue small">View Patient Journey</button>
+                            </div>
+                        </div>
+                        <div class="slds-col slds-size_1-of-3 slds-p-around_medium">
+                            <div class="taskcard slds-p-around_medium">
+                                <label>Input Temptale Serial Number</label>
+                                <div class="slds-m-bottom_x-small"><span>Subject ID : </span>PT78622UD</div>
+                                <div class="slds-m-bottom_x-small"><span>Year of Birth : </span>1960</div>
+                                <button class="slds-m-top_x-small btn nevyblue small">View Patient Journey</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>

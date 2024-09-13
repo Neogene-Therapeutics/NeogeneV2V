@@ -4,6 +4,16 @@
     <deleteConstraint>SetNull</deleteConstraint>
     <externalId>false</externalId>
     <label>Clinical Site</label>
+    <lookupFilter>
+        <active>true</active>
+        <errorMessage>Please enter valid clinical site</errorMessage>
+        <filterItems>
+            <field>Account.RecordType.DeveloperName</field>
+            <operation>equals</operation>
+            <value>Clinical_Site</value>
+        </filterItems>
+        <isOptional>false</isOptional>
+    </lookupFilter>
     <referenceTo>Account</referenceTo>
     <relationshipLabel>Patient</relationshipLabel>
     <relationshipName>Patient_Registrations</relationshipName>

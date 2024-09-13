@@ -4,6 +4,5 @@
     <externalId>false</externalId>
     <label>Activation Date (Actual)</label>
     <required>false</required>
-    <trackFeedHistory>false</trackFeedHistory>
     <type>Date</type>
 </CustomField>

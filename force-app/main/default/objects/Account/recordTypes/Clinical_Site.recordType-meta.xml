@@ -2,6 +2,7 @@
 <RecordType xmlns="http://soap.sforce.com/2006/04/metadata">
     <fullName>Clinical_Site</fullName>
     <active>true</active>
+    <compactLayoutAssignment>Account_Compact_Layout</compactLayoutAssignment>
     <label>Clinical Site</label>
     <picklistValues>
         <picklist>AccountSource</picklist>

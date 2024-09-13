@@ -17,8 +17,11 @@ global class ProtracManufacturingAPI{
             if (rw.status == null || rw.status.trim() == '') {
                 throw new MissingFieldException('Missing required field: status');
             }
+            if (rw.updatedDate == null || rw.updatedDate.trim() == '') {
+                throw new MissingFieldException('Missing required field: updatedDate');
+            }
 
-            List<Patient_Milestone_Task_Form_Question__c> patientMileTaskFormQues = [SELECT Id FROM Patient_Milestone_Task_Form_Question__c WHERE Patient_Milestone_Task__r.Patient_Milestone__r.Patient_Journey__r.COI__c =: rw.coi AND isManufacturingStatus__c = true];
+            List<Patient_Milestone_Task_Form_Question__c> patientMileTaskFormQues = [SELECT Id FROM Patient_Milestone_Task_Form_Question__c WHERE Patient_Milestone_Task__r.Patient_Milestone__r.Patient_Journey__r.COI__c =: rw.coi AND Is_Manufacturing__c = true];
 
             for(Patient_Milestone_Task_Form_Question__c pmtq : patientMileTaskFormQues){
                 pmtq.Value__c = rw.status;
@@ -57,9 +60,18 @@ global class ProtracManufacturingAPI{
         }    
     }
 
-    public class RequestWrapper{
-        public String coi{get;set;}
-        public String status{get;set;}
+    public class RequestWrapper {
+        public String coi { get; set; }
+        public String status { get; set; }
+        public String updatedDate { get; set; }
+    
+        public OptionalWrapper optional { get; set; }
+    
+    }
+    
+    public class OptionalWrapper {
+        public Integer numberOfBags { get; set; }
+        public List<String> bag_IDs { get; set; }
     }
 
     public class ResponseWrapper{

@@ -155,10 +155,9 @@
     <externalSharingModel>Private</externalSharingModel>
     <label>Study Template</label>
     <nameField>
-        <displayFormat>ST-{0000}</displayFormat>
-        <label>Study Template ID</label>
+        <label>Study Template Name</label>
         <trackHistory>false</trackHistory>
-        <type>AutoNumber</type>
+        <type>Text</type>
     </nameField>
     <pluralLabel>Study Template</pluralLabel>
     <searchLayouts>

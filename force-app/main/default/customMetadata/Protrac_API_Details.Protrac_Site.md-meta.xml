@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomMetadata xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <label>Protrac Site</label>
+    <protected>false</protected>
+    <values>
+        <field>Access_Token__c</field>
+        <value xsi:type="xsd:string">eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJGTmFtZSI6IlZpZ25lc2h3YXJhbiIsIkRpc3BsYXlOYW1lIjoiVmlnbmVzaHdhcmFuIEduYW5hdmVsIiwiTE5hbWUiOiJHbmFuYXZlbCIsIkVtYWlsIjoidmlnbmVzaHdhcmFuLmduYW5hdmVsQG5lb2dlbmUuY29tIiwiT3BlcmF0b3JJRCI6MTAsIklzQWN0aXZlIjp0cnVlLCJJc0RlbGV0ZWQiOmZhbHNlLCJSb2xlIjp7IlJvbGVJRCI6MywiUm9sZU5hbWUiOiJBZG1pbiIsIklzQWN0aXZlIjp0cnVlLCJjcmVhdGVkQXQiOiIyMDI0LTAyLTE5VDEyOjI5OjM4Ljk1NFoiLCJ1cGRhdGVkQXQiOiIyMDI0LTAyLTE5VDEyOjI5OjM4Ljk1NFoifSwiU2Vzc2lvbklkIjoiMzA5Yjk3YmItN2Y5NC00NWNlLWIzZTctZTMyN2Q4MGZlMGRmIiwicm9sZSI6IkFkbWluIiwidXNlcklkIjoxMCwiaWF0IjoxNzI1ODczNjkzLCJleHAiOjE3NDE0MjU2OTN9.dJB7NTIH0pct4ZDr_jCwxdqSmzyf7Bj5XLg9wG50J54</value>
+    </values>
+    <values>
+        <field>Endpoint__c</field>
+        <value xsi:type="xsd:string">https://2owkkhpj12.execute-api.us-east-1.amazonaws.com/dev-protrac-rest/createSite</value>
+    </values>
+    <values>
+        <field>Method__c</field>
+        <value xsi:type="xsd:string">POST</value>
+    </values>
+</CustomMetadata>

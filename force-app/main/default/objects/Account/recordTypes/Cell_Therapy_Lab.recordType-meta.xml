@@ -2,6 +2,7 @@
 <RecordType xmlns="http://soap.sforce.com/2006/04/metadata">
     <fullName>Cell_Therapy_Lab</fullName>
     <active>true</active>
+    <compactLayoutAssignment>Account_Compact_Layout</compactLayoutAssignment>
     <label>Cell Therapy Lab</label>
     <picklistValues>
         <picklist>AccountSource</picklist>

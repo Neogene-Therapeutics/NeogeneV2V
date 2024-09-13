@@ -5,7 +5,7 @@
             <lightning-button-icon title="Refresh" icon-name="utility:refresh"
                 onclick={getStatuses}></lightning-button-icon>
         </div>
-        <div class="slds-scrollable slds-var-m-around_medium">
+        <div if:true={hasStatuses} class="slds-scrollable slds-var-m-around_medium">
             <ul class="slds-timeline">
                 <template for:each={events} for:item="e">
                     <li key={e.eventId}>
@@ -179,6 +179,44 @@
                         </div>
                     </div>
                 </li> -->
+            </ul>
+        </div>
+        <div if:false={hasStatuses} class="slds-scrollable slds-var-m-around_medium">
+            <ul class="slds-timeline">
+                <li>
+                    <div class="slds-timeline__item_expandable slds-timeline__item_task slds-is-open">
+                        <div class="slds-media">
+                            <div class="slds-media__figure">
+                                <button class="slds-button slds-button_icon" aria-controls="task-item-expanded-65"
+                                    aria-expanded="true">
+                                    <lightning-icon onclick={openDefault} icon-name="utility:chevronright"
+                                        size="x-small"></lightning-icon>
+                                </button>
+                                <lightning-avatar variant="circle" fallback-icon-name="standard:task2"
+                                    size="small"></lightning-avatar>
+                            </div>
+                            <div class="slds-media__body">
+                                <div class="slds-grid slds-grid_align-spread slds-timeline__trigger">
+                                    <div class="slds-grid slds-grid_vertical-align-center slds-no-space">
+                                        <h3 class="slds-truncate">
+                                            <strong>Customer Booking Received</strong>
+                                        </h3>
+                                    </div>
+                                </div>
+                                <p class="slds-m-horizontal_xx-small">
+                                    {createdDate}
+                                </p>
+                                <div if:true={showDefault}
+                                    class="slds-box slds-timeline__item_details slds-theme_shade slds-var-m-around_small slds-var-p-around_small">
+                                    <div class="slds-var-m-bottom_small">
+                                        <span class="slds-text-title"><strong>Description</strong></span>
+                                        <p class="slds-var-p-top_xx-small">Your booking has been received</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
             </ul>
         </div>
     </lightning-card>

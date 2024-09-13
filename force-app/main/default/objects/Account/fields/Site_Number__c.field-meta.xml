@@ -5,7 +5,6 @@
     <label>Site Number</label>
     <length>25</length>
     <required>true</required>
-    <trackFeedHistory>false</trackFeedHistory>
     <type>Text</type>
     <unique>false</unique>
 </CustomField>

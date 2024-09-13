@@ -7,7 +7,6 @@ export default class VerificationUser extends LightningElement {
     userInput = '';
 
     handleInputChange(event) {
-        console.log(event.target.value);
         this.userInput = event.target.value;
     }
 

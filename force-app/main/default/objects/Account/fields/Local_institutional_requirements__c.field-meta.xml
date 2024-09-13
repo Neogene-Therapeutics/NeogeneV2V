@@ -5,6 +5,5 @@
     <inlineHelpText>Local/institutional requirements for additional patient identifiers on label?</inlineHelpText>
     <label>Local/institutional requirements?</label>
     <required>false</required>
-    <trackFeedHistory>false</trackFeedHistory>
     <type>TextArea</type>
 </CustomField>

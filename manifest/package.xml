@@ -1,9 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Package xmlns="http://soap.sforce.com/2006/04/metadata">
 
-    <types>
+ <types>
+        <members>*</members>
+        <name>CustomTab</name>
+    </types> 
+     <types>
+        <members>*</members>
+        <name>Queue</name>
+    </types> 
+   <types>
     <members>*</members> 
-        <members>Address</members> 
         <members>User</members> 
          <members>Account</members> 
          <members>Contact</members> 
@@ -52,9 +59,7 @@
         <name>AuraDefinitionBundle</name>
     </types>
     <types>
-        <members>SiteSamples</members>
-        <members>FullCalendar</members>
-        <members>fullcalendarv3</members>
+        <members>*</members>
         <name>StaticResource</name>
     </types> 
 
@@ -114,5 +119,33 @@
         <members>*</members>
         <name>Group</name>
     </types> 
+	     <types>
+        <members>*</members>
+        <name>ContentAsset</name>
+    </types> 
+	     <types>
+      <members>*</members>
+        <name>CustomObjectTranslation </name>
+    </types>   
+	<types>
+		<members>V2V/CSAEzZbVqobjNDJRPxtTNrPohwfYsu</members>
+		<members>V2V/DKJWvFHdNLJwSLPyNqXRWizIqQkJnG</members>
+		<name>Dashboard</name>
+	</types>
+	<types>
+		<members>Manufacturingslotreport/Manufacturing_Slots_Report_CMo</members>
+		<members>V2V/V2V_Manufacturing_Slots_with_Study_Y5B</members>
+		<name>Report</name>
+	</types>
+    <types>
+		<members>Manufacturingslotreport</members>
+		<members>V2V</members>
+		<name>ReportFolder</name>
+	</types>
+    <types>
+        <members>V2V</members>
+		<name>DashBoardFolder</name>
+	</types>
+
     <version>60.0</version>
 </Package>

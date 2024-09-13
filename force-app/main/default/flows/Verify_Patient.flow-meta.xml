@@ -3,7 +3,7 @@
     <actionCalls>
         <name>Fetch_PIN</name>
         <label>Fetch PIN</label>
-        <locationX>176</locationX>
+        <locationX>446</locationX>
         <locationY>134</locationY>
         <actionName>NexusUtility</actionName>
         <actionType>apex</actionType>
@@ -19,8 +19,61 @@
         <versionSegment>1</versionSegment>
     </actionCalls>
     <apiVersion>61.0</apiVersion>
+    <decisions>
+        <name>Object_based_verification</name>
+        <label>Object based verification</label>
+        <locationX>446</locationX>
+        <locationY>350</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Account</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>recordId</leftValueReference>
+                <operator>StartsWith</operator>
+                <rightValue>
+                    <stringValue>001</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Activate_site</targetReference>
+            </connector>
+            <label>Account</label>
+        </rules>
+        <rules>
+            <name>Patient</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>recordId</leftValueReference>
+                <operator>StartsWith</operator>
+                <rightValue>
+                    <stringValue>a0R</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_Patient_record</targetReference>
+            </connector>
+            <label>Patient</label>
+        </rules>
+        <rules>
+            <name>Study_Protocol</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>recordId</leftValueReference>
+                <operator>StartsWith</operator>
+                <rightValue>
+                    <stringValue>a0c</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Activate_Study</targetReference>
+            </connector>
+            <label>Study Protocol</label>
+        </rules>
+    </decisions>
     <environments>Default</environments>
     <interviewLabel>Verify Patient {!$Flow.CurrentDateTime}</interviewLabel>
+    <isAdditionalPermissionRequiredToRun>true</isAdditionalPermissionRequiredToRun>
     <label>Verify Patient</label>
     <processMetadataValues>
         <name>BuilderType</name>
@@ -42,10 +95,76 @@
     </processMetadataValues>
     <processType>Flow</processType>
     <recordUpdates>
+        <name>Activate_site</name>
+        <label>Activate site</label>
+        <locationX>50</locationX>
+        <locationY>458</locationY>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>recordId</elementReference>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>Site_Status__c</field>
+            <value>
+                <stringValue>Active</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Verify_At__c</field>
+            <value>
+                <elementReference>$Flow.CurrentDateTime</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Verify_By__c</field>
+            <value>
+                <elementReference>$User.Id</elementReference>
+            </value>
+        </inputAssignments>
+        <object>Account</object>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Activate_Study</name>
+        <label>Activate Study</label>
+        <locationX>578</locationX>
+        <locationY>458</locationY>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>recordId</elementReference>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>Active__c</field>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Verify_At__c</field>
+            <value>
+                <elementReference>$Flow.CurrentDateTime</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Verify_By__c</field>
+            <value>
+                <elementReference>$User.Id</elementReference>
+            </value>
+        </inputAssignments>
+        <object>Study_Protocol__c</object>
+    </recordUpdates>
+    <recordUpdates>
         <name>Update_Patient_record</name>
         <label>Update Patient record</label>
-        <locationX>176</locationX>
-        <locationY>350</locationY>
+        <locationX>314</locationX>
+        <locationY>458</locationY>
         <filterLogic>and</filterLogic>
         <filters>
             <field>Id</field>
@@ -65,13 +184,13 @@
     <screens>
         <name>Verify_PIN</name>
         <label>Verify PIN</label>
-        <locationX>176</locationX>
+        <locationX>446</locationX>
         <locationY>242</locationY>
         <allowBack>false</allowBack>
         <allowFinish>true</allowFinish>
         <allowPause>false</allowPause>
         <connector>
-            <targetReference>Update_Patient_record</targetReference>
+            <targetReference>Object_based_verification</targetReference>
         </connector>
         <fields>
             <name>PIN</name>
@@ -84,18 +203,25 @@
                 <formulaExpression>{!UserPIN} = {!PIN}</formulaExpression>
             </validationRule>
         </fields>
+        <fields>
+            <name>Comments</name>
+            <fieldText>Comments</fieldText>
+            <fieldType>LargeTextArea</fieldType>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+            <isRequired>true</isRequired>
+        </fields>
         <nextOrFinishButtonLabel>Verify</nextOrFinishButtonLabel>
         <showFooter>true</showFooter>
         <showHeader>true</showHeader>
     </screens>
     <start>
-        <locationX>50</locationX>
+        <locationX>320</locationX>
         <locationY>0</locationY>
         <connector>
             <targetReference>Fetch_PIN</targetReference>
         </connector>
     </start>
-    <status>Active</status>
+    <status>Obsolete</status>
     <variables>
         <name>recordId</name>
         <dataType>String</dataType>

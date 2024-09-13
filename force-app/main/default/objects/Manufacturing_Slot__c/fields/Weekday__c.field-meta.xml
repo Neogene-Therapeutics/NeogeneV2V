@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Weekday__c</fullName>
+    <externalId>false</externalId>
+    <formula>CASE(
+    TEXT( WEEKDAY( Start_Date__c ) ),
+    &quot;1&quot;, &quot;Sunday&quot;,
+    &quot;2&quot;, &quot;Monday&quot;,
+    &quot;3&quot;, &quot;Tuesday&quot;,
+    &quot;4&quot;, &quot;Wednesday&quot;,
+    &quot;5&quot;, &quot;Thursday&quot;,
+    &quot;6&quot;, &quot;Friday&quot;,
+    &quot;7&quot;, &quot;Saturday&quot;,
+    &quot;Unknown Day&quot;
+)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Weekday</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

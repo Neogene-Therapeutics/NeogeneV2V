@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Layout xmlns="http://soap.sforce.com/2006/04/metadata">
+    <excludeButtons>OpenSlackRecordChannel</excludeButtons>
     <excludeButtons>Submit</excludeButtons>
     <layoutSections>
         <customLabel>false</customLabel>
@@ -18,6 +19,26 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Order__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>COI_Generation__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Read_Access_Queues__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Write_Access_Queue__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Site_Facing__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Sponsor_facing__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
@@ -83,6 +104,12 @@
     <relatedLists>
         <fields>NAME</fields>
         <fields>Display_Name__c</fields>
+        <fields>Apheresis_Shipment__c</fields>
+        <fields>Drug_Product_Shipment__c</fields>
+        <fields>Order__c</fields>
+        <fields>Verify__c</fields>
+        <fields>Task_Owner__c</fields>
+        <fields>Study_Template_Form__c</fields>
         <relatedList>Study_Template_Milestone_Task__c.Study_Template_Milestone__c</relatedList>
     </relatedLists>
     <relatedLists>

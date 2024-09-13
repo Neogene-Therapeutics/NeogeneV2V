@@ -4,7 +4,6 @@
     <externalId>false</externalId>
     <label>IP storage question?</label>
     <required>false</required>
-    <trackFeedHistory>false</trackFeedHistory>
     <type>Picklist</type>
     <valueSet>
         <restricted>true</restricted>

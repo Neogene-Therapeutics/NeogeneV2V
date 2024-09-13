@@ -1,0 +1,51 @@
+<!--
+  @description       : 
+  @author            : ChangeMeIn@UserSettingsUnder.SFDoc
+  @group             : 
+  @last modified on  : 09-13-2024
+  @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
+-->
+<template>
+    <div class="slds-p-vertical_medium header">
+        <div class="container">
+            <div class="h-wrapper">
+                <!-- Logo Section -->
+                <div class="h-logo">
+                    <img src="https://nexushub--v2vdevorg--c.sandbox.vf.force.com/resource/1726133887000/siteLogo?" alt="Logo">
+                </div>
+                
+                <!-- Navigation Section -->
+                <div class="h-nav">
+                    <nav>
+                        <ul>
+                            <template if:true={msg}> 
+                                <li><a href="/dashboard">Home</a></li>
+                                <li><a href="/patients">Patients</a></li>
+                                <li><a href="/v2v-journey">V2V Journey</a></li>
+                            </template>
+                        </ul>
+                    </nav>
+                </div>
+                
+                <!-- Profile and Dropdown Section -->
+                <div class="h-profile" onclick={toggleDropdown}>
+                    <div class="user-text">
+                        <div class="user-title">
+                            <p>{userName}</p>
+                        </div>
+                        <p>{userRole}</p>
+                    </div>
+                </div>
+                
+                <!-- Dropdown Menu -->
+                <template if:true={isDropdownVisible}>
+                    <div class="dropdown-menu">
+                        <ul>
+                            <li><a href="javascript:void(0);" onclick={handleLogout}>Logout</a></li> 
+                        </ul>
+                    </div>
+                </template>
+            </div>
+        </div>
+    </div>
+</template>

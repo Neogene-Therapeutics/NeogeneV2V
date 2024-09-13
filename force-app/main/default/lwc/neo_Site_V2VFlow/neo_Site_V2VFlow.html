@@ -1,0 +1,1120 @@
+<template>
+    <div class="dash-bord slds-p-top_x-large slds-p-bottom_x-large">
+        <div class="dash-bord-bg-img">
+            <img src="https://nexushub--nhdev--c.sandbox.vf.force.com/resource/1724737266000/pagebg?" alt="">
+        </div>
+        <div class="container">
+            <div class="dash-bord-wrapper">
+                <div class="side-pannel slds-is-fixed slds-p-around_x-small br-10">
+                    <div class="side-pannel-box slds-is-relative br-4">
+                        <div class="sidepanel-custom side-pannel-title slds-p-top_x-small slds-p-around_medium">
+                            <h1 class="slds-p-bottom_medium slds-grid slds-wrap"> Milestones</h1>
+                            <div class="side-pannel-tabs">
+                                <template for:each={milestones} for:item="milestone">
+                                    <div class={milestone.classNames} key={milestone.Id} id={milestone.divId}>
+                                        <div class="side-tab-icon">
+                                            <p>{milestone.Order__c}</p>
+                                        </div>
+                                        <p>{milestone.Name}</p>
+                                    </div>
+                                </template>
+                                <!-- <div class="side-pannel-tab active" id="side-1">
+                                    <div class="side-tab-icon">
+                                        <p>1</p>
+                                    </div>
+                                    <p>Registration</p>
+                                </div>
+
+                                <div class="side-pannel-tab" id="side-2">
+                                    <div class="side-tab-icon">
+                                        <p>2</p>
+                                    </div>
+                                    <p>Slot Reservation</p>
+                                </div>
+
+                                <div class="side-pannel-tab" id="side-3">
+                                    <div class="side-tab-icon">
+                                        <p>3</p>
+                                    </div>
+                                    <p>ICF</p>
+                                </div>
+
+                                <div class="side-pannel-tab" id="side-4">
+                                    <div class="side-tab-icon">
+                                        <p>4</p>
+                                    </div>
+                                    <p>Screening & Eligibility</p>
+                                </div>
+
+                                <div class="side-pannel-tab" id="side-5">
+                                    <div class="side-tab-icon">
+                                        <p>5</p>
+                                    </div>
+                                    <p>Apheresis Collection</p>
+                                </div>
+
+                                <div class="side-pannel-tab" id="side-6">
+                                    <div class="side-tab-icon">
+                                        <p>6</p>
+                                    </div>
+                                    <p>Enrollment</p>
+                                </div>
+
+                                <div class="side-pannel-tab" id="side-7">
+                                    <div class="side-tab-icon">
+                                        <p>7</p>
+                                    </div>
+                                    <p>Manufacturing</p>
+                                </div>
+
+                                <div class="side-pannel-tab" id="side-8">
+                                    <div class="side-tab-icon">
+                                        <p>8</p>
+                                    </div>
+                                    <p>Dose Assignment</p>
+                                </div>
+
+                                <div class="side-pannel-tab" id="side-9">
+                                    <div class="side-tab-icon">
+                                        <p>9</p>
+                                    </div>
+                                    <p>QA Disposition</p>
+                                </div> -->
+                            </div>
+                        </div>
+                        <div class="side-pannel-bg slds-is-absolute">
+                            <img src="https://nexushub--nhdev--c.sandbox.vf.force.com/resource/1724737220000/sidebar?"
+                                alt="">
+                        </div>
+                    </div>
+                </div>
+                <div class="full-dash-boxs slds-p-horizontal_xx-large">
+                    <div class="topheading slds-p-bottom_medium">
+                        <h1 class="slds-grid"><button class="btn btn-sec">Back</button><span
+                                class="slds-p-horizontal_x-large">V2V Journey</span></h1>
+                        <div class="actionarea">
+                            <div class="full-i-fild">
+                                <input type="text" name="" placeholder="Search">
+                            </div>
+                            <a href="" class="btn solid red">Add New Patient</a>
+                        </div>
+                    </div>
+                    <template for:each={currentMilestoneTask} for:item="task">
+                        <div key={task.Id} id="1"
+                            class="full-dash-box slds-is-relative slds-p-horizontal_large slds-p-bottom_large slds-p-top_medium">
+                            <div class="full-dash-num slds-is-absolute">
+                                <p>{task.Order__c}</p>
+                            </div>
+
+                            <div class="full-dash-title slds-p-left_xx-large slds-p-bottom_x-large">
+                                <div class="f-title">
+                                    <h2>{task.Name}</h2>
+                                </div>
+                                <div class="full-dash-btns">
+                                    <a href="#" class="btn btn-sec">Save</a>
+                                    <a href="#" class="btn btn-pri">Next</a>
+                                </div>
+                            </div>
+                            <div>
+                                <lightning-accordion allow-multiple-sections-open>
+                                    <template for:each={task.sections} for:item="sec">
+                                        <lightning-accordion-section label={sec.sectionName} title={sec.sectionName}
+                                            key={sec.Name}>
+                                            <form action="" class="full-dash-form slds-grid slds-wrap ">
+                                                <template for:each={sec.formQuestions} for:item="ques">
+                                                    <div key={sec.Id} class="full-form-input slds-size_1-of-4">
+                                                        <label for="">{ques.Label__c}</label>
+                                                        <div class="full-i-fild">
+                                                            <input type={ques.Type__c} name=""
+                                                                placeholder="Type something">
+                                                        </div>
+                                                    </div>
+                                                </template>
+
+                                                <!-- <div class="full-form-input slds-size_1-of-4">
+                                                    <label for="">Year Of Birth</label>
+                                                    <div class="full-i-fild">
+                                                        <input type="date" name="" placeholder="Type something">
+                                                    </div>
+                                                </div>
+
+                                                <div class="full-form-input slds-size_1-of-4">
+                                                    <label for="">Study Protocol</label>
+                                                    <div class="full-i-fild">
+                                                        <select name="">
+                                                            <option value="Type something">Type something</option>
+                                                            <option value="1">1</option>
+                                                            <option value="1">1</option>
+                                                            <option value="1">1</option>
+                                                            <option value="1">1</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+
+                                                <div class="full-form-input slds-size_1-of-4">
+                                                    <label for="">Stage</label>
+                                                    <div class="full-i-fild">
+                                                        <select name="">
+                                                            <option value="Type something">Type something</option>
+                                                            <option value="1">1</option>
+                                                            <option value="1">1</option>
+                                                            <option value="1">1</option>
+                                                            <option value="1">1</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+
+                                                <div class="full-form-input slds-size_1-of-4">
+                                                    <label for="">Subject ID</label>
+                                                    <div class="full-i-fild">
+                                                        <input type="text" name="" placeholder="Type something">
+                                                    </div>
+                                                </div>
+
+                                                <div class="full-form-input slds-size_1-of-4">
+                                                    <label for="">Disease Type</label>
+                                                    <div class="full-i-fild">
+                                                        <select name="">
+                                                            <option value="Type something">Type something</option>
+                                                            <option value="1">1</option>
+                                                            <option value="1">1</option>
+                                                            <option value="1">1</option>
+                                                            <option value="1">1</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+
+                                                <div class="full-form-input slds-size_1-of-4">
+                                                    <label for="">Clinical Site</label>
+                                                    <div class="full-i-fild">
+                                                        <select name="">
+                                                            <option value="Type something">Type something</option>
+                                                            <option value="1">1</option>
+                                                            <option value="1">1</option>
+                                                            <option value="1">1</option>
+                                                            <option value="1">1</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+
+                                                <div class="full-form-input slds-size_1-of-4">
+                                                    <label for="">Owner</label>
+                                                    <div class="full-i-fild owner-fild">
+                                                        <div class="owner">
+                                                            <img src="./Images/avtar.png" alt="">
+                                                            <p>Shane Black</p>
+                                                        </div>
+                                                        <input type="search" name="">
+                                                    </div>
+                                                </div> -->
+                                            </form>
+                                        </lightning-accordion-section>
+                                    </template>
+
+                                    <!-- <lightning-accordion-section name="B" label="Accordion Title B">
+                                    </lightning-accordion-section>
+
+                                    <lightning-accordion-section name="C" label="Accordion Title C">
+                                    </lightning-accordion-section> -->
+                                </lightning-accordion>
+                            </div>
+                            <!-- <form action="" class="full-dash-form slds-grid slds-wrap ">
+                                <div class="full-form-input slds-size_1-of-4">
+                                    <label for="">Patient Name</label>
+                                    <div class="full-i-fild">
+                                        <input type="text" name="" placeholder="Type something">
+                                    </div>
+                                </div>
+
+                                <div class="full-form-input slds-size_1-of-4">
+                                    <label for="">Year Of Birth</label>
+                                    <div class="full-i-fild">
+                                        <input type="date" name="" placeholder="Type something">
+                                    </div>
+                                </div>
+
+                                <div class="full-form-input slds-size_1-of-4">
+                                    <label for="">Study Protocol</label>
+                                    <div class="full-i-fild">
+                                        <select name="">
+                                            <option value="Type something">Type something</option>
+                                            <option value="1">1</option>
+                                            <option value="1">1</option>
+                                            <option value="1">1</option>
+                                            <option value="1">1</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="full-form-input slds-size_1-of-4">
+                                    <label for="">Stage</label>
+                                    <div class="full-i-fild">
+                                        <select name="">
+                                            <option value="Type something">Type something</option>
+                                            <option value="1">1</option>
+                                            <option value="1">1</option>
+                                            <option value="1">1</option>
+                                            <option value="1">1</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="full-form-input slds-size_1-of-4">
+                                    <label for="">Subject ID</label>
+                                    <div class="full-i-fild">
+                                        <input type="text" name="" placeholder="Type something">
+                                    </div>
+                                </div>
+
+                                <div class="full-form-input slds-size_1-of-4">
+                                    <label for="">Disease Type</label>
+                                    <div class="full-i-fild">
+                                        <select name="">
+                                            <option value="Type something">Type something</option>
+                                            <option value="1">1</option>
+                                            <option value="1">1</option>
+                                            <option value="1">1</option>
+                                            <option value="1">1</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="full-form-input slds-size_1-of-4">
+                                    <label for="">Clinical Site</label>
+                                    <div class="full-i-fild">
+                                        <select name="">
+                                            <option value="Type something">Type something</option>
+                                            <option value="1">1</option>
+                                            <option value="1">1</option>
+                                            <option value="1">1</option>
+                                            <option value="1">1</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="full-form-input slds-size_1-of-4">
+                                    <label for="">Owner</label>
+                                    <div class="full-i-fild owner-fild">
+                                        <div class="owner">
+                                            <img src="./Images/avtar.png" alt="">
+                                            <p>Shane Black</p>
+                                        </div>
+                                        <input type="search" name="">
+                                    </div>
+                                </div>
+                            </form> -->
+                        </div>
+                    </template>
+
+                    <!-- <div id="2"
+                        class="full-dash-box slds-is-relative slds-p-horizontal_large slds-p-bottom_large slds-p-top_medium">
+                        <div class="full-dash-num slds-is-absolute">
+                            <p>2</p>
+                        </div>
+                        <div class="full-dash-title slds-p-left_xx-large slds-p-bottom_x-large">
+                            <div class="f-title">
+                                <h2>Slot Reservation</h2>
+                            </div>
+                            <div class="full-dash-btns">
+                                <a href="#" class="btn btn-sec">Save</a>
+                                <a href="#" class="btn btn-pri">Next</a>
+                            </div>
+                        </div>
+                        <form action="" class="full-dash-form slds-grid slds-wrap ">
+                            <div class="full-form-input slds-size_1-of-4">
+                                <label for="">Patient Name</label>
+                                <div class="full-i-fild">
+                                    <input type="text" name="" placeholder="Type something">
+                                </div>
+                            </div>
+
+                            <div class="full-form-input slds-size_1-of-4">
+                                <label for="">Year Of Birth</label>
+                                <div class="full-i-fild">
+                                    <input type="date" name="" placeholder="Type something">
+                                </div>
+                            </div>
+
+                            <div class="full-form-input slds-size_1-of-4">
+                                <label for="">Study Protocol</label>
+                                <div class="full-i-fild">
+                                    <select name="">
+                                        <option value="Type something">Type something</option>
+                                        <option value="1">1</option>
+                                        <option value="1">1</option>
+                                        <option value="1">1</option>
+                                        <option value="1">1</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="full-form-input slds-size_1-of-4">
+                                <label for="">Stage</label>
+                                <div class="full-i-fild">
+                                    <select name="">
+                                        <option value="Type something">Type something</option>
+                                        <option value="1">1</option>
+                                        <option value="1">1</option>
+                                        <option value="1">1</option>
+                                        <option value="1">1</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="full-form-input slds-size_1-of-4">
+                                <label for="">Subject ID</label>
+                                <div class="full-i-fild">
+                                    <input type="text" name="" placeholder="Type something">
+                                </div>
+                            </div>
+
+                            <div class="full-form-input slds-size_1-of-4">
+                                <label for="">Disease Type</label>
+                                <div class="full-i-fild">
+                                    <select name="">
+                                        <option value="Type something">Type something</option>
+                                        <option value="1">1</option>
+                                        <option value="1">1</option>
+                                        <option value="1">1</option>
+                                        <option value="1">1</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="full-form-input slds-size_1-of-4">
+                                <label for="">Clinical Site</label>
+                                <div class="full-i-fild">
+                                    <select name="">
+                                        <option value="Type something">Type something</option>
+                                        <option value="1">1</option>
+                                        <option value="1">1</option>
+                                        <option value="1">1</option>
+                                        <option value="1">1</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="full-form-input slds-size_1-of-4">
+                                <label for="">Owner</label>
+                                <div class="full-i-fild owner-fild">
+                                    <div class="owner">
+                                        <img src="./Images/avtar.png" alt="">
+                                        <p>Shane Black</p>
+                                    </div>
+                                    <input type="search" name="">
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+
+                    <div id="3"
+                        class="full-dash-box slds-is-relative slds-p-horizontal_large slds-p-bottom_large slds-p-top_medium">
+                        <div class="full-dash-num slds-is-absolute">
+                            <p>3</p>
+                        </div>
+                        <div class="full-dash-title slds-p-left_xx-large slds-p-bottom_x-large">
+                            <div class="f-title">
+                                <h2>ICF</h2>
+                            </div>
+                            <div class="full-dash-btns">
+                                <a href="#" class="btn btn-sec">Save</a>
+                                <a href="#" class="btn btn-pri">Next</a>
+                            </div>
+                        </div>
+                        <form action="" class="full-dash-form slds-grid slds-wrap ">
+                            <div class="full-form-input slds-size_1-of-4">
+                                <label for="">Patient Name</label>
+                                <div class="full-i-fild">
+                                    <input type="text" name="" placeholder="Type something">
+                                </div>
+                            </div>
+
+                            <div class="full-form-input slds-size_1-of-4">
+                                <label for="">Year Of Birth</label>
+                                <div class="full-i-fild">
+                                    <input type="date" name="" placeholder="Type something">
+                                </div>
+                            </div>
+
+                            <div class="full-form-input slds-size_1-of-4">
+                                <label for="">Study Protocol</label>
+                                <div class="full-i-fild">
+                                    <select name="">
+                                        <option value="Type something">Type something</option>
+                                        <option value="1">1</option>
+                                        <option value="1">1</option>
+                                        <option value="1">1</option>
+                                        <option value="1">1</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="full-form-input slds-size_1-of-4">
+                                <label for="">Stage</label>
+                                <div class="full-i-fild">
+                                    <select name="">
+                                        <option value="Type something">Type something</option>
+                                        <option value="1">1</option>
+                                        <option value="1">1</option>
+                                        <option value="1">1</option>
+                                        <option value="1">1</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="full-form-input slds-size_1-of-4">
+                                <label for="">Subject ID</label>
+                                <div class="full-i-fild">
+                                    <input type="text" name="" placeholder="Type something">
+                                </div>
+                            </div>
+
+                            <div class="full-form-input slds-size_1-of-4">
+                                <label for="">Disease Type</label>
+                                <div class="full-i-fild">
+                                    <select name="">
+                                        <option value="Type something">Type something</option>
+                                        <option value="1">1</option>
+                                        <option value="1">1</option>
+                                        <option value="1">1</option>
+                                        <option value="1">1</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="full-form-input slds-size_1-of-4">
+                                <label for="">Clinical Site</label>
+                                <div class="full-i-fild">
+                                    <select name="">
+                                        <option value="Type something">Type something</option>
+                                        <option value="1">1</option>
+                                        <option value="1">1</option>
+                                        <option value="1">1</option>
+                                        <option value="1">1</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="full-form-input slds-size_1-of-4">
+                                <label for="">Owner</label>
+                                <div class="full-i-fild owner-fild">
+                                    <div class="owner">
+                                        <img src="./Images/avtar.png" alt="">
+                                        <p>Shane Black</p>
+                                    </div>
+                                    <input type="search" name="">
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+
+                    <div id="4"
+                        class="full-dash-box slds-is-relative slds-p-horizontal_large slds-p-bottom_large slds-p-top_medium">
+                        <div class="full-dash-num slds-is-absolute">
+                            <p>4</p>
+                        </div>
+                        <div class="full-dash-title slds-p-left_xx-large slds-p-bottom_x-large">
+                            <div class="f-title">
+                                <h2>Screening & Eligibility</h2>
+                            </div>
+                            <div class="full-dash-btns">
+                                <a href="#" class="btn btn-sec">Save</a>
+                                <a href="#" class="btn btn-pri">Next</a>
+                            </div>
+                        </div>
+                        <form action="" class="full-dash-form slds-grid slds-wrap ">
+                            <div class="full-form-input slds-size_1-of-4">
+                                <label for="">Patient Name</label>
+                                <div class="full-i-fild">
+                                    <input type="text" name="" placeholder="Type something">
+                                </div>
+                            </div>
+
+                            <div class="full-form-input slds-size_1-of-4">
+                                <label for="">Year Of Birth</label>
+                                <div class="full-i-fild">
+                                    <input type="date" name="" placeholder="Type something">
+                                </div>
+                            </div>
+
+                            <div class="full-form-input slds-size_1-of-4">
+                                <label for="">Study Protocol</label>
+                                <div class="full-i-fild">
+                                    <select name="">
+                                        <option value="Type something">Type something</option>
+                                        <option value="1">1</option>
+                                        <option value="1">1</option>
+                                        <option value="1">1</option>
+                                        <option value="1">1</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="full-form-input slds-size_1-of-4">
+                                <label for="">Stage</label>
+                                <div class="full-i-fild">
+                                    <select name="">
+                                        <option value="Type something">Type something</option>
+                                        <option value="1">1</option>
+                                        <option value="1">1</option>
+                                        <option value="1">1</option>
+                                        <option value="1">1</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="full-form-input slds-size_1-of-4">
+                                <label for="">Subject ID</label>
+                                <div class="full-i-fild">
+                                    <input type="text" name="" placeholder="Type something">
+                                </div>
+                            </div>
+
+                            <div class="full-form-input slds-size_1-of-4">
+                                <label for="">Disease Type</label>
+                                <div class="full-i-fild">
+                                    <select name="">
+                                        <option value="Type something">Type something</option>
+                                        <option value="1">1</option>
+                                        <option value="1">1</option>
+                                        <option value="1">1</option>
+                                        <option value="1">1</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="full-form-input slds-size_1-of-4">
+                                <label for="">Clinical Site</label>
+                                <div class="full-i-fild">
+                                    <select name="">
+                                        <option value="Type something">Type something</option>
+                                        <option value="1">1</option>
+                                        <option value="1">1</option>
+                                        <option value="1">1</option>
+                                        <option value="1">1</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="full-form-input slds-size_1-of-4">
+                                <label for="">Owner</label>
+                                <div class="full-i-fild owner-fild">
+                                    <div class="owner">
+                                        <img src="./Images/avtar.png" alt="">
+                                        <p>Shane Black</p>
+                                    </div>
+                                    <input type="search" name="">
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+
+                    <div id="5"
+                        class="full-dash-box slds-is-relative slds-p-horizontal_large slds-p-bottom_large slds-p-top_medium">
+                        <div class="full-dash-num slds-is-absolute">
+                            <p>5</p>
+                        </div>
+                        <div class="full-dash-title slds-p-left_xx-large slds-p-bottom_x-large">
+                            <div class="f-title">
+                                <h2>Apheresis Collection</h2>
+                            </div>
+                            <div class="full-dash-btns">
+                                <a href="#" class="btn btn-sec">Save</a>
+                                <a href="#" class="btn btn-pri">Next</a>
+                            </div>
+                        </div>
+                        <form action="" class="full-dash-form slds-grid slds-wrap ">
+                            <div class="full-form-input slds-size_1-of-4">
+                                <label for="">Patient Name</label>
+                                <div class="full-i-fild">
+                                    <input type="text" name="" placeholder="Type something">
+                                </div>
+                            </div>
+
+                            <div class="full-form-input slds-size_1-of-4">
+                                <label for="">Year Of Birth</label>
+                                <div class="full-i-fild">
+                                    <input type="date" name="" placeholder="Type something">
+                                </div>
+                            </div>
+
+                            <div class="full-form-input slds-size_1-of-4">
+                                <label for="">Study Protocol</label>
+                                <div class="full-i-fild">
+                                    <select name="">
+                                        <option value="Type something">Type something</option>
+                                        <option value="1">1</option>
+                                        <option value="1">1</option>
+                                        <option value="1">1</option>
+                                        <option value="1">1</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="full-form-input slds-size_1-of-4">
+                                <label for="">Stage</label>
+                                <div class="full-i-fild">
+                                    <select name="">
+                                        <option value="Type something">Type something</option>
+                                        <option value="1">1</option>
+                                        <option value="1">1</option>
+                                        <option value="1">1</option>
+                                        <option value="1">1</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="full-form-input slds-size_1-of-4">
+                                <label for="">Subject ID</label>
+                                <div class="full-i-fild">
+                                    <input type="text" name="" placeholder="Type something">
+                                </div>
+                            </div>
+
+                            <div class="full-form-input slds-size_1-of-4">
+                                <label for="">Disease Type</label>
+                                <div class="full-i-fild">
+                                    <select name="">
+                                        <option value="Type something">Type something</option>
+                                        <option value="1">1</option>
+                                        <option value="1">1</option>
+                                        <option value="1">1</option>
+                                        <option value="1">1</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="full-form-input slds-size_1-of-4">
+                                <label for="">Clinical Site</label>
+                                <div class="full-i-fild">
+                                    <select name="">
+                                        <option value="Type something">Type something</option>
+                                        <option value="1">1</option>
+                                        <option value="1">1</option>
+                                        <option value="1">1</option>
+                                        <option value="1">1</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="full-form-input slds-size_1-of-4">
+                                <label for="">Owner</label>
+                                <div class="full-i-fild owner-fild">
+                                    <div class="owner">
+                                        <img src="./Images/avtar.png" alt="">
+                                        <p>Shane Black</p>
+                                    </div>
+                                    <input type="search" name="">
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+
+                    <div id="6"
+                        class="full-dash-box slds-is-relative slds-p-horizontal_large slds-p-bottom_large slds-p-top_medium">
+                        <div class="full-dash-num slds-is-absolute">
+                            <p>6</p>
+                        </div>
+                        <div class="full-dash-title slds-p-left_xx-large slds-p-bottom_x-large">
+                            <div class="f-title">
+                                <h2>Enrollment</h2>
+                            </div>
+                            <div class="full-dash-btns">
+                                <a href="#" class="btn btn-sec">Save</a>
+                                <a href="#" class="btn btn-pri">Next</a>
+                            </div>
+                        </div>
+                        <form action="" class="full-dash-form slds-grid slds-wrap ">
+                            <div class="full-form-input slds-size_1-of-4">
+                                <label for="">Patient Name</label>
+                                <div class="full-i-fild">
+                                    <input type="text" name="" placeholder="Type something">
+                                </div>
+                            </div>
+
+                            <div class="full-form-input slds-size_1-of-4">
+                                <label for="">Year Of Birth</label>
+                                <div class="full-i-fild">
+                                    <input type="date" name="" placeholder="Type something">
+                                </div>
+                            </div>
+
+                            <div class="full-form-input slds-size_1-of-4">
+                                <label for="">Study Protocol</label>
+                                <div class="full-i-fild">
+                                    <select name="">
+                                        <option value="Type something">Type something</option>
+                                        <option value="1">1</option>
+                                        <option value="1">1</option>
+                                        <option value="1">1</option>
+                                        <option value="1">1</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="full-form-input slds-size_1-of-4">
+                                <label for="">Stage</label>
+                                <div class="full-i-fild">
+                                    <select name="">
+                                        <option value="Type something">Type something</option>
+                                        <option value="1">1</option>
+                                        <option value="1">1</option>
+                                        <option value="1">1</option>
+                                        <option value="1">1</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="full-form-input slds-size_1-of-4">
+                                <label for="">Subject ID</label>
+                                <div class="full-i-fild">
+                                    <input type="text" name="" placeholder="Type something">
+                                </div>
+                            </div>
+
+                            <div class="full-form-input slds-size_1-of-4">
+                                <label for="">Disease Type</label>
+                                <div class="full-i-fild">
+                                    <select name="">
+                                        <option value="Type something">Type something</option>
+                                        <option value="1">1</option>
+                                        <option value="1">1</option>
+                                        <option value="1">1</option>
+                                        <option value="1">1</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="full-form-input slds-size_1-of-4">
+                                <label for="">Clinical Site</label>
+                                <div class="full-i-fild">
+                                    <select name="">
+                                        <option value="Type something">Type something</option>
+                                        <option value="1">1</option>
+                                        <option value="1">1</option>
+                                        <option value="1">1</option>
+                                        <option value="1">1</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="full-form-input slds-size_1-of-4">
+                                <label for="">Owner</label>
+                                <div class="full-i-fild owner-fild">
+                                    <div class="owner">
+                                        <img src="./Images/avtar.png" alt="">
+                                        <p>Shane Black</p>
+                                    </div>
+                                    <input type="search" name="">
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+
+                    <div id="7"
+                        class="full-dash-box slds-is-relative slds-p-horizontal_large slds-p-bottom_large slds-p-top_medium">
+                        <div class="full-dash-num slds-is-absolute">
+                            <p>7</p>
+                        </div>
+                        <div class="full-dash-title slds-p-left_xx-large slds-p-bottom_x-large">
+                            <div class="f-title">
+                                <h2>Manufacturing</h2>
+                            </div>
+                            <div class="full-dash-btns">
+                                <a href="#" class="btn btn-sec">Save</a>
+                                <a href="#" class="btn btn-pri">Next</a>
+                            </div>
+                        </div>
+                        <form action="" class="full-dash-form slds-grid slds-wrap ">
+                            <div class="full-form-input slds-size_1-of-4">
+                                <label for="">Patient Name</label>
+                                <div class="full-i-fild">
+                                    <input type="text" name="" placeholder="Type something">
+                                </div>
+                            </div>
+
+                            <div class="full-form-input slds-size_1-of-4">
+                                <label for="">Year Of Birth</label>
+                                <div class="full-i-fild">
+                                    <input type="date" name="" placeholder="Type something">
+                                </div>
+                            </div>
+
+                            <div class="full-form-input slds-size_1-of-4">
+                                <label for="">Study Protocol</label>
+                                <div class="full-i-fild">
+                                    <select name="">
+                                        <option value="Type something">Type something</option>
+                                        <option value="1">1</option>
+                                        <option value="1">1</option>
+                                        <option value="1">1</option>
+                                        <option value="1">1</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="full-form-input slds-size_1-of-4">
+                                <label for="">Stage</label>
+                                <div class="full-i-fild">
+                                    <select name="">
+                                        <option value="Type something">Type something</option>
+                                        <option value="1">1</option>
+                                        <option value="1">1</option>
+                                        <option value="1">1</option>
+                                        <option value="1">1</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="full-form-input slds-size_1-of-4">
+                                <label for="">Subject ID</label>
+                                <div class="full-i-fild">
+                                    <input type="text" name="" placeholder="Type something">
+                                </div>
+                            </div>
+
+                            <div class="full-form-input slds-size_1-of-4">
+                                <label for="">Disease Type</label>
+                                <div class="full-i-fild">
+                                    <select name="">
+                                        <option value="Type something">Type something</option>
+                                        <option value="1">1</option>
+                                        <option value="1">1</option>
+                                        <option value="1">1</option>
+                                        <option value="1">1</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="full-form-input slds-size_1-of-4">
+                                <label for="">Clinical Site</label>
+                                <div class="full-i-fild">
+                                    <select name="">
+                                        <option value="Type something">Type something</option>
+                                        <option value="1">1</option>
+                                        <option value="1">1</option>
+                                        <option value="1">1</option>
+                                        <option value="1">1</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="full-form-input slds-size_1-of-4">
+                                <label for="">Owner</label>
+                                <div class="full-i-fild owner-fild">
+                                    <div class="owner">
+                                        <img src="./Images/avtar.png" alt="">
+                                        <p>Shane Black</p>
+                                    </div>
+                                    <input type="search" name="">
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+
+                    <div id="8"
+                        class="full-dash-box slds-is-relative slds-p-horizontal_large slds-p-bottom_large slds-p-top_medium">
+                        <div class="full-dash-num slds-is-absolute">
+                            <p>8</p>
+                        </div>
+                        <div class="full-dash-title slds-p-left_xx-large slds-p-bottom_x-large">
+                            <div class="f-title">
+                                <h2>Dose Assignment</h2>
+                            </div>
+                            <div class="full-dash-btns">
+                                <a href="#" class="btn btn-sec">Save</a>
+                                <a href="#" class="btn btn-pri">Next</a>
+                            </div>
+                        </div>
+                        <form action="" class="full-dash-form slds-grid slds-wrap ">
+                            <div class="full-form-input slds-size_1-of-4">
+                                <label for="">Patient Name</label>
+                                <div class="full-i-fild">
+                                    <input type="text" name="" placeholder="Type something">
+                                </div>
+                            </div>
+
+                            <div class="full-form-input slds-size_1-of-4">
+                                <label for="">Year Of Birth</label>
+                                <div class="full-i-fild">
+                                    <input type="date" name="" placeholder="Type something">
+                                </div>
+                            </div>
+
+                            <div class="full-form-input slds-size_1-of-4">
+                                <label for="">Study Protocol</label>
+                                <div class="full-i-fild">
+                                    <select name="">
+                                        <option value="Type something">Type something</option>
+                                        <option value="1">1</option>
+                                        <option value="1">1</option>
+                                        <option value="1">1</option>
+                                        <option value="1">1</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="full-form-input slds-size_1-of-4">
+                                <label for="">Stage</label>
+                                <div class="full-i-fild">
+                                    <select name="">
+                                        <option value="Type something">Type something</option>
+                                        <option value="1">1</option>
+                                        <option value="1">1</option>
+                                        <option value="1">1</option>
+                                        <option value="1">1</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="full-form-input slds-size_1-of-4">
+                                <label for="">Subject ID</label>
+                                <div class="full-i-fild">
+                                    <input type="text" name="" placeholder="Type something">
+                                </div>
+                            </div>
+
+                            <div class="full-form-input slds-size_1-of-4">
+                                <label for="">Disease Type</label>
+                                <div class="full-i-fild">
+                                    <select name="">
+                                        <option value="Type something">Type something</option>
+                                        <option value="1">1</option>
+                                        <option value="1">1</option>
+                                        <option value="1">1</option>
+                                        <option value="1">1</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="full-form-input slds-size_1-of-4">
+                                <label for="">Clinical Site</label>
+                                <div class="full-i-fild">
+                                    <select name="">
+                                        <option value="Type something">Type something</option>
+                                        <option value="1">1</option>
+                                        <option value="1">1</option>
+                                        <option value="1">1</option>
+                                        <option value="1">1</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="full-form-input slds-size_1-of-4">
+                                <label for="">Owner</label>
+                                <div class="full-i-fild owner-fild">
+                                    <div class="owner">
+                                        <img src="./Images/avtar.png" alt="">
+                                        <p>Shane Black</p>
+                                    </div>
+                                    <input type="search" name="">
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+
+                    <div id="9"
+                        class="full-dash-box slds-is-relative slds-p-horizontal_large slds-p-bottom_large slds-p-top_medium">
+                        <div class="full-dash-num slds-is-absolute">
+                            <p>9</p>
+                        </div>
+                        <div class="full-dash-title slds-p-left_xx-large slds-p-bottom_x-large">
+                            <div class="f-title">
+                                <h2>QA Disposition</h2>
+                            </div>
+                            <div class="full-dash-btns">
+                                <a href="#" class="btn btn-sec">Save</a>
+                                <a href="#" class="btn btn-pri">Next</a>
+                            </div>
+                        </div>
+                        <form action="" class="full-dash-form slds-grid slds-wrap ">
+                            <div class="full-form-input slds-size_1-of-4">
+                                <label for="">Patient Name</label>
+                                <div class="full-i-fild">
+                                    <input type="text" name="" placeholder="Type something">
+                                </div>
+                            </div>
+
+                            <div class="full-form-input slds-size_1-of-4">
+                                <label for="">Year Of Birth</label>
+                                <div class="full-i-fild">
+                                    <input type="date" name="" placeholder="Type something">
+                                </div>
+                            </div>
+
+                            <div class="full-form-input slds-size_1-of-4">
+                                <label for="">Study Protocol</label>
+                                <div class="full-i-fild">
+                                    <select name="">
+                                        <option value="Type something">Type something</option>
+                                        <option value="1">1</option>
+                                        <option value="1">1</option>
+                                        <option value="1">1</option>
+                                        <option value="1">1</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="full-form-input slds-size_1-of-4">
+                                <label for="">Stage</label>
+                                <div class="full-i-fild">
+                                    <select name="">
+                                        <option value="Type something">Type something</option>
+                                        <option value="1">1</option>
+                                        <option value="1">1</option>
+                                        <option value="1">1</option>
+                                        <option value="1">1</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="full-form-input slds-size_1-of-4">
+                                <label for="">Subject ID</label>
+                                <div class="full-i-fild">
+                                    <input type="text" name="" placeholder="Type something">
+                                </div>
+                            </div>
+
+                            <div class="full-form-input slds-size_1-of-4">
+                                <label for="">Disease Type</label>
+                                <div class="full-i-fild">
+                                    <select name="">
+                                        <option value="Type something">Type something</option>
+                                        <option value="1">1</option>
+                                        <option value="1">1</option>
+                                        <option value="1">1</option>
+                                        <option value="1">1</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="full-form-input slds-size_1-of-4">
+                                <label for="">Clinical Site</label>
+                                <div class="full-i-fild">
+                                    <select name="">
+                                        <option value="Type something">Type something</option>
+                                        <option value="1">1</option>
+                                        <option value="1">1</option>
+                                        <option value="1">1</option>
+                                        <option value="1">1</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="full-form-input slds-size_1-of-4">
+                                <label for="">Owner</label>
+                                <div class="full-i-fild owner-fild">
+                                    <div class="owner">
+                                        <img src="./Images/avtar.png" alt="">
+                                        <p>Shane Black</p>
+                                    </div>
+                                    <input type="search" name="">
+                                </div>
+                            </div>
+                        </form>
+                    </div> -->
+                </div>
+            </div>
+        </div>
+    </div>
+</template>

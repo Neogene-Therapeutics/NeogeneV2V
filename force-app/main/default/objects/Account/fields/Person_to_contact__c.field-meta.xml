@@ -5,7 +5,6 @@
     <label>Person to contact</label>
     <length>80</length>
     <required>true</required>
-    <trackFeedHistory>false</trackFeedHistory>
     <type>Text</type>
     <unique>false</unique>
 </CustomField>

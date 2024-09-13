@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CompactLayout xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Study_Protocol</fullName>
+    <fields>Display_Name__c</fields>
+    <fields>Protocol_Number__c</fields>
+    <fields>Product_Code__c</fields>
+    <label>Study Protocol</label>
+</CompactLayout>

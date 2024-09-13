@@ -4,7 +4,6 @@
     <externalId>false</externalId>
     <label>Customer Priority</label>
     <required>false</required>
-    <trackFeedHistory>false</trackFeedHistory>
     <type>Picklist</type>
     <valueSet>
         <valueSetDefinition>

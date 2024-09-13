@@ -3,6 +3,11 @@
     <fullName>All</fullName>
     <columns>NAME</columns>
     <columns>Order__c</columns>
+    <columns>Patient_Journey__c</columns>
+    <columns>Read_Access_Queues__c</columns>
+    <columns>Write_Access_Queues__c</columns>
+    <columns>Sponsor_Facing__c</columns>
+    <columns>Site_Facing__c</columns>
     <filterScope>Everything</filterScope>
     <label>All</label>
 </ListView>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Role --></label>
+    <name>Role__c</name>
+    <picklistValues>
+        <masterLabel>CRO</masterLabel>
+        <translation><!-- CRO --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Cell Therapy Logistics</masterLabel>
+        <translation><!-- Cell Therapy Logistics --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Clinical Research Co-Ordinator</masterLabel>
+        <translation><!-- Clinical Research Co-Ordinator --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Manufacturing Scheduler</masterLabel>
+        <translation><!-- Manufacturing Scheduler --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Primary Contact</masterLabel>
+        <translation><!-- Primary Contact --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Principal Investigator</masterLabel>
+        <translation><!-- Principal Investigator --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>QA</masterLabel>
+        <translation><!-- QA --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Site User</masterLabel>
+        <translation><!-- Site User --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Supply Chain</masterLabel>
+        <translation><!-- Supply Chain --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

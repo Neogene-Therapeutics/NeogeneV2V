@@ -4,6 +4,5 @@
     <externalId>false</externalId>
     <label>Provide process/info on storage</label>
     <required>false</required>
-    <trackFeedHistory>false</trackFeedHistory>
     <type>TextArea</type>
 </CustomField>

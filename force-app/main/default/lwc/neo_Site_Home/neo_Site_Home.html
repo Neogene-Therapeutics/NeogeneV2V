@@ -1,0 +1,38 @@
+<!--
+  @description       : 
+  @author            : ChangeMeIn@UserSettingsUnder.SFDoc
+  @group             : 
+  @last modified on  : 09-12-2024
+  @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
+-->
+<template>
+    <div class="dash-bord">
+        <div class="dash-bord-bg-img">
+            <img src="https://nexushub--v2vdevorg--c.sandbox.vf.force.com/resource/1726134077000/Background?" alt="">
+        </div>
+        <div class="journey-popup slds-col slds-size_1-of-1">
+            <div class="slds-p-bottom_x-small slds-size_1-of-1 slds-grid">
+                <h2 class="slds-p-bottom_medium">Select Protocol</h2>
+            </div>
+            <form action="" class="slds-col slds-size_1-of-1">
+                <div class="slds-col slds-size_1-of-1">
+                    <label for="">Please select protocol</label>
+                    <div class="full-i-fild slds-m-bottom_medium">
+                        <lightning-combobox
+                        name="protocol"
+                        value={value}
+                        placeholder="Select Protocol"
+                        options={protocolOptions}
+                        onchange={handleChange} ></lightning-combobox>
+                    </div>
+                    <div class="slds-p-top_large slds-grid slds-grid_align-end">
+                        <lightning-button variant="brand" label="Submit" title="Submit" onclick={handleSubmit} class="slds-m-left_x-small"></lightning-button>
+                    </div>
+                    
+                    
+                </div>
+            </form>
+        </div>
+    </div>
+    
+</template>

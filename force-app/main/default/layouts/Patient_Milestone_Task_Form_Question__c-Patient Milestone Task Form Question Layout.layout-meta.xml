@@ -36,12 +36,20 @@
                 <field>Picklist_Values__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>isManufacturingStatus__c</field>
+                <behavior>Edit</behavior>
+                <field>Slot_Booking_Task__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Slot_Booking_Task__c</field>
+                <field>Is_Subject__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Is_DIN__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Is_Manufacturing__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>

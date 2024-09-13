@@ -3,12 +3,8 @@
     <fullName>All</fullName>
     <columns>NAME</columns>
     <columns>Display_Name__c</columns>
-    <columns>Study_Template_Milestone__c</columns>
-    <columns>Study_Template_Form__c</columns>
-    <columns>Verify__c</columns>
-    <columns>Order__c</columns>
-    <columns>Site_Facing__c</columns>
-    <columns>Sponsor_facing__c</columns>
+    <columns>Read_Access_Queues__c</columns>
+    <columns>Write_Access_Queues__c</columns>
     <filterScope>Everything</filterScope>
     <label>All</label>
 </ListView>

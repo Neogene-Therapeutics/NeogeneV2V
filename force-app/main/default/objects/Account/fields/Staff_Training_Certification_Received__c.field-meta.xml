@@ -4,6 +4,5 @@
     <defaultValue>false</defaultValue>
     <externalId>false</externalId>
     <label>Staff Training Certification Received</label>
-    <trackFeedHistory>false</trackFeedHistory>
     <type>Checkbox</type>
 </CustomField>

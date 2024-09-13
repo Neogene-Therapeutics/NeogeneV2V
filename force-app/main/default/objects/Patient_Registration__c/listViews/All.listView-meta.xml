@@ -4,9 +4,8 @@
     <columns>NAME</columns>
     <columns>Subject_ID__c</columns>
     <columns>Year_of_Birth__c</columns>
-    <columns>Study_Protocol__c</columns>
     <columns>Clinical_Site__c</columns>
-    <columns>Is_Patient_Journey_Started__c</columns>
+    <columns>Status__c</columns>
     <filterScope>Everything</filterScope>
     <label>All</label>
 </ListView>

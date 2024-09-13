@@ -15,7 +15,7 @@ public with sharing class ShipmentTriggerHandler extends TriggerHandler {
         for(Shipment__c ship : (List<Shipment__c>)Trigger.new){
             if(ship.Tracking_ID__c != null && ship.Tracking_ID__c != shipMap.get(ship.Id).Tracking_ID__c){
                 if(ship.Type__c == 'Apheresis'){
-                    System.enqueueJob(new IntegrationHandler('Protrac_APH_Shipment', 'PROTRAC', ship.Id));
+                    System.enqueueJob(new IntegrationHandler('Protrac_Patient_Registration', 'PROTRAC', ship.Id));
                 }else if(ship.Type__c == 'Drug Product'){
                     System.enqueueJob(new IntegrationHandler('Protrac_DP_Booking', 'PROTRAC', ship.Id));
                 }

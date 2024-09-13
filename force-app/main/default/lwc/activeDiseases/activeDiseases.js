@@ -11,9 +11,8 @@ export default class ActiveDiseases extends LightningElement {
             this.diseasesOptions = data.map(d => {
                 return { label: d.Disease_Name__c, value: d.Id };
             })
-            console.log(data);
         } else if (error) {
-            console.log(error);
+            console.error(error);
         }
     }
 
@@ -22,6 +21,5 @@ export default class ActiveDiseases extends LightningElement {
     }
 
     selectedDiseaseHandler(event) {
-        console.log(event.detail);
     }
 }

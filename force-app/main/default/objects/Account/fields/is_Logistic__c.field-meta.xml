@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>is_Logistic__c</fullName>
+    <externalId>false</externalId>
+    <formula>CreatedBy.Id != $User.Id &amp;&amp; $User.ProfileId = CreatedBy.Profile.Id &amp;&amp; NOT(Active__c)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>is Logistic</label>
+    <type>Checkbox</type>
+</CustomField>
