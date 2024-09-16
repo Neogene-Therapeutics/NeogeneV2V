@@ -25,6 +25,20 @@ public without sharing class SiteHomeController {
         public String studyId{get; set;}
     }
 
+    @AuraEnabled(cacheable=true)
+    public static List<Patient_Milestone_Task__c> getOpenPatientTasks(String studyId) {
+        try {
+            List<User> users = [SELECT Id, ContactId, Contact.AccountId FROM User WHERE Id = :UserInfo.getUserId() LIMIT 1];
+            if (!users.isEmpty()) {
+                String clinicalSiteId = users[0].Contact.AccountId;
+                List<Patient_Milestone_Task__c> patientMilestoneTasks = [SELECT Name, Patient_Milestone__r.Patient_Journey__r.Patient__r.Subject_Id__c, Patient_Milestone__r.Patient_Journey__r.Patient__r.Year_Of_Birth__c FROM Patient_Milestone_Task__c WHERE Task_Owner__c = 'Clinical Site' AND Status__c = 'In Progress' AND Patient_Milestone__r.Patient_Journey__r.Clinical_Site__c =:clinicalSiteId AND Patient_Milestone__r.Patient_Journey__r.Study_Definition__c =: studyId];
+                return patientMilestoneTasks;
+            }
+            return null;
+        } catch (Exception e) {
+            throw new AuraHandledException(e.getMessage());
+        }
+    }
 
     @AuraEnabled(cacheable=true)
     public static JourneyOverviewDetails getJourneyOverview(String studyId) {

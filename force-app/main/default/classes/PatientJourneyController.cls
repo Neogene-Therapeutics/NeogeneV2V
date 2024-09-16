@@ -244,6 +244,15 @@ public without sharing class PatientJourneyController {
             this.formQuestions = formQuestions;
         }
     }
+
+    @AuraEnabled(cacheable=true)
+    public static Patient_Journey__c getPatientDetailsByJourneyId(String recordId){
+        try{
+            return [SELECT Patient__r.Study_Protocol__r.Display_Name__c, Patient__r.Year_Of_Birth__c, Current_Stage__c, Patient__r.Subject_Id__c FROM Patient_Journey__c WHERE Id =: recordId LIMIT 1];
+        }catch(Exception e){
+            throw new AuraHandledException(e.getMessage());
+        }
+    }
     
 
     @AuraEnabled
