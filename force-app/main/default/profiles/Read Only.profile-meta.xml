@@ -315,10 +315,7 @@
         <apexClass>ShipmentTriggerHandler</apexClass>
         <enabled>false</enabled>
     </classAccesses>
-    <classAccesses>
-        <apexClass>SiteHeaderController</apexClass>
-        <enabled>false</enabled>
-    </classAccesses>
+    
     <classAccesses>
         <apexClass>SiteHomeController</apexClass>
         <enabled>false</enabled>
@@ -363,10 +360,7 @@
         <apexClass>StudySiteRelationTriggerHandler</apexClass>
         <enabled>false</enabled>
     </classAccesses>
-    <classAccesses>
-        <apexClass>StudySiteRelationValidation</apexClass>
-        <enabled>false</enabled>
-    </classAccesses>
+   
     <classAccesses>
         <apexClass>StudyTemplateCreation</apexClass>
         <enabled>false</enabled>
