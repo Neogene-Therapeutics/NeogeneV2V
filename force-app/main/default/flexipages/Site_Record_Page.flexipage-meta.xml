@@ -19,9 +19,9 @@
                             <value>Account.Verify</value>
                             <visibilityRule>
                                 <criteria>
-                                    <leftValue>{!Record.Site_Status__c}</leftValue>
+                                    <leftValue>{!Record.is_Logistic__c}</leftValue>
                                     <operator>EQUAL</operator>
-                                    <rightValue>Inactive</rightValue>
+                                    <rightValue>true</rightValue>
                                 </criteria>
                             </visibilityRule>
                         </valueListItems>

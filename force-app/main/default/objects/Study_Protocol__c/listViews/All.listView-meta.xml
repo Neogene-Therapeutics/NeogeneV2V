@@ -6,6 +6,7 @@
     <columns>Study_Template_Name__c</columns>
     <columns>Disease__c</columns>
     <columns>Protocol_Number__c</columns>
+    <columns>Active__c</columns>
     <filterScope>Everything</filterScope>
     <label>All</label>
 </ListView>

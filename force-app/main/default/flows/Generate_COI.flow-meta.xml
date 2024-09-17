@@ -3,8 +3,8 @@
     <actionCalls>
         <name>generate_random_number</name>
         <label>generate random number</label>
-        <locationX>50</locationX>
-        <locationY>539</locationY>
+        <locationX>176</locationX>
+        <locationY>431</locationY>
         <actionName>COI</actionName>
         <actionType>apex</actionType>
         <connector>
@@ -22,8 +22,8 @@
     <assignments>
         <name>Generate_COI</name>
         <label>Generate COI</label>
-        <locationX>50</locationX>
-        <locationY>647</locationY>
+        <locationX>176</locationX>
+        <locationY>539</locationY>
         <assignmentItems>
             <assignToReference>NewCOI.COINumber__c</assignToReference>
             <operator>Assign</operator>
@@ -56,28 +56,6 @@
             <stringValue>NG-C--</stringValue>
         </value>
     </constants>
-    <decisions>
-        <name>Check_For_status</name>
-        <label>Check For status</label>
-        <locationX>182</locationX>
-        <locationY>431</locationY>
-        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
-        <rules>
-            <name>Status_Completed</name>
-            <conditionLogic>and</conditionLogic>
-            <conditions>
-                <leftValueReference>$Record.Patient_Journey__r.Study_Definition__r.Display_Name__c</leftValueReference>
-                <operator>StartsWith</operator>
-                <rightValue>
-                    <stringValue>AZ</stringValue>
-                </rightValue>
-            </conditions>
-            <connector>
-                <targetReference>generate_random_number</targetReference>
-            </connector>
-            <label>Status Completed</label>
-        </rules>
-    </decisions>
     <environments>Default</environments>
     <formulas>
         <name>Dynamic_generation</name>
@@ -120,8 +98,8 @@ TEXT(MOD(FLOOR((NOW() - DATETIMEVALUE(&quot;1900-01-01 00:00:00&quot;)) * 864000
     <recordCreates>
         <name>Create_COI</name>
         <label>Create COI</label>
-        <locationX>50</locationX>
-        <locationY>755</locationY>
+        <locationX>176</locationX>
+        <locationY>647</locationY>
         <connector>
             <targetReference>Update_Records_In_patient_Journey</targetReference>
         </connector>
@@ -130,11 +108,11 @@ TEXT(MOD(FLOOR((NOW() - DATETIMEVALUE(&quot;1900-01-01 00:00:00&quot;)) * 864000
     <recordLookups>
         <name>Get_records</name>
         <label>Get records</label>
-        <locationX>182</locationX>
+        <locationX>176</locationX>
         <locationY>323</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
-            <targetReference>Check_For_status</targetReference>
+            <targetReference>generate_random_number</targetReference>
         </connector>
         <filterLogic>and</filterLogic>
         <filters>
@@ -151,8 +129,8 @@ TEXT(MOD(FLOOR((NOW() - DATETIMEVALUE(&quot;1900-01-01 00:00:00&quot;)) * 864000
     <recordUpdates>
         <name>Update_Records_In_patient_Journey</name>
         <label>Update Records In patient Journey</label>
-        <locationX>50</locationX>
-        <locationY>863</locationY>
+        <locationX>176</locationX>
+        <locationY>755</locationY>
         <filterLogic>and</filterLogic>
         <filters>
             <field>Id</field>
@@ -176,7 +154,7 @@ TEXT(MOD(FLOOR((NOW() - DATETIMEVALUE(&quot;1900-01-01 00:00:00&quot;)) * 864000
         <object>Patient_Journey__c</object>
     </recordUpdates>
     <start>
-        <locationX>56</locationX>
+        <locationX>50</locationX>
         <locationY>0</locationY>
         <connector>
             <targetReference>Get_records</targetReference>

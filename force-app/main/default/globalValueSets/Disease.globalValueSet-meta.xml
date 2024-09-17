@@ -30,6 +30,11 @@
         <default>false</default>
         <label>Ovarian Cancer</label>
     </customValue>
+    <customValue>
+        <fullName>Multiple Myeloma</fullName>
+        <default>false</default>
+        <label>Multiple Myeloma</label>
+    </customValue>
     <masterLabel>Disease</masterLabel>
     <sorted>false</sorted>
 </GlobalValueSet>

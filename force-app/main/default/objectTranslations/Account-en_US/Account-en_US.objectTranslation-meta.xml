@@ -96,10 +96,6 @@
         <name>Clinical_Site</name>
     </recordTypes>
     <recordTypes>
-        <label><!-- Courier --></label>
-        <name>Courier</name>
-    </recordTypes>
-    <recordTypes>
         <label><!-- Manufacturing Site --></label>
         <name>Manufacturing_Site</name>
     </recordTypes>

@@ -3,7 +3,7 @@
     <actionCalls>
         <name>Fetch_PIN</name>
         <label>Fetch PIN</label>
-        <locationX>446</locationX>
+        <locationX>578</locationX>
         <locationY>134</locationY>
         <actionName>NexusUtility</actionName>
         <actionType>apex</actionType>
@@ -22,7 +22,7 @@
     <decisions>
         <name>Object_based_verification</name>
         <label>Object based verification</label>
-        <locationX>446</locationX>
+        <locationX>578</locationX>
         <locationY>350</locationY>
         <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
         <rules>
@@ -70,6 +70,21 @@
             </connector>
             <label>Study Protocol</label>
         </rules>
+        <rules>
+            <name>Study_Template</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>recordId</leftValueReference>
+                <operator>StartsWith</operator>
+                <rightValue>
+                    <stringValue>a0i</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Activate_Template</targetReference>
+            </connector>
+            <label>Study Template</label>
+        </rules>
     </decisions>
     <environments>Default</environments>
     <interviewLabel>Verify Patient {!$Flow.CurrentDateTime}</interviewLabel>
@@ -107,6 +122,12 @@
                 <elementReference>recordId</elementReference>
             </value>
         </filters>
+        <inputAssignments>
+            <field>Reason_of_Signature__c</field>
+            <value>
+                <elementReference>Reason_of_Signature</elementReference>
+            </value>
+        </inputAssignments>
         <inputAssignments>
             <field>Site_Status__c</field>
             <value>
@@ -147,6 +168,12 @@
             </value>
         </inputAssignments>
         <inputAssignments>
+            <field>Reason_of_signature__c</field>
+            <value>
+                <elementReference>Reason_of_Signature</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
             <field>Verify_At__c</field>
             <value>
                 <elementReference>$Flow.CurrentDateTime</elementReference>
@@ -161,9 +188,9 @@
         <object>Study_Protocol__c</object>
     </recordUpdates>
     <recordUpdates>
-        <name>Update_Patient_record</name>
-        <label>Update Patient record</label>
-        <locationX>314</locationX>
+        <name>Activate_Template</name>
+        <label>Activate Template</label>
+        <locationX>842</locationX>
         <locationY>458</locationY>
         <filterLogic>and</filterLogic>
         <filters>
@@ -174,17 +201,98 @@
             </value>
         </filters>
         <inputAssignments>
+            <field>Active__c</field>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Reason_of_verification__c</field>
+            <value>
+                <elementReference>Reason_of_Signature</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Verify_At__c</field>
+            <value>
+                <elementReference>$Flow.CurrentDateTime</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Verify_By__c</field>
+            <value>
+                <elementReference>$User.Id</elementReference>
+            </value>
+        </inputAssignments>
+        <object>Study_Template__c</object>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Update_Patient_record</name>
+        <label>Update Patient record</label>
+        <locationX>314</locationX>
+        <locationY>458</locationY>
+        <connector>
+            <targetReference>Update_Records_4</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>recordId</elementReference>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>Comments__c</field>
+            <value>
+                <elementReference>Reason_of_Signature</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
             <field>Status__c</field>
             <value>
                 <stringValue>Verified</stringValue>
             </value>
         </inputAssignments>
+        <inputAssignments>
+            <field>Verify_At__c</field>
+            <value>
+                <elementReference>$Flow.CurrentDateTime</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Verify_By__c</field>
+            <value>
+                <elementReference>$User.Id</elementReference>
+            </value>
+        </inputAssignments>
         <object>Patient_Registration__c</object>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Update_Records_4</name>
+        <label>Update Records 4</label>
+        <locationX>314</locationX>
+        <locationY>566</locationY>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>recordId</elementReference>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>AccessLevel</field>
+            <value>
+                <stringValue>Read</stringValue>
+            </value>
+        </inputAssignments>
+        <object>Patient_Registration__Share</object>
     </recordUpdates>
     <screens>
         <name>Verify_PIN</name>
         <label>Verify PIN</label>
-        <locationX>446</locationX>
+        <locationX>578</locationX>
         <locationY>242</locationY>
         <allowBack>false</allowBack>
         <allowFinish>true</allowFinish>
@@ -204,8 +312,8 @@
             </validationRule>
         </fields>
         <fields>
-            <name>Comments</name>
-            <fieldText>Comments</fieldText>
+            <name>Reason_of_Signature</name>
+            <fieldText>Reason of Signature</fieldText>
             <fieldType>LargeTextArea</fieldType>
             <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
             <isRequired>true</isRequired>
@@ -215,13 +323,13 @@
         <showHeader>true</showHeader>
     </screens>
     <start>
-        <locationX>320</locationX>
+        <locationX>452</locationX>
         <locationY>0</locationY>
         <connector>
             <targetReference>Fetch_PIN</targetReference>
         </connector>
     </start>
-    <status>Obsolete</status>
+    <status>Active</status>
     <variables>
         <name>recordId</name>
         <dataType>String</dataType>

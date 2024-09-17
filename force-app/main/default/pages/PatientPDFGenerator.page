@@ -1,0 +1,142 @@
+<apex:page renderas="pdf">
+    <div style="text-align:center; font-size: 20px; font-weight: bold; margin-bottom: 20px;">
+        Patient Report
+    </div>
+    <div style="text-align:left; font-size: 16px; margin-left: 10px;">
+        Patient Details
+    </div>
+    <div style="margin-bottom: 0px;">&nbsp;</div>
+    <table border="1" style="border: 1px solid #ccc; width: 100%; text-align: Left;">
+       <tr style="border-bottom: 1px solid #ccc;">
+            <td style="padding: 10px;width: 25%;">Name</td>
+            <td style="padding: 10px;width: 25%;">Value</td>
+            <td style="padding: 10px;width: 25%;">Submitted By</td>
+            <td style="padding: 10px;width: 25%;">Submitted On</td>
+            <td style="padding: 10px;width: 25%;">Verified By</td>
+            <td style="padding: 10px;width: 25%;">Verified On</td>
+            <td style="padding: 10px;width: 25%;">Reason Of Signature</td>
+        </tr>
+        <tr style="border-bottom: 1px solid #ccc;">
+           <td style="padding: 10px;width: 25%;"> COI</td>
+           <td style="padding: 10px;width: 25%;"></td>
+           <td style="padding: 10px;width: 25%;"></td>
+           <td style="padding: 10px;width: 25%;"></td>
+           <td style="padding: 10px;width: 25%;"></td>
+           <td style="padding: 10px;width: 25%;"></td>
+           <td style="padding: 10px;width: 25%;"></td>
+        </tr>
+         <tr style="border-bottom: 1px solid #ccc;">
+           <td style="padding: 10px;width: 25%;">Subject ID</td>
+           <td style="padding: 10px;width: 25%;"></td>
+           <td style="padding: 10px;width: 25%;"></td>
+           <td style="padding: 10px;width: 25%;"></td>
+           <td style="padding: 10px;width: 25%;"></td>
+           <td style="padding: 10px;width: 25%;"></td>
+           <td style="padding: 10px;width: 25%;"></td>
+        </tr>
+         <tr style="border-bottom: 1px solid #ccc;">
+           <td style="padding: 10px;width: 25%;">Year Of Birth</td>
+           <td style="padding: 10px;width: 25%;"></td>
+           <td style="padding: 10px;width: 25%;"></td>
+           <td style="padding: 10px;width: 25%;"></td>
+           <td style="padding: 10px;width: 25%;"></td>
+           <td style="padding: 10px;width: 25%;"></td>
+           <td style="padding: 10px;width: 25%;"></td>
+        </tr>
+        
+         <tr style="border-bottom: 1px solid #ccc;">
+           <td style="padding: 10px;width: 25%;"></td>
+           <td style="padding: 10px;width: 25%;"></td>
+           <td style="padding: 10px;width: 25%;"></td>
+           <td style="padding: 10px;width: 25%;"></td>
+           <td style="padding: 10px;width: 25%;"></td>
+           <td style="padding: 10px;width: 25%;"></td>
+           <td style="padding: 10px;width: 25%;"></td>
+        </tr>
+    </table>
+    
+      <div style="text-align:left; font-size: 16px; margin-left: 10px; margin-top: 30px;">
+        Patient Verification Details
+    </div>
+    <div style="margin-bottom: 0px;">&nbsp;</div>
+    <table border="1" style="border: 1px solid #ccc; width: 100%; text-align: Left;">
+       <tr style="border-bottom: 1px solid #ccc;">
+            <td style="padding: 10px;width: 25%;">Action Type</td>
+            <td style="padding: 10px;width: 25%;">Action By</td>
+            <td style="padding: 10px;width: 25%;">Action At</td>
+            <td style="padding: 10px;width: 25%;">Comment</td>
+        </tr>
+        <tr style="border-bottom: 1px solid #ccc;">
+            <td style="padding: 10px;">Subject ID Number</td>
+            <td style="padding: 10px;"></td>
+            <td style="padding: 10px;">DIN</td>
+            <td style="padding: 10px;"></td>
+        </tr>
+    </table>
+    <div style="text-align: Center; font-size: 20px; font-weight: bold; margin-top: 30px;">
+        Neogene Therapeutics Patient Report
+    </div>
+    <div style="margin-bottom: 0px;">&nbsp;</div>
+    <table border="1" style="border: 1px solid #ccc; width: 100%; text-align: Left;">
+       <tr style="border-bottom: 1px solid #ccc;">
+            <td style="padding: 10px;width: 25%;">Process Execution Order</td>
+            <td style="padding: 10px;width: 25%;">Process Name</td>
+            <td style="padding: 10px;width: 25%;">Process Status</td>
+            <td style="padding: 10px;width: 25%;">Process Last Update On</td>
+        </tr>
+          <tr style="border-bottom: 1px solid #ccc;">
+            <td style="padding: 10px;width: 25%;">  </td>
+            <td style="padding: 10px;width: 25%;">  </td>
+            <td style="padding: 10px;width: 25%;">  </td>
+            <td style="padding: 10px;width: 25%;">  </td>
+        </tr>
+    </table>
+          <div style="text-align:left; font-size: 16px; margin-left: 10px; margin-top: 30px;">
+        Patient Scan Details
+    </div>
+    <div style="margin-bottom: 0px;">&nbsp;</div>
+    <table border="1" style="border: 1px solid #ccc; width: 100%; text-align: Left;">
+       <tr style="border-bottom: 1px solid #ccc;">
+            <td style="padding: 10px;width: 25%;">Process Name</td>
+            <td style="padding: 10px;width: 25%;">Scan Type</td>
+            <td style="padding: 10px;width: 25%;">Scan Record</td>
+            <td style="padding: 10px;width: 25%;">Scan Result</td>
+            <td style="padding: 10px;width: 25%;">Scanned By</td>
+            <td style="padding: 10px;width: 25%;">Scanned On</td>
+            <td style="padding: 10px;width: 25%;">Comments</td>
+        </tr>
+        <tr style="border-bottom: 1px solid #ccc;">
+            <td style="padding: 10px;"></td>
+            <td style="padding: 10px;"></td>
+            <td style="padding: 10px;"></td>
+            <td style="padding: 10px;"></td>
+             <td style="padding: 10px;"></td>
+             <td style="padding: 10px;"></td>
+             <td style="padding: 10px;"></td>
+        </tr>
+    </table>
+     <div style="text-align: Center; font-size: 20px; font-weight: bold; margin-top: 70px;">
+        Neogene Therapeutics Patient Report
+    </div>
+    <div style="margin-bottom: 0px;">&nbsp;</div>
+    <table border="1" style="border: 1px solid #ccc; width: 100%; text-align: Left;">
+       <tr style="border-bottom: 1px solid #ccc;">
+            <td style="padding: 10px;width: 25%;">Process Name</td>
+            <td style="padding: 10px;width: 25%;">Scan Type</td>
+            <td style="padding: 10px;width: 25%;">Scan Record</td>
+            <td style="padding: 10px;width: 25%;">Scan Result</td>
+            <td style="padding: 10px;width: 25%;">Scanned By</td>
+            <td style="padding: 10px;width: 25%;">Scanned On</td>
+            <td style="padding: 10px;width: 25%;">Comments</td>
+        </tr>
+        <tr style="border-bottom: 1px solid #ccc;">
+            <td style="padding: 10px;"></td>
+            <td style="padding: 10px;"></td>
+            <td style="padding: 10px;"></td>
+            <td style="padding: 10px;"></td>
+             <td style="padding: 10px;"></td>
+             <td style="padding: 10px;"></td>
+             <td style="padding: 10px;"></td>
+        </tr>
+    </table>
+</apex:page>

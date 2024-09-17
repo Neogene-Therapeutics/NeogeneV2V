@@ -7,14 +7,18 @@
             <div class="dash-bord-wrapper slds-grid_align-center slds-grid">
                 <div class="dash-container slds-p-horizontal_xx-large ">
                     <div class="cardcon slds-p-around_medium slds-grid slds-nowrap slds-d-box">
-                        <div class="d-graph">
-                            <img src="images/graph.png">
+                        <!-- <div class="d-graph"> -->
+                        <!-- <img src="images/graph.png"> -->
+                        <!-- <canvas lwc:ref="donutChart"></canvas> -->
+                        <!-- </div> -->
+                        <div>
+                            <canvas id="myCanvas" class="donut" lwc:dom="manual"></canvas>
                         </div>
                         <div class="c-slds-row">
-                            <div class="slds-grid w100 slds-grid_vertical-align-start ">
+                            <div class="slds-grid w100 slds-grid_vertical-align-start">
                                 <div class="slds-col slds-size_1-of-3 d-card">
                                     <div>{totalJourney}</div>
-                                    <label class="c-Mulberry">Total Patients Journeys</label>
+                                    <label class="c-Mulberry">Total V2V Journeys</label>
                                 </div>
                                 <div class="slds-col slds-size_1-of-3 d-card">
                                     <div>{ApheresisCompletedCount}</div>
@@ -26,17 +30,17 @@
                                 </div>
                             </div>
                             <div class="slds-grid w100 bg-grey slds-grid_vertical-align-start">
-                                <div class="slds-col slds-size_1-of-3 d-card small">
+                                <div class="slds-col slds-size_1-of-3 d-card">
                                     <div>{IPPackOutCompletedCount}</div>
-                                    <label>IP Pack-Out Completed</label>
+                                    <label class="c-Navy">IP Pack-Out Completed</label>
                                 </div>
-                                <div class="slds-col slds-size_1-of-3 d-card small">
+                                <div class="slds-col slds-size_1-of-3 d-card">
                                     <div>{IPInfusionCompletedCount}</div>
-                                    <label>IP Infusion Completed</label>
+                                    <label class="c-Magenta">IP Infusion Completed</label>
                                 </div>
-                                <div class="slds-col slds-size_1-of-3 d-card small">
+                                <div class="slds-col slds-size_1-of-3 d-card">
                                     <div>{activeJourney}</div>
-                                    <label>Active Patient Journeys</label>
+                                    <label class="c-Purple">Active V2V Journeys</label>
                                 </div>
                             </div>
                         </div>
@@ -46,7 +50,24 @@
                         <button class="btn nevyblue small">View All Tasks</button>
                     </div>
                     <div class="slds-grid slds-grid_vertical-align-start slds-wrap taskwrap slds-gutters">
-                        <div class="slds-col slds-size_1-of-3 slds-p-around_medium">
+                        <template for:each={openTasks} for:item="task">
+                            <div key={task.Id} class="slds-col slds-size_1-of-3 slds-p-around_medium">
+                                <div class="taskcard slds-p-around_medium">
+                                    <label>{task.taskName}</label>
+                                    <div class="slds-m-bottom_x-small"><span>Subject ID :
+                                        </span>{task.subjectId}
+                                    </div>
+                                    <div class="slds-m-bottom_x-small"><span>Year of Birth :
+                                        </span>{task.yob}
+                                    </div>
+                                    <button onclick={navigateToV2V} data-journey-id={task.journeyId}
+                                        class="slds-m-top_x-small btn nevyblue small">View
+                                        V2V Journey</button>
+                                </div>
+                            </div>
+                        </template>
+
+                        <!-- <div class="slds-col slds-size_1-of-3 slds-p-around_medium">
                             <div class="taskcard slds-p-around_medium">
                                 <label>Apheresis Collection</label>
                                 <div class="slds-m-bottom_x-small"><span>Subject ID : </span>PT78609UD</div>
@@ -117,7 +138,7 @@
                                 <div class="slds-m-bottom_x-small"><span>Year of Birth : </span>1960</div>
                                 <button class="slds-m-top_x-small btn nevyblue small">View Patient Journey</button>
                             </div>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
             </div>

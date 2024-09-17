@@ -5,6 +5,7 @@
     <excludeButtons>ChangeRecordType</excludeButtons>
     <excludeButtons>Clone</excludeButtons>
     <excludeButtons>Delete</excludeButtons>
+    <excludeButtons>OpenSlackRecordChannel</excludeButtons>
     <excludeButtons>PrintableView</excludeButtons>
     <excludeButtons>RecordShareHierarchy</excludeButtons>
     <excludeButtons>Share</excludeButtons>
@@ -18,6 +19,22 @@
             <layoutItems>
                 <behavior>Required</behavior>
                 <field>Name</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Active__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Verify_By__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Verify_At__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Reason_of_verification__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
@@ -64,7 +81,13 @@
             <actionType>StandardButton</actionType>
             <sortOrder>0</sortOrder>
         </platformActionListItems>
+        <platformActionListItems>
+            <actionName>Study_Template__c.Verify</actionName>
+            <actionType>QuickAction</actionType>
+            <sortOrder>1</sortOrder>
+        </platformActionListItems>
     </platformActionList>
+    <quickActionList/>
     <relatedLists>
         <fields>NAME</fields>
         <relatedList>Study_Protocol__c.Study_Template__c</relatedList>
@@ -76,6 +99,8 @@
         <fields>COI_Generation__c</fields>
         <fields>Read_Access_Queues__c</fields>
         <fields>Write_Access_Queue__c</fields>
+        <fields>Site_Facing__c</fields>
+        <fields>Sponsor_facing__c</fields>
         <relatedList>Study_Template_Milestone__c.Study_Template__c</relatedList>
     </relatedLists>
     <showEmailCheckbox>false</showEmailCheckbox>

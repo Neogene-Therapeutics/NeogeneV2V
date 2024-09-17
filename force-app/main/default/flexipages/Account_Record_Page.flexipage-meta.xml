@@ -234,6 +234,18 @@
                 <identifier>RecordVerify_At__cField</identifier>
             </fieldInstance>
         </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldItem>Record.is_Logistic__c</fieldItem>
+                <identifier>Recordis_Logistic__cField</identifier>
+            </fieldInstance>
+        </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldItem>Record.Reason_of_Signature__c</fieldItem>
+                <identifier>RecordReason_of_Signature__cField</identifier>
+            </fieldInstance>
+        </itemInstances>
         <name>Facet-a42875e1-5ee9-4962-a201-8a20dffd816e</name>
         <type>Facet</type>
     </flexiPageRegions>

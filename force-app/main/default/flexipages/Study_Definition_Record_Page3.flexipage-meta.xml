@@ -16,9 +16,9 @@
                             <value>Study_Protocol__c.Verify</value>
                             <visibilityRule>
                                 <criteria>
-                                    <leftValue>{!Record.Active__c}</leftValue>
+                                    <leftValue>{!Record.is_Logistic__c}</leftValue>
                                     <operator>EQUAL</operator>
-                                    <rightValue>false</rightValue>
+                                    <rightValue>true</rightValue>
                                 </criteria>
                             </visibilityRule>
                         </valueListItems>

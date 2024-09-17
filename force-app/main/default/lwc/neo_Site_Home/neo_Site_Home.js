@@ -69,7 +69,7 @@ export default class Neo_Site_Home extends NavigationMixin(LightningElement) {
         this[NavigationMixin.Navigate]({
             type: 'comm__namedPage',
             attributes: {
-                name: 'Patients__c'
+                name: 'dashboard__c'
             }
         });
     }
