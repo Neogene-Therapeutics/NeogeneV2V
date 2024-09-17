@@ -8,8 +8,6 @@
         </roles>
         <users>
             <user>aakriti_nexus_admin02@neogene.com</user>
-            <user>elibryan@neogene.com-v2vdev</user>
-            <user>josephs@neogene.com-v2vdemo</user>
         </users>
     </queueMembers>
     <queueSobject>
