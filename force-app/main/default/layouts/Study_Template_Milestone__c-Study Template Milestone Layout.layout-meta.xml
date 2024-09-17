@@ -102,14 +102,16 @@
         <relatedList>RelatedHistoryList</relatedList>
     </relatedLists>
     <relatedLists>
-        <fields>NAME</fields>
         <fields>Display_Name__c</fields>
         <fields>Apheresis_Shipment__c</fields>
         <fields>Drug_Product_Shipment__c</fields>
         <fields>Order__c</fields>
         <fields>Verify__c</fields>
         <fields>Task_Owner__c</fields>
-        <fields>Study_Template_Form__c</fields>
+        <fields>Site_Facing__c</fields>
+        <fields>Sponsor_facing__c</fields>
+        <fields>Write_Access_Queues__c</fields>
+        <fields>Read_Access_Queues__c</fields>
         <relatedList>Study_Template_Milestone_Task__c.Study_Template_Milestone__c</relatedList>
     </relatedLists>
     <relatedLists>
@@ -124,7 +126,7 @@
     <showRunAssignmentRulesCheckbox>false</showRunAssignmentRulesCheckbox>
     <showSubmitAndAttachButton>false</showSubmitAndAttachButton>
     <summaryLayout>
-        <masterLabel>00hWE000000WxzR</masterLabel>
+        <masterLabel>00hdz0000004Cr8</masterLabel>
         <sizeX>4</sizeX>
         <sizeY>0</sizeY>
         <summaryLayoutStyle>Default</summaryLayoutStyle>

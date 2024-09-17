@@ -1,11 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Profile xmlns="http://soap.sforce.com/2006/04/metadata">
     <applicationVisibilities>
-        <application>Nexus_Hub</application>
-        <default>false</default>
-        <visible>false</visible>
-    </applicationVisibilities>
-    <applicationVisibilities>
         <application>Nexus_V2V</application>
         <default>false</default>
         <visible>false</visible>
@@ -315,7 +310,6 @@
         <apexClass>ShipmentTriggerHandler</apexClass>
         <enabled>false</enabled>
     </classAccesses>
-    
     <classAccesses>
         <apexClass>SiteHomeController</apexClass>
         <enabled>false</enabled>
@@ -360,7 +354,6 @@
         <apexClass>StudySiteRelationTriggerHandler</apexClass>
         <enabled>false</enabled>
     </classAccesses>
-   
     <classAccesses>
         <apexClass>StudyTemplateCreation</apexClass>
         <enabled>false</enabled>
@@ -546,6 +539,11 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Account.Rating</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Account.Reason_of_Signature__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -1135,6 +1133,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Manufacturing_Slot__c.Manufacturing_display_name__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Manufacturing_Slot__c.Patient_Journey__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -1225,11 +1228,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Patient_Journey__c.Study__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
         <field>Patient_Journey__c.Subject_ID__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -1310,22 +1308,12 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Patient_Milestone_Task_Form_Question__c.isManufacturingStatus__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
         <field>Patient_Milestone_Task__c.Apheresis_Shipment__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
         <field>Patient_Milestone_Task__c.Comment__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Patient_Milestone_Task__c.Comment_c__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -1450,11 +1438,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Patient_Registration__c.Study_Protocol_Id__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
         <field>Patient_Registration__c.Study_Protocol_Name__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -1470,12 +1453,27 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Patient_Registration__c.Verify_At__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Patient_Registration__c.Verify_By__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Patient_Registration__c.Verify_Patient__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
         <field>Patient_Registration__c.Year_of_Birth__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Patient_Registration__c.is_clinical__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -1875,11 +1873,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Study_Protocol__c.Account__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
         <field>Study_Protocol__c.Active__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -1900,11 +1893,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Study_Protocol__c.Indications__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
         <field>Study_Protocol__c.Product_Code__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -1915,12 +1903,12 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Study_Protocol__c.Study_Protocol_Description__c</field>
+        <field>Study_Protocol__c.Reason_of_signature__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Study_Protocol__c.Study_Protocol_Id__c</field>
+        <field>Study_Protocol__c.Study_Protocol_Description__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -1941,11 +1929,6 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Study_Protocol__c.Study_Template__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Study_Protocol__c.Therapy__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -2175,7 +2158,32 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Study_Template__c.Active__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Study_Template__c.Reason_of_verification__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Study_Template__c.Study_template_Name__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Study_Template__c.Verify_At__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Study_Template__c.Verify_By__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Study_Template__c.is_Logistic__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -2250,10 +2258,6 @@
     <layoutAssignments>
         <layout>Account-Account Layout</layout>
         <recordType>Account.Clinical_Site</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Account-Account Layout</layout>
-        <recordType>Account.Courier</recordType>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Account-Account Layout</layout>
@@ -2601,9 +2605,6 @@
         <layout>ServiceContract-Service Contract Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>ServiceResource-Service Resource Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
         <layout>SessionHijackingEventStore-Session Hijacking Event Store Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
@@ -2808,6 +2809,10 @@
         <enabled>false</enabled>
     </pageAccesses>
     <pageAccesses>
+        <apexPage>PatientPDFGenerator</apexPage>
+        <enabled>false</enabled>
+    </pageAccesses>
+    <pageAccesses>
         <apexPage>SiteLogin</apexPage>
         <enabled>true</enabled>
     </pageAccesses>
@@ -2835,6 +2840,10 @@
         <apexPage>UnderConstruction</apexPage>
         <enabled>true</enabled>
     </pageAccesses>
+    <pageAccesses>
+        <apexPage>User_Page</apexPage>
+        <enabled>false</enabled>
+    </pageAccesses>
     <recordTypeVisibilities>
         <default>false</default>
         <recordType>Account.Apheresis_Center</recordType>
@@ -2848,11 +2857,6 @@
     <recordTypeVisibilities>
         <default>false</default>
         <recordType>Account.Clinical_Site</recordType>
-        <visible>false</visible>
-    </recordTypeVisibilities>
-    <recordTypeVisibilities>
-        <default>false</default>
-        <recordType>Account.Courier</recordType>
         <visible>false</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>

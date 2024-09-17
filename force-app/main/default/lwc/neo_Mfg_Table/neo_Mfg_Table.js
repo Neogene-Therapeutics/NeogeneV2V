@@ -1,45 +1,43 @@
-import { LightningElement, track, wire } from 'lwc';
+import { LightningElement, track } from 'lwc';
 import getManufacturingSiteOptions from '@salesforce/apex/MfgSlotController.getManufacturingSiteOptions';
 import getClinicalSiteOptions from '@salesforce/apex/MfgSlotController.getClinicalSiteOptions';
 import getMFGSlots from '@salesforce/apex/MfgSlotController.getMFGSlots';
 import updateManufacturingSlots from '@salesforce/apex/MfgSlotController.updateManufacturingSlots';
 
-export default class ManufacturingSlotsOverview extends LightningElement {
+export default class neo_Mfg_Table extends LightningElement {
     @track manufacturingSiteOptions = [];
     @track clinicalSiteOptions = [];
     @track filteredData = [];
-    @track draftValues = [];
     @track isDataAvailable = false;
     @track selectedStudy;
     @track studyOptions = [];
+    @track isModalOpen = false;
+    @track selectedRecordId;
+    @track selectedClinicalSite;
+    @track selectedManufacturingSite;
+    @track isClinicalSite = false;
+    @track isManufacturingSite = false;
 
     columns = [
         { label: 'Slot Name', fieldName: 'Name' },
         { label: 'Slot Quantity', fieldName: 'Slot_Quantity__c' },
-        { label: 'Study Protocol', fieldName: 'Study_ID__r.Display_Name__c' },
         {
             label: 'Clinical Site',
-            fieldName: 'Clinical_Site__c',
-            type: 'picklist',
+            type: 'button',
             typeAttributes: {
-                placeholder: 'Select Clinical Site',
-                options: { fieldName: 'clinicalSiteOptions' },
-                value: { fieldName: 'Clinical_Site__c' },
-                context: { fieldName: 'Id' }
-            },
-            editable: true
+                label: 'Assign Clinical Site',
+                name: 'assign_clinical_site',
+                variant: 'neutral'
+            }
         },
         {
             label: 'Manufacturing Site',
-            fieldName: 'Manufacturing_Site__c',
-            type: 'picklist',
+            type: 'button',
             typeAttributes: {
-                placeholder: 'Select Manufacturing Site',
-                options: { fieldName: 'manufacturingSiteOptions' },
-                value: { fieldName: 'Manufacturing_Site__c' },
-                context: { fieldName: 'Id' }
-            },
-            editable: true
+                label: 'Assign Manufacturing Site',
+                name: 'assign_manufacturing_site',
+                variant: 'neutral'
+            }
         },
         { label: 'Booking Status', fieldName: 'Booking_Status__c' },
         { label: 'Start Date', fieldName: 'Start_Date__c', type: 'date' }
@@ -75,7 +73,7 @@ export default class ManufacturingSlotsOverview extends LightningElement {
     async loadData() {
         try {
             const slots = await getMFGSlots();
-            console.log('Loaded slots: ', slots); // Log to check if slots are being fetched
+            console.log('Loaded slots: ', slots);
 
             // Create studyOptions dynamically based on Study_ID__r.Display_Name__c
             const studySet = new Set();
@@ -91,8 +89,6 @@ export default class ManufacturingSlotsOverview extends LightningElement {
             }));
 
             this.filteredData = this.filterDataByStudy(slots);
-            console.log('Filtered Data: ', this.filteredData); // Log to check filtered data
-
             this.isDataAvailable = this.filteredData.length > 0;
         } catch (error) {
             console.error('Error loading data:', error);
@@ -102,49 +98,70 @@ export default class ManufacturingSlotsOverview extends LightningElement {
     // Filter data by selected study
     filterDataByStudy(slots) {
         if (!this.selectedStudy) {
-            return slots.map(slot => ({
-                ...slot,
-                clinicalSiteOptions: this.clinicalSiteOptions,
-                manufacturingSiteOptions: this.manufacturingSiteOptions
-            }));
+            return slots;
         }
 
-        return slots
-            .filter(slot => slot.Study_ID__r && slot.Study_ID__r.Display_Name__c === this.selectedStudy)
-            .map(slot => ({
-                ...slot,
-                clinicalSiteOptions: this.clinicalSiteOptions,
-                manufacturingSiteOptions: this.manufacturingSiteOptions
-            }));
+        return slots.filter(slot => slot.Study_ID__r && slot.Study_ID__r.Display_Name__c === this.selectedStudy);
     }
 
     handleFilterChange(event) {
         this.selectedStudy = event.detail.value;
-        console.log('Selected Study: ', this.selectedStudy); // Log to check the selected study
-        this.loadData(); // Refilter the data based on the new study
+        this.loadData();
     }
 
-    // Handle save action
-    async handleSave(event) {
-        const draftValues = event.detail.draftValues;
-        console.log('Draft values: ', draftValues); // Log the draft values before saving
+    // Handle row action for opening modal
+    handleRowAction(event) {
+        const actionName = event.detail.action.name;
+        const row = event.detail.row;
+        this.selectedRecordId = row.Id;
 
-        try {
-            await updateManufacturingSlots(draftValues);
-            await this.loadData(); // Refresh the data after saving
-        } catch (error) {
-            console.error('Error saving changes:', error);
+        // Reset both modals
+        this.isClinicalSite = false;
+        this.isManufacturingSite = false;
+
+        if (actionName === 'assign_clinical_site') {
+            this.selectedClinicalSite = row.Clinical_Site__c;
+            this.isClinicalSite = true;  // Show Clinical Site modal
+            this.openModal();
+        } else if (actionName === 'assign_manufacturing_site') {
+            this.selectedManufacturingSite = row.Manufacturing_Site__c;
+            this.isManufacturingSite = true;  // Show Manufacturing Site modal
+            this.openModal();
         }
     }
 
-    handlePicklistChange(event) {
-        const { value, context } = event.detail.data;
-        const updatedData = this.filteredData.map(record => {
-            if (record.Id === context) {
-                record[event.detail.type] = value;
-            }
-            return record;
-        });
-        this.filteredData = updatedData;
+    openModal() {
+        this.isModalOpen = true;
+    }
+
+    closeModal() {
+        this.isModalOpen = false;
+    }
+
+    handleClinicalSiteChange(event) {
+        this.selectedClinicalSite = event.detail.value;
+    }
+
+    handleManufacturingSiteChange(event) {
+        this.selectedManufacturingSite = event.detail.value;
+    }
+
+    // Save the selected site values to the record
+    async handleSave() {
+        let updatedRecord = { Id: this.selectedRecordId };
+
+        if (this.isClinicalSite) {
+            updatedRecord.Clinical_Site__c = this.selectedClinicalSite;
+        } else if (this.isManufacturingSite) {
+            updatedRecord.Manufacturing_Site__c = this.selectedManufacturingSite;
+        }
+
+        try {
+            await updateManufacturingSlots([updatedRecord]);
+            this.closeModal();
+            this.loadData(); // Reload the data after saving
+        } catch (error) {
+            console.error('Error saving changes:', error);
+        }
     }
 }

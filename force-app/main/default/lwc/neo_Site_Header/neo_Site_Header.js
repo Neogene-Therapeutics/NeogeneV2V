@@ -2,9 +2,11 @@ import { LightningElement, wire, track } from 'lwc';
 import getCurrentUser from '@salesforce/apex/UserProfileController.getCurrentUser';
 import { subscribe, unsubscribe, APPLICATION_SCOPE, MessageContext } from "lightning/messageService";
 import messageDemoMC from "@salesforce/messageChannel/MessageChannel__c";
-import {NavigationMixin} from "lightning/navigation";
+import { NavigationMixin } from "lightning/navigation";
+import LOGO from "@salesforce/resourceUrl/siteLogo";
 
 export default class Neo_Site_Header extends NavigationMixin(LightningElement) {
+    neoLogo = LOGO;
     userName;
     userRole;
     @track isDropdownVisible = false;
@@ -64,7 +66,7 @@ export default class Neo_Site_Header extends NavigationMixin(LightningElement) {
     }
 
     // Handle the logout functionality
-    handleLogout(){
+    handleLogout() {
         this[NavigationMixin.Navigate]({
             type: 'comm__loginPage',
             attributes: {

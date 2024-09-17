@@ -7,6 +7,7 @@
     <columns>Current_Stage__c</columns>
     <columns>COI__c</columns>
     <columns>Status__c</columns>
+    <columns>Clinical_Site__c</columns>
     <filterScope>Everything</filterScope>
     <label>All</label>
 </ListView>

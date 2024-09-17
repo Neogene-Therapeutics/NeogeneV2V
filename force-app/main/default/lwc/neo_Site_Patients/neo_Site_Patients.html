@@ -2,592 +2,106 @@
   @description       : 
   @author            : ChangeMeIn@UserSettingsUnder.SFDoc
   @group             : 
-  @last modified on  : 09-13-2024
+  @last modified on  : 09-17-2024
   @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
 -->
 <template>
-    <div class="dash-bord slds-p-top_x-large slds-p-bottom_x-large">
-        <div class="dash-bord-bg-img">
+  <div class="dash-bord slds-p-top_x-large slds-p-bottom_x-large">
+      <div class="dash-bord-bg-img">
           <img src="https://nexushub--v2vdevorg--c.sandbox.vf.force.com/resource/1726134077000/Background?" alt="">
-        </div>
-        <div class="container">
-          <div class="dash-bord-wrapper">
-            <div class="side-pannel slds-is-fixed slds-p-around_x-small br-10">
-              <div class="side-pannel-box slds-is-relative br-4">
-                <div class="side-pannel-title slds-p-top_x-small slds-p-around_medium">
-                  <div class="side-pannel-tabs">
-                    <div class="side-pannel-tab active">
-                      <p>All Patients</p>
-                    </div>
-                    <div class="side-pannel-tab">
-                      <p>Study Protocol</p>
-                    </div>
-                   <!--- <div class="side-pannel-tab">
-                      <p>Product / Therapy</p>
-                    </div>-->
-                    <div class="side-pannel-tab">
-                      <p>Site</p>
-                    </div>
-                  </div>
-                </div>
-                <div class="side-pannel-bg slds-is-absolute">
-                  <img src="https://nexushub--nhdev--c.sandbox.vf.force.com/resource/1724737220000/sidebar?" alt="">
-                </div>
-              </div>
-            </div>
-            <div class="full-dash-boxs slds-p-horizontal_xx-large ">
-              <div class="topheading slds-p-bottom_medium">
-                <div class="actionarea">
-                  <div class="full-i-fild">
-                    <input type="text" name="" id="" placeholder="Search">
-                  </div>
-                  <a href="" class="btn solid red">Add New Patient</a>
-                </div>
-              </div>
-              <div class="slds-p-horizontal_medium slds-grid slds-nowrap">
-                <a class="slds-p-horizontal_medium" href=""><span class="arrowdown"></span></a>
-                <div class="slds-grid slds-wrap slds-size_full">
-                  <div class="slds-p-horizontal_medium slds-text-title_bold slds-grid slds-wrap slds-size_1-of-1">                
-                    <div class="slds-col slds-size_3-of-12">Patient ID</div>
-                    <div class="slds-col slds-size_3-of-12">Subject Id</div>
-                    <div class="slds-col slds-size_3-of-12">YoB</div>
-                    <div class="slds-col slds-size_3-of-12">Status</div>
-                  </div>
-                </div>
-              </div>
-              <!--
-              <div class="cardcon slds-p-around_medium slds-grid slds-nowrap">
-                <a class="slds-p-around_medium" href=""><img class="arrowdown" src="https://nexushub--nhdev--c.sandbox.vf.force.com/resource/1722583873000/back?"></a>
-                <div class="slds-grid slds-wrap slds-size_full">
-                  <div class="slds-p-around_medium slds-grid slds-wrap slds-size_1-of-1">                
-                    <div class="slds-col slds-size_3-of-12">897654</div>
-                    <div class="slds-col slds-size_3-of-12">786543</div>
-                    <div class="slds-col slds-size_3-of-12">30/08/1995</div>
-                    <div class="slds-col slds-size_3-of-12">Active</div>
-                  </div>
-                  <div class="slds-p-top_small journey-progress slds-size_1-of-1">
-                    <div class="slds-progress fullwidth">
-                      <ol class="slds-progress__list">
-                        <li class="slds-progress__item slds-is-completed">
-                          <div class="slds-progress__marker custommarker statuscomplete slds-progress__marker_icon" tabindex="0">
-                            <img src="https://nexushub--nhdev--c.sandbox.vf.force.com/resource/1724735906000/checkmark?" />
-                            <span class="slds-assistive-text">Registration</span>
-                          </div>
-                        </li>
-                        <li class="slds-progress__item slds-is-completed">
-                          <div class="slds-progress__marker custommarker statuscomplete slds-progress__marker_icon" tabindex="0">
-                            <img src="https://nexushub--nhdev--c.sandbox.vf.force.com/resource/1724735906000/checkmark?" />
-                            <span class="slds-assistive-text">Slot Reservation</span>
-                          </div>
-                        </li>
-                        <li class="slds-progress__item slds-is-active">
-                          <div class="slds-progress__marker custommarker" tabindex="0">
-                            3
-                            <span class="slds-assistive-text">ICF</span>
-                          </div>
-                        </li>
-                        <li class="slds-progress__item">
-                          <div class="slds-progress__marker custommarker" tabindex="0">
-                            4
-                            <span class="slds-assistive-text">Screening &amp; Eligibility</span>
-                          </div>
-                        </li>
-                        <li class="slds-progress__item">
-                          <div class="slds-progress__marker custommarker" tabindex="0">
-                            5
-                            <span class="slds-assistive-text">Apheresis Collection</span>
-                          </div>
-                        </li>
-                        <li class="slds-progress__item">
-                          <div class="slds-progress__marker custommarker" tabindex="0">
-                            6
-                            <span class="slds-assistive-text">Enrollment</span>
-                          </div>
-                        </li>
-                        <li class="slds-progress__item">
-                          <div class="slds-progress__marker custommarker" tabindex="0">
-                            7
-                            <span class="slds-assistive-text">Manufacturing</span>
-                          </div>
-                        </li>
-                        <li class="slds-progress__item">
-                          <div class="slds-progress__marker custommarker" tabindex="0">
-                            8
-                            <span class="slds-assistive-text">Dose Assignment</span>
-                          </div>
-                        </li>
-                        <li class="slds-progress__item">
-                          <div class="slds-progress__marker custommarker" tabindex="0">
-                            9
-                            <span class="slds-assistive-text">QA Disposition</span>
-                          </div>
-                        </li>
-                      </ol>
-                      <div class="slds-progress-bar slds-progress-bar_x-small">
-                        <span class="slds-progress-bar__value" style="width:25%">
-                          <span class="slds-assistive-text"></span>
-                        </span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="cardcon slds-p-around_medium slds-grid slds-nowrap">
-                <a class="slds-p-around_medium" href=""><img class="arrowdown" src="https://nexushub--nhdev--c.sandbox.vf.force.com/resource/1722583873000/back?"></a>
-                <div class="slds-grid slds-wrap slds-size_full">
-                  <div class="slds-p-around_medium slds-grid slds-wrap slds-size_1-of-1">                
-                    <div class="slds-col slds-size_3-of-12">897654</div>
-                    <div class="slds-col slds-size_3-of-12">786543</div>
-                    <div class="slds-col slds-size_3-of-12">30/08/1995</div>
-                    <div class="slds-col slds-size_3-of-12">Active</div>
-                  </div>
-                  <div class="slds-p-top_small journey-progress slds-size_1-of-1">
-                    <div class="slds-progress fullwidth">
-                      <ol class="slds-progress__list">
-                        <li class="slds-progress__item slds-is-completed">
-                          <div class="slds-progress__marker custommarker statuscomplete slds-progress__marker_icon" tabindex="0">
-                            <img src="https://nexushub--nhdev--c.sandbox.vf.force.com/resource/1724735906000/checkmark?" />
-                            <span class="slds-assistive-text">Registration</span>
-                          </div>
-                        </li>
-                        <li class="slds-progress__item slds-is-completed">
-                          <div class="slds-progress__marker custommarker statuscomplete slds-progress__marker_icon" tabindex="0">
-                            <img src="https://nexushub--nhdev--c.sandbox.vf.force.com/resource/1724735906000/checkmark?" />
-                            <span class="slds-assistive-text">Slot Reservation</span>
-                          </div>
-                        </li>
-                        <li class="slds-progress__item slds-is-active">
-                          <div class="slds-progress__marker custommarker" tabindex="0">
-                            3
-                            <span class="slds-assistive-text">ICF</span>
-                          </div>
-                        </li>
-                        <li class="slds-progress__item">
-                          <div class="slds-progress__marker custommarker" tabindex="0">
-                            4
-                            <span class="slds-assistive-text">Screening &amp; Eligibility</span>
-                          </div>
-                        </li>
-                        <li class="slds-progress__item">
-                          <div class="slds-progress__marker custommarker" tabindex="0">
-                            5
-                            <span class="slds-assistive-text">Apheresis Collection</span>
-                          </div>
-                        </li>
-                        <li class="slds-progress__item">
-                          <div class="slds-progress__marker custommarker" tabindex="0">
-                            6
-                            <span class="slds-assistive-text">Enrollment</span>
-                          </div>
-                        </li>
-                        <li class="slds-progress__item">
-                          <div class="slds-progress__marker custommarker" tabindex="0">
-                            7
-                            <span class="slds-assistive-text">Manufacturing</span>
-                          </div>
-                        </li>
-                        <li class="slds-progress__item">
-                          <div class="slds-progress__marker custommarker" tabindex="0">
-                            8
-                            <span class="slds-assistive-text">Dose Assignment</span>
-                          </div>
-                        </li>
-                        <li class="slds-progress__item">
-                          <div class="slds-progress__marker custommarker" tabindex="0">
-                            9
-                            <span class="slds-assistive-text">QA Disposition</span>
-                          </div>
-                        </li>
-                      </ol>
-                      <div class="slds-progress-bar slds-progress-bar_x-small">
-                        <span class="slds-progress-bar__value" style="width:25%">
-                          <span class="slds-assistive-text"></span>
-                        </span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>            
-              <div class="cardcon slds-p-around_medium slds-grid slds-nowrap">
-                <a class="slds-p-around_medium" href=""><img class="arrowdown" src="https://nexushub--nhdev--c.sandbox.vf.force.com/resource/1722583873000/back?"></a>
-                <div class="slds-grid slds-wrap slds-size_full">
-                  <div class="slds-p-around_medium slds-grid slds-wrap slds-size_1-of-1">                
-                    <div class="slds-col slds-size_3-of-12">897654</div>
-                    <div class="slds-col slds-size_3-of-12">786543</div>
-                    <div class="slds-col slds-size_3-of-12">30/08/1995</div>
-                    <div class="slds-col slds-size_3-of-12">Active</div>
-                  </div>
-                  <div class="slds-p-top_small journey-progress slds-size_1-of-1">
-                    <div class="slds-progress fullwidth">
-                      <ol class="slds-progress__list">
-                        <li class="slds-progress__item slds-is-completed">
-                          <div class="slds-progress__marker custommarker statuscomplete slds-progress__marker_icon" tabindex="0">
-                            <img src="https://nexushub--nhdev--c.sandbox.vf.force.com/resource/1724735906000/checkmark?" />
-                            <span class="slds-assistive-text">Registration</span>
-                          </div>
-                        </li>
-                        <li class="slds-progress__item slds-is-completed">
-                          <div class="slds-progress__marker custommarker statuscomplete slds-progress__marker_icon" tabindex="0">
-                            <img src="https://nexushub--nhdev--c.sandbox.vf.force.com/resource/1724735906000/checkmark?" />
-                            <span class="slds-assistive-text">Slot Reservation</span>
-                          </div>
-                        </li>
-                        <li class="slds-progress__item slds-is-active">
-                          <div class="slds-progress__marker custommarker" tabindex="0">
-                            3
-                            <span class="slds-assistive-text">ICF</span>
-                          </div>
-                        </li>
-                        <li class="slds-progress__item">
-                          <div class="slds-progress__marker custommarker" tabindex="0">
-                            4
-                            <span class="slds-assistive-text">Screening &amp; Eligibility</span>
-                          </div>
-                        </li>
-                        <li class="slds-progress__item">
-                          <div class="slds-progress__marker custommarker" tabindex="0">
-                            5
-                            <span class="slds-assistive-text">Apheresis Collection</span>
-                          </div>
-                        </li>
-                        <li class="slds-progress__item">
-                          <div class="slds-progress__marker custommarker" tabindex="0">
-                            6
-                            <span class="slds-assistive-text">Enrollment</span>
-                          </div>
-                        </li>
-                        <li class="slds-progress__item">
-                          <div class="slds-progress__marker custommarker" tabindex="0">
-                            7
-                            <span class="slds-assistive-text">Manufacturing</span>
-                          </div>
-                        </li>
-                        <li class="slds-progress__item">
-                          <div class="slds-progress__marker custommarker" tabindex="0">
-                            8
-                            <span class="slds-assistive-text">Dose Assignment</span>
-                          </div>
-                        </li>
-                        <li class="slds-progress__item">
-                          <div class="slds-progress__marker custommarker" tabindex="0">
-                            9
-                            <span class="slds-assistive-text">QA Disposition</span>
-                          </div>
-                        </li>
-                      </ol>
-                      <div class="slds-progress-bar slds-progress-bar_x-small">
-                        <span class="slds-progress-bar__value" style="width:25%">
-                          <span class="slds-assistive-text"></span>
-                        </span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            -->
-            <template for:each={patients} for:item="patient">
-              <div class="cardcon slds-p-around_medium slds-grid slds-nowrap" key={patient.id}>
-                <a class="slds-p-around_medium" href=""><img class="arrowdown" src="https://nexushub--nhdev--c.sandbox.vf.force.com/resource/1722583873000/back?"></a>
-                <div class="slds-grid slds-wrap slds-size_full">
-                  <div class="slds-p-around_medium slds-grid slds-wrap slds-size_1-of-1">   
-                    <div class="slds-col slds-size_3-of-12">{patient.Name}</div>
-                    <div class="slds-col slds-size_3-of-12">{patient.Subject_ID__c}</div>
-                  <div class="slds-col slds-size_3-of-12">{patient.Year_of_Birth__c}</div>
-                    <div class="slds-col slds-size_3-of-12">{patient.Status__c}</div>
-                  </div>
-                 <!-- <div class="slds-p-top_small journey-progress slds-size_1-of-1">
-                    <div class="slds-progress fullwidth">
-                      <ol class="slds-progress__list">
-                        <li class="slds-progress__item slds-is-completed">
-                          <div class="slds-progress__marker custommarker statuscomplete slds-progress__marker_icon" tabindex="0">
-                            <img src="https://nexushub--nhdev--c.sandbox.vf.force.com/resource/1724735906000/checkmark?" />
-                            <span class="slds-assistive-text">Registration</span>
-                          </div>
-                        </li>
-                        <li class="slds-progress__item slds-is-completed">
-                          <div class="slds-progress__marker custommarker statuscomplete slds-progress__marker_icon" tabindex="0">
-                            <img src="https://nexushub--nhdev--c.sandbox.vf.force.com/resource/1724735906000/checkmark?" />
-                            <span class="slds-assistive-text">Slot Reservation</span>
-                          </div>
-                        </li>
-                        <li class="slds-progress__item slds-is-active">
-                          <div class="slds-progress__marker custommarker" tabindex="0">
-                            3
-                            <span class="slds-assistive-text">ICF</span>
-                          </div>
-                        </li>
-                        <li class="slds-progress__item">
-                          <div class="slds-progress__marker custommarker" tabindex="0">
-                            4
-                            <span class="slds-assistive-text">Screening &amp; Eligibility</span>
-                          </div>
-                        </li>
-                        <li class="slds-progress__item">
-                          <div class="slds-progress__marker custommarker" tabindex="0">
-                            5
-                            <span class="slds-assistive-text">Apheresis Collection</span>
-                          </div>
-                        </li>
-                        <li class="slds-progress__item">
-                          <div class="slds-progress__marker custommarker" tabindex="0">
-                            6
-                            <span class="slds-assistive-text">Enrollment</span>
-                          </div>
-                        </li>
-                        <li class="slds-progress__item">
-                          <div class="slds-progress__marker custommarker" tabindex="0">
-                            7
-                            <span class="slds-assistive-text">Manufacturing</span>
-                          </div>
-                        </li>
-                        <li class="slds-progress__item">
-                          <div class="slds-progress__marker custommarker" tabindex="0">
-                            8
-                            <span class="slds-assistive-text">Dose Assignment</span>
-                          </div>
-                        </li>
-                        <li class="slds-progress__item">
-                          <div class="slds-progress__marker custommarker" tabindex="0">
-                            9
-                            <span class="slds-assistive-text">QA Disposition</span>
-                          </div>
-                        </li>
-                      </ol>
-                      <div class="slds-progress-bar slds-progress-bar_x-small">
-                        <span class="slds-progress-bar__value" style="width:25%">
-                          <span class="slds-assistive-text"></span>
-                        </span>
-                      </div>
-                    </div>
-                  </div>-->
-                  <div class="slds-p-around_medium journey-progress">
-                    <div class="slds-progress">
-                      <ol class="slds-progress__list">
-                        <template lwc:if={showMiletones}>
-                          <template for:each={milestones} for:item="milestone">
-                            <li key={milestone.Id} class={milestone.classNames}>
-                              <div class="slds-progress__marker" tabindex="0">
-                                {milestone.count}
-                              </div>
-                              <span class="tooltip">{milestone.Name}</span>
-                            </li>
-                          </template>
-                        </template>
-                      </ol>
-                      <div class="slds-progress-bar slds-progress-bar_x-small" aria-valuemin="0" aria-valuemax="100"
-                        aria-valuenow="50" aria-label="Placeholder for description of progress bar" role="progressbar">
-                        <span class="slds-progress-bar__value" style="width:0%">
-                          <span class="slds-assistive-text"></span>
-                        </span>
-                      </div>
-                    </div>
-                  </div>
-                  <template if:true={showMiletones}>
-                    <lightning-spinner if:true={isLoading} variant="brand" size="medium"></lightning-spinner>
-                    <template for:each={milestones} for:item="milestone">
-                      <div key={milestone.Id} class="slds-p-horizontal_medium slds-step">
-                        <article class="slds-card slds-card_boundary">
-                          <div class="slds-card__header slds-grid slds-m-bottom_none">
-                            <header class="slds-media slds-media_center slds-has-flexi-truncate slds-p-bottom_small">
-                              <div class="slds-media__figure">
-                                <span class="slds-icon_container slds-icon-standard-account" title={milestone.Name}>
-                                  <span class="slds-icon slds-icon_small"
-                                    aria-hidden="true">{milestone.count}</span>
-                                  <span class="slds-assistive-text">{milestone.Name}</span>
-                                </span>
-                              </div>
-                              <div class="slds-media__body">
-                                <h2 class="slds-card__header-title">
-                                  <a href={milestone.milestoneId} target="_blank"
-                                    class="slds-card__header-link slds-truncate" title={milestone.Name}>
-                                    <span>{milestone.Name}</span>
-                                  </a>
-                                </h2>
-                              </div>
-                            </header>
-                          </div>
-                          <template lwc:if={milestone.hasMilestoneTasks}>
-                            <template for:each={milestone.patientMilestoneTasks} for:item="mileTask">
-                              <div key={mileTask.Id} class="slds-var-m-around_small">
-                                <article class="slds-card slds-card_boundary">
-                                  <div class="slds-card__header slds-grid slds-m-bottom_none">
-                                    <header
-                                      class="slds-media slds-media_center slds-has-flexi-truncate slds-p-bottom_small">
-                                      <div class="slds-media__figure">
-                                        <span class="slds-icon_container slds-icon-standard-contact">
-                                          <lightning-icon size="small"
-                                            icon-name="standard:task"></lightning-icon>
-                                        </span>
-                                      </div>
-                                      <div class="slds-media__body">
-                                        <h2 class="slds-card__header-title">
-                                          <a href={mileTask.milestoneTaskId} target="_blank"
-                                            class="slds-card__header-link slds-truncate"
-                                            title={mileTask.Name}>
-                                            <span>{mileTask.Name}</span>
-                                          </a>
-                                        </h2>
-                                      </div>
-                                      <div class="slds-no-flex">
-                                        <lightning-button disabled={mileTask.taskStatusButton}
-                                          onclick={saveTaskHandler} data-milestone-task-id={mileTask.Id}
-                                          variant="brand" label="Save"
-                                          class="slds-var-m-right_small"></lightning-button>
-                                        <lightning-button disabled={mileTask.taskStatusButton}
-                                          onclick={markAsCompleteHandler} variant="brand" label="Submit"
-                                          data-milestone-task-id={mileTask.Id}></lightning-button>
-                                        <lightning-button disabled={mileTask.hasVerifiedUser}
-                                          class="slds-var-p-around_small" lwc:if={mileTask.showVerify}
-                                          onclick={verifyShowHandler} variant="brand" label="Verify"
-                                          data-milestone-task-id={mileTask.Id}></lightning-button>
-                                        <lightning-button class="slds-var-p-around_small"
-                                          lwc:if={mileTask.isManualShipment} onclick={createShipment}
-                                          variant="brand" label="Create Shipment"
-                                          data-milestone-id={milestone.Id}
-                                          data-milestone-task-id={mileTask.Id}></lightning-button>
-                                      </div>
-                                    </header>
-                                  </div>
-                                  <div class="slds-card__body slds-var-p-around_small">
-                                    <template if:true={mileTask.sections}>
-                                      <div class="slds-box slds-theme_shade slds-var-p-around_x-small">
-                                        <lightning-accordion allow-multiple-sections-open>
-                                          <template for:each={mileTask.sections.formSections}
-                                            for:item="sec">
-                                            <lightning-accordion-section title={sec.Name} key={sec.Id}
-                                              name={sec.Id} label={sec.Name}>
-                                              <div class="slds-grid slds-wrap">
-                                                <template
-                                                  if:true={mileTask.Patient_Milestone_Task_Form_Questions__r}>
-                                                  <template
-                                                    for:each={mileTask.Patient_Milestone_Task_Form_Questions__r}
-                                                    for:item="ques">
-                                                    <div key={ques.Id}
-                                                      class="slds-col slds-size_1-of-2 slds-var-p-around_small"
-                                                      if:true={ques.readableTask}>
-                                                      <lightning-input if:true={ques.isInput}
-                                                        onchange={inputChangeHandler}
-                                                        data-task-question-id={ques.Id}
-                                                        data-mile-task-id={mileTask.Id}
-                                                        required={ques.Required__c}
-                                                        name={valueField}
-                                                        value={ques.Value__c}
-                                                        disabled={ques.Read_Only__c}
-                                                        checked={ques.Value__c}
-                                                        field-level-help={ques.Help_Text__c}
-                                                        read-only={ques.Read_Only__c}
-                                                        type={ques.Type__c}
-                                                        label={ques.Label__c}></lightning-input>
-                                                      <lightning-textarea
-                                                        field-level-help={ques.Help_Text__c}
-                                                        if:true={ques.isTextarea}
-                                                        data-mile-task-id={mileTask.Id}
-                                                        data-task-question-id={ques.Id}
-                                                        onchange={inputChangeHandler}
-                                                        name={valueField}
-                                                        value={ques.Value__c}
-                                                        required={ques.Required__c}
-                                                        read-only={ques.Read_Only__c}
-                                                        label={ques.Label__c}></lightning-textarea>
-                                                      <lightning-combobox
-                                                        field-level-help={ques.Help_Text__c}
-                                                        if:true={ques.isPicklist}
-                                                        data-task-question-id={ques.Id}
-                                                        onchange={inputChangeHandler}
-                                                        name={valueField}
-                                                        data-mile-task-id={mileTask.Id}
-                                                        value={ques.Value__c}
-                                                        required={ques.Required__c}
-                                                        read-only={ques.Read_Only__c}
-                                                        label={ques.Label__c}
-                                                        options={ques.picklistArray}></lightning-combobox>
-                                                      <lightning-input if:true={ques.isFile}
-                                                        onchange={handleFileInput}
-                                                        data-task-question-id={ques.Id}
-                                                        data-mile-task-id={mileTask.Id}
-                                                        required={ques.Required__c}
-                                                        disabled={ques.Read_Only__c}
-                                                        field-level-help={ques.Help_Text__c}
-                                                        read-only={ques.Read_Only__c}
-                                                        type={ques.Type__c}
-                                                        name={mileTask.Name}
-                                                        label={ques.Label__c}></lightning-input>
-                                                      <div class="slds-var-m-bottom_small">
-                                                        <lightning-badge
-                                                          data-task-ques-id={ques.Id}
-                                                          label=""></lightning-badge>
-                                                      </div>
-              
-                                                      <template
-                                                        if:true={ques.ContentDocumentLinks}
-                                                        for:each={ques.ContentDocumentLinks}
-                                                        for:item="doc">
-                                                        Existing File: <lightning-badge
-                                                          key={doc.Id}
-                                                          label={doc.ContentDocument.Title}></lightning-badge>
-                                                      </template>
-                                                    </div>
-                                                  </template>
-                                                </template>
-                                                <div
-                                                  class="slds-col slds-size_1-of-2 slds-var-p-around_small">
-                                                </div>
-                                              </div>
-              
-                                            </lightning-accordion-section>
-                                          </template>
-                                        </lightning-accordion>
-                                      </div>
-                                    </template>
-                                    <div class="slds-var-m-around_small" if:true={mileTask.hasVerifiedUser}>
-                                      <strong>Verified By : </strong>
-                                      <a href={mileTask.hasVerifiedUserId} target="_blank"
-                                        class="slds-text-link_reset slds-text-link">{mileTask.verifyUserName}</a>
-                                    </div>
-                                    <div lwc:if={mileTask.isComplete} class="slds-var-m-around_x-small">
-                                      <div class="slds-var-m-around_xx-small">
-                                        <strong>Submitted By : </strong>
-                                        <a href={mileTask.submittedById} target="_blank"
-                                          class="slds-text-link_reset slds-text-link">{mileTask.LastModifiedBy.Name}</a>
-                                        <!-- <lightning-formatted-text value=></lightning-formatted-text> -->
-                                      </div>
-                                      <div class="slds-var-m-around_xx-small">
-                                        <strong>Submitted At : </strong>
-                                        <lightning-formatted-date-time value={mileTask.LastModifiedDate}
-                                          year="numeric" month="numeric" day="numeric" hour="2-digit"
-                                          minute="2-digit"
-                                          time-zone-name="short"></lightning-formatted-date-time>
-                                      </div>
-                                    </div>
-                                  </div>
-                                  <footer class="slds-card__footer"></footer>
-                                </article>
-                              </div>
-                            </template>
-                          </template>
-                        </article>
-                        <div if:true={milestone.showEndLine}
-                          class="step-indicator slds-m-horizontal_large slds-m-vertical_x-small"></div>
-                      </div>
-                    </template>
-                    <div class="slds-var-m-top_small"></div>
-                  </template>
-                
-                </div>
-              </div>
-              </template>
-               
-              <div class="pagination slds-p-top_medium">
-                <a href=""><img src="https://nexushub--v2vdevorg--c.sandbox.vf.force.com/resource/1726137921000/First?"></a>
-                <a href=""><img src="https://nexushub--v2vdevorg--c.sandbox.vf.force.com/resource/1726137957000/Previous?"></a>
-                <a href="" class="active">1</a>
-                <a href="">2</a>
-                <a href="">3</a>
-                <a href=""><img src="https://nexushub--v2vdevorg--c.sandbox.vf.force.com/resource/1726138032000/Next?"></a>
-                <a href=""><img src="https://nexushub--v2vdevorg--c.sandbox.vf.force.com/resource/1726138079000/Last?"></a>
-              </div>
-            </div>
-          </div>
-        </div>
       </div>
+      <div class="container">
+          <div class="dash-bord-wrapper">
+              <div class="side-pannel slds-is-fixed slds-p-around_x-small br-10">
+                  <div class="side-pannel-box slds-is-relative br-4">
+                      <div class="side-pannel-title slds-p-top_x-small slds-p-around_medium">
+                          <div class="side-pannel-tabs">
+                              <div class="side-pannel-tab active">
+                                  <p>All Patients</p>
+                              </div>
+                              <div class="side-pannel-tab">
+                                  <a href="/study-protocol" style="color:#ffffff;">Study Protocol</a>
+                              </div>
+                              <div class="side-pannel-tab">
+                                  <a href="/site" style="color:#ffffff;">Site</a>
+                              </div>
+                          </div>
+                      </div>
+                      <div class="side-pannel-bg slds-is-absolute">
+                          <img src="https://nexushub--nhdev--c.sandbox.vf.force.com/resource/1724737220000/sidebar?" alt="">
+                      </div>
+                  </div>
+              </div>
+              <div class="full-dash-boxs slds-p-horizontal_xx-large ">
+                  <div class="topheading slds-p-bottom_medium">
+                      <div class="actionarea">
+                          <div class="full-i-fild">
+                              <input type="text" placeholder="Search" />
+                          </div>
+                          <a href="" class="btn solid red">Add New Patient</a>
+                      </div>
+                  </div>
+                  <div class="slds-p-horizontal_medium slds-grid slds-nowrap">
+                      <a class="slds-p-horizontal_medium" href=""><span class="arrowdown"></span></a>
+                      <div class="slds-grid slds-wrap slds-size_full">
+                          <div class="slds-p-horizontal_medium slds-text-title_bold slds-grid slds-wrap slds-size_1-of-1">                
+                              <div class="slds-col slds-size_3-of-12">Patient ID</div>
+                              <div class="slds-col slds-size_3-of-12">Subject Id</div>
+                              <div class="slds-col slds-size_3-of-12">YoB</div>
+                              <div class="slds-col slds-size_3-of-12">Status</div>
+                          </div>
+                      </div>
+                  </div>
+                  <template for:each={patientsWithMilestones} for:item="patientWrapper">
+                      <div class="cardcon slds-p-around_medium slds-grid slds-nowrap" key={patientWrapper.patientId}>
+                          <a class="slds-p-around_medium" href="">
+                              <img class="arrowdown" src="https://nexushub--v2vdevorg--c.sandbox.vf.force.com/resource/1726212294000/ArrowDown?">
+                          </a>
+                          <div class="slds-grid slds-wrap slds-size_full">
+                              <div class="slds-p-around_medium slds-grid slds-wrap slds-size_1-of-1">   
+                                  <div class="slds-col slds-size_3-of-12">{patientWrapper.name}</div>
+                                  <div class="slds-col slds-size_3-of-12">{patientWrapper.subjectID}</div>
+                                  <div class="slds-col slds-size_3-of-12">{patientWrapper.yearOfBirth}</div>
+                                  <div class="slds-col slds-size_3-of-12">{patientWrapper.status}</div>
+                              </div>
+                              <div class="slds-p-top_small journey-progress slds-size_1-of-1">
+                                  <div class="slds-progress fullwidth">
+                                      <ol class="slds-progress__list">
+                                          <!-- Check if milestones are available -->
+                                          <template if:true={patientWrapper.milestones}>
+                                              <!-- Loop through milestones -->
+                                              <template for:each={patientWrapper.milestones} for:item="milestone">
+                                                  <li key={milestone.id} class="slds-progress__item progressmarker 
+                                                      {milestone.isCurrent ? 'slds-is-active' : ''}
+                                                      {milestone.status === 'Completed' ? 'slds-is-completed' : ''}">
+                                                      <!-- Progress marker for the milestone -->
+                                                      <div class="slds-progress__marker custommarker {milestone.isCurrent ? 'statuscurrent' : 'statuscomplete'} slds-progress__marker_icon" tabindex="0">
+                                                          {milestone.order}
+                                                          <img src="https://nexushub--v2vdevorg--c.sandbox.vf.force.com/resource/1726212345000/checkmark" />
+                                                      </div>
+                                                      <!-- Milestone name (assistive text) -->
+                                                      <span class="slds-assistive-custom">{milestone.name}</span>
+                                                  </li>
+                                              </template>
+                                          </template>
+                                      </ol>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                  </template>
+                  
+                  <div class="pagination slds-p-top_medium">
+                      <a href=""><img src="https://nexushub--v2vdevorg--c.sandbox.vf.force.com/resource/1726137921000/First?"></a>
+                      <a href=""><img src="https://nexushub--v2vdevorg--c.sandbox.vf.force.com/resource/1726137957000/Previous?"></a>
+                      <a href="" class="active">1</a>
+                      <a href="">2</a>
+                      <a href="">3</a>
+                      <a href=""><img src="https://nexushub--v2vdevorg--c.sandbox.vf.force.com/resource/1726138032000/Next?"></a>
+                      <a href=""><img src="https://nexushub--v2vdevorg--c.sandbox.vf.force.com/resource/1726138079000/Last?"></a>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
 </template>

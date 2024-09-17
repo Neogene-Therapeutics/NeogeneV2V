@@ -1,5 +1,5 @@
 <template>
-    <lightning-card title="Manufacturing Slots Overview" icon-name="custom:custom63" class="custom-card">
+    <lightning-card title="Manufacturing Slots Details" icon-name="custom:custom63" class="custom-card">
         <!-- Study Protocol Filter -->
         <div class="slds-m-bottom_medium">
             <lightning-combobox
@@ -20,10 +20,9 @@
                         key-field="Id"
                         data={filteredData}
                         columns={columns}
-                        draft-values={draftValues}
                         hide-checkbox-column="true"
-                        onsave={handleSave}
-                        class="custom-datatable">
+                        class="custom-datatable"
+                        onrowaction={handleRowAction}>
                     </lightning-datatable>
                 </div>
             </div>
@@ -32,6 +31,53 @@
         <!-- Display when no data is available -->
         <template if:false={isDataAvailable}>
             <p class="no-records">No records found for the selected study protocol.</p>
+        </template>
+
+        <!-- Modal for Clinical or Manufacturing Site Selection -->
+        <template if:true={isModalOpen}>
+            <section role="dialog" tabindex="-1" class="slds-modal slds-fade-in-open">
+                <div class="slds-modal__container">
+                    <header class="slds-modal__header">
+                        <button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse" title="Close" onclick={closeModal}>
+                            <lightning-icon icon-name="utility:close" alternative-text="close" size="small"></lightning-icon>
+                            <span class="slds-assistive-text">Close</span>
+                        </button>
+                        <h2 class="slds-text-heading_medium">
+                            Assign Site
+                        </h2>
+                    </header>
+                    <div class="slds-modal__content slds-p-around_medium">
+                        <!-- Render the Clinical Site Picklist -->
+                        <template if:true={isClinicalSite}>
+                            <lightning-combobox
+                                name="clinicalSiteSelector"
+                                label="Select Clinical Site"
+                                placeholder="Select Clinical Site"
+                                value={selectedClinicalSite}
+                                options={clinicalSiteOptions}
+                                onchange={handleClinicalSiteChange}>
+                            </lightning-combobox>
+                        </template>
+
+                        <!-- Render the Manufacturing Site Picklist -->
+                        <template if:true={isManufacturingSite}>
+                            <lightning-combobox
+                                name="manufacturingSiteSelector"
+                                label="Select Manufacturing Site"
+                                placeholder="Select Manufacturing Site"
+                                value={selectedManufacturingSite}
+                                options={manufacturingSiteOptions}
+                                onchange={handleManufacturingSiteChange}>
+                            </lightning-combobox>
+                        </template>
+                    </div>
+                    <footer class="slds-modal__footer">
+                        <lightning-button variant="neutral" label="Cancel" onclick={closeModal}></lightning-button>
+                        <lightning-button variant="brand" label="Save" onclick={handleSave}></lightning-button>
+                    </footer>
+                </div>
+            </section>
+            <div class="slds-backdrop slds-backdrop_open"></div>
         </template>
     </lightning-card>
 </template>

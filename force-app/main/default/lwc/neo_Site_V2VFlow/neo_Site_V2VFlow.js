@@ -1,11 +1,32 @@
 import { LightningElement, wire } from 'lwc';
 import getPatientJourneyMilestonesSite from '@salesforce/apex/PatientJourneyController.getPatientJourneyMilestonesSite';
 import getTaskSections from '@salesforce/apex/PatientJourneyController.getTaskSections';
+import getPatientDetailsByJourneyId from '@salesforce/apex/PatientJourneyController.getPatientDetailsByJourneyId';
 
 export default class Neo_Site_V2VFlow extends LightningElement {
-    recordId = 'a0Ndz000000Bdm1EAC';
+    recordId = '';
     milestones = [];
     currentMilestoneTask = [];
+    patientDetailData = {};
+
+    connectedCallback() {
+        this.recordId = sessionStorage.getItem('patientJourneyId');
+    }
+
+    @wire(getPatientDetailsByJourneyId, { recordId: '$recordId' })
+    patientDetails({ data, error }) {
+        if (data) {
+            this.patientDetailData.studyIdName = data?.Patient__r.Study_Protocol__r?.Display_Name__c ?? '';
+            this.patientDetailData.subjectId = data?.Patient__r?.Subject_Id__c ?? '';
+            this.patientDetailData.currentStage = data?.Current_Stage__c ?? '';
+            this.patientDetailData.yob = data?.Patient__r?.Year_of_Birth__c ?? '';
+        } else if (error) {
+            console.log(error);
+        }
+    }
+
+
+
     @wire(getPatientJourneyMilestonesSite, { recordId: '$recordId' })
     patientJourneyDetails({ data, error }) {
         if (data) {

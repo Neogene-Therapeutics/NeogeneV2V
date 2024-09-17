@@ -2,6 +2,7 @@ public class StudyTemplateCreation {
     public static void createTemplate() {
         Study_Template__c st = new Study_Template__c();
         st.Study_template_Name__c = 'Study Template 1';
+        st.Name = 'Study Template 1';
         insert st;
         
         List<Study_Template_Milestone__c> studyTemplateMilestone = new List<Study_Template_Milestone__c>();
@@ -36,7 +37,7 @@ public class StudyTemplateCreation {
         stm3.Site_Facing__c = true;
         stm3.Sponsor_facing__c = true;
         stm3.Read_Access_Queues__c = 'Logistics Co-ordinator';
-        stm3.Write_Access_Queue__c = 'Clinical Site';
+        stm3.Write_Access_Queue__c = 'Clinical Site;Logistics Co-ordinator';
         studyTemplateMilestone.add(stm3);
         
         Study_Template_Milestone__c stm4 = new Study_Template_Milestone__c();
@@ -80,7 +81,7 @@ public class StudyTemplateCreation {
         stm7.Site_Facing__c = true;
         stm7.Sponsor_facing__c = true;
         stm7.Read_Access_Queues__c = 'Logistics Co-ordinator;Manufacturing Scheduler;Clinical Site;Warehouse Operator';
-        stm7.Write_Access_Queue__c = '';
+        stm7.Write_Access_Queue__c = 'Logistics Co-ordinator';
         studyTemplateMilestone.add(stm7);
         
         Study_Template_Milestone__c stm8 = new Study_Template_Milestone__c();
@@ -113,7 +114,7 @@ public class StudyTemplateCreation {
         stm10.Site_Facing__c = false;
         stm10.Sponsor_facing__c = true;
         stm10.Read_Access_Queues__c = 'Logistics Co-ordinator;Manufacturing Scheduler;Clinical Site';
-        stm10.Write_Access_Queue__c = 'Warehouse Operator';
+        stm10.Write_Access_Queue__c = 'Warehouse Operator;Manufacturing Scheduler';
         studyTemplateMilestone.add(stm10);
         
         Study_Template_Milestone__c stm11 = new Study_Template_Milestone__c();
@@ -174,7 +175,7 @@ public class StudyTemplateCreation {
                 Site_Facing__c = true,
                 Sponsor_facing__c = true,
                 Study_Template_Milestone__c = studyTemplateMilestone[0].Id,
-                Task_Owner__c = 'Clinical Site User Queue',
+                Task_Owner__c = 'Clinical Site',
                 Verify__c = false,
                 Write_Access_Queues__c = 'Clinical Site' );
         studyTemplateMilestoneTask.add(task1);
@@ -186,18 +187,18 @@ public class StudyTemplateCreation {
                                                  Read_Access_Queues__c = 'Clinical Site;Logistics Co-ordinator', Site_Facing__c = true,
                                                  Sponsor_facing__c = true, 
                                                  Study_Template_Milestone__c = studyTemplateMilestone[1].Id,
-                                                 Task_Owner__c = '', Verify__c = false,
+                                                 Task_Owner__c = 'Manufacturing Scheduler', Verify__c = false,
                                                  Write_Access_Queues__c = 'Manufacturing Scheduler');
         studyTemplateMilestoneTask.add(task2);
         
         Study_Template_Milestone_Task__c task3 =
             new Study_Template_Milestone_Task__c(Apheresis_Shipment__c = false,
-                                                 Display_Name__c = 'Upload ICF', Order__c = 1,
+                                                 Display_Name__c = 'ICF Confirm?', Order__c = 1,
                                                  Drug_Product_Shipment__c = false,
                                                  Read_Access_Queues__c = 'Logistics Co-ordinator', Site_Facing__c = true,
                                                  Sponsor_facing__c = true,
                                                  Study_Template_Milestone__c = studyTemplateMilestone[2].Id,
-                                                 Task_Owner__c = 'Clinical Site User Queue', Verify__c = true,
+                                                 Task_Owner__c = 'Clinical Site', Verify__c = true,
                                                  Write_Access_Queues__c = 'Clinical Site');
         studyTemplateMilestoneTask.add(task3);
         
@@ -208,7 +209,7 @@ public class StudyTemplateCreation {
                                                  Read_Access_Queues__c = 'Logistics Co-ordinator', Site_Facing__c = true,
                                                  Sponsor_facing__c = true,
                                                  Study_Template_Milestone__c = studyTemplateMilestone[2].Id,
-                                                 Task_Owner__c = 'Clinical Site User Queue', Verify__c = true,
+                                                 Task_Owner__c = 'Clinical Site', Verify__c = true,
                                                  Write_Access_Queues__c = 'Clinical Site');
         studyTemplateMilestoneTask.add(task4);
         
@@ -219,7 +220,7 @@ public class StudyTemplateCreation {
                                                  Read_Access_Queues__c = 'Clinical Site', Site_Facing__c = true,
                                                  Sponsor_facing__c = true,
                                                  Study_Template_Milestone__c = studyTemplateMilestone[2].Id,
-                                                 Task_Owner__c = 'Clinical Site User Queue', Verify__c = true,
+                                                 Task_Owner__c = 'Logistics Co-ordinator', Verify__c = true,
                                                  Write_Access_Queues__c = 'Logistics Co-ordinator');
         studyTemplateMilestoneTask.add(task5);
         
@@ -230,7 +231,7 @@ public class StudyTemplateCreation {
                                                  Read_Access_Queues__c = 'Manufacturing Scheduler', Site_Facing__c = true,
                                                  Sponsor_facing__c = true,
                                                  Study_Template_Milestone__c = studyTemplateMilestone[3].Id,
-                                                 Task_Owner__c = 'Logistic Coordinator Queue', Verify__c = false,
+                                                 Task_Owner__c = 'Logistics Co-ordinator', Verify__c = false,
                                                  Write_Access_Queues__c = 'Logistics Co-ordinator');
         studyTemplateMilestoneTask.add(task6);
         
@@ -241,7 +242,7 @@ public class StudyTemplateCreation {
                                                  Read_Access_Queues__c = 'Logistics Co-ordinator;Manufacturing Scheduler', Site_Facing__c = false,
                                                  Sponsor_facing__c = true,
                                                  Study_Template_Milestone__c = studyTemplateMilestone[4].Id,
-                                                 Task_Owner__c = 'Logistic Coordinator Queue', Verify__c = false,
+                                                 Task_Owner__c = 'Logistics Co-ordinator', Verify__c = false,
                                                  Write_Access_Queues__c = 'Logistics Co-ordinator');
         studyTemplateMilestoneTask.add(task7);
         
@@ -252,7 +253,7 @@ public class StudyTemplateCreation {
                                                  Read_Access_Queues__c = 'Logistics Co-ordinator', Site_Facing__c = true,
                                                  Sponsor_facing__c = false,
                                                  Study_Template_Milestone__c = studyTemplateMilestone[4].Id,
-                                                 Task_Owner__c = 'Clinical Site User Queue', Verify__c = false,
+                                                 Task_Owner__c = 'Clinical Site', Verify__c = false,
                                                  Write_Access_Queues__c = 'Clinical site');
         studyTemplateMilestoneTask.add(task8);
         
@@ -263,7 +264,7 @@ public class StudyTemplateCreation {
                                                  Read_Access_Queues__c = 'Logistics Co-ordinator', Site_Facing__c = true,
                                                  Sponsor_facing__c = false,
                                                  Study_Template_Milestone__c = studyTemplateMilestone[4].Id,
-                                                 Task_Owner__c = 'Clinical Site User Queue', Verify__c = true,
+                                                 Task_Owner__c = 'Clinical Site', Verify__c = true,
                                                  Write_Access_Queues__c = 'Clinical Site');
         studyTemplateMilestoneTask.add(task9);
         
@@ -274,7 +275,7 @@ public class StudyTemplateCreation {
                                                  Read_Access_Queues__c = 'Logistics Co-ordinator', Site_Facing__c = true,
                                                  Sponsor_facing__c = false,
                                                  Study_Template_Milestone__c = studyTemplateMilestone[4].Id,
-                                                 Task_Owner__c = 'Clinical Site User Queue', Verify__c = false,
+                                                 Task_Owner__c = 'Clinical Site', Verify__c = false,
                                                  Write_Access_Queues__c = 'Clinical Site');
         studyTemplateMilestoneTask.add(task10);
         
@@ -285,7 +286,7 @@ public class StudyTemplateCreation {
                                                  Read_Access_Queues__c = 'Logistics Co-ordinator', Site_Facing__c = true,
                                                  Sponsor_facing__c = false,
                                                  Study_Template_Milestone__c = studyTemplateMilestone[4].Id,
-                                                 Task_Owner__c = 'Clinical Site User Queue', Verify__c = false,
+                                                 Task_Owner__c = 'Clinical Site', Verify__c = false,
                                                  Write_Access_Queues__c = 'Clinical Site');
         studyTemplateMilestoneTask.add(task11);
         
@@ -296,7 +297,7 @@ public class StudyTemplateCreation {
                                                  Read_Access_Queues__c = 'Logistics Co-ordinator', Site_Facing__c = true,
                                                  Sponsor_facing__c = true,
                                                  Study_Template_Milestone__c = studyTemplateMilestone[4].Id,
-                                                 Task_Owner__c = 'Clinical Site User Queue', Verify__c = true,
+                                                 Task_Owner__c = 'Clinical Site', Verify__c = true,
                                                  Write_Access_Queues__c = 'Clinical Site');
         studyTemplateMilestoneTask.add(task12);
         
@@ -307,7 +308,7 @@ public class StudyTemplateCreation {
                                                  Read_Access_Queues__c = 'Logistics Co-ordinator', Site_Facing__c = true,
                                                  Sponsor_facing__c = true,
                                                  Study_Template_Milestone__c = studyTemplateMilestone[5].Id,
-                                                 Task_Owner__c = 'Clinical Site User Queue', Verify__c = false,
+                                                 Task_Owner__c = 'Clinical Site', Verify__c = false,
                                                  Write_Access_Queues__c = 'Clinical Site');
         studyTemplateMilestoneTask.add(task13);
         
@@ -318,7 +319,7 @@ public class StudyTemplateCreation {
                                                  Read_Access_Queues__c = 'Clinical Site;Logistics Co-ordinator;Manufacturing Scheduler', Site_Facing__c = true,
                                                  Sponsor_facing__c = true,
                                                  Study_Template_Milestone__c = studyTemplateMilestone[6].Id,
-                                                 Task_Owner__c = 'Logistic Coordinator Queue', Verify__c = false,
+                                                 Task_Owner__c = 'Logistics Co-ordinator', Verify__c = false,
                                                  Write_Access_Queues__c = 'Logistics Co-ordinator');
         studyTemplateMilestoneTask.add(task14);
         
@@ -329,7 +330,7 @@ public class StudyTemplateCreation {
                                                  Read_Access_Queues__c = 'Clinical Site;Manufacturing Scheduler;QA', Site_Facing__c = true,
                                                  Sponsor_facing__c = true,
                                                  Study_Template_Milestone__c = studyTemplateMilestone[7].Id,
-                                                 Task_Owner__c = 'Logistic Coordinator Queue', Verify__c = false,
+                                                 Task_Owner__c = 'Logistics Co-ordinator', Verify__c = false,
                                                  Write_Access_Queues__c = 'Logistics Co-ordinator');
         studyTemplateMilestoneTask.add(task15);
         
@@ -340,7 +341,7 @@ public class StudyTemplateCreation {
                                                  Read_Access_Queues__c = 'Warehouse Operator;Manufacturing Scheduler;QA', Site_Facing__c = false,
                                                  Sponsor_facing__c = true,
                                                  Study_Template_Milestone__c = studyTemplateMilestone[7].Id,
-                                                 Task_Owner__c = 'Logistic Coordinator Queue', Verify__c = false,
+                                                 Task_Owner__c = 'Logistics Co-ordinator', Verify__c = false,
                                                  Write_Access_Queues__c = 'Logistics Co-ordinator');
         studyTemplateMilestoneTask.add(task16);
         
@@ -351,7 +352,7 @@ public class StudyTemplateCreation {
                                                  Read_Access_Queues__c = 'Logistics Co-ordinator;Manufacturing Scheduler;Warehouse Operator;Clinical Site', Site_Facing__c = true,
                                                  Sponsor_facing__c = true,
                                                  Study_Template_Milestone__c = studyTemplateMilestone[8].Id,
-                                                 Task_Owner__c = '', Verify__c = false,
+                                                 Task_Owner__c = 'QA', Verify__c = false,
                                                  Write_Access_Queues__c = 'QA');
         studyTemplateMilestoneTask.add(task17);
         
@@ -359,11 +360,11 @@ public class StudyTemplateCreation {
             new Study_Template_Milestone_Task__c(Apheresis_Shipment__c = false,
                                                  Display_Name__c = 'Schedule IP Packout', Order__c = 1,
                                                  Drug_Product_Shipment__c = false,
-                                                 Read_Access_Queues__c = 'Clinical Site;Logistics Co-ordinator;Manufacturing Scheduler', Site_Facing__c = false,
+                                                 Read_Access_Queues__c = 'Warehouse Operator;Clinical Site;Logistics Co-ordinator;Manufacturing Scheduler', Site_Facing__c = false,
                                                  Sponsor_facing__c = true,
                                                  Study_Template_Milestone__c = studyTemplateMilestone[9].Id,
-                                                 Task_Owner__c = '', Verify__c = false,
-                                                 Write_Access_Queues__c = 'Warehouse Operator');
+                                                 Task_Owner__c = 'Manufacturing Scheduler', Verify__c = false,
+                                                 Write_Access_Queues__c = 'Manufacturing Scheduler');
         studyTemplateMilestoneTask.add(task18);
         
         Study_Template_Milestone_Task__c task19 =
@@ -373,7 +374,7 @@ public class StudyTemplateCreation {
                                                  Read_Access_Queues__c = 'Clinical Site;Logistics Co-ordinator;Manufacturing Scheduler', Site_Facing__c = false,
                                                  Sponsor_facing__c = true,
                                                  Study_Template_Milestone__c = studyTemplateMilestone[9].Id,
-                                                 Task_Owner__c = '', Verify__c = true,
+                                                 Task_Owner__c = 'Warehouse Operator', Verify__c = true,
                                                  Write_Access_Queues__c = 'Warehouse Operator');
         studyTemplateMilestoneTask.add(task19);
         
@@ -384,7 +385,7 @@ public class StudyTemplateCreation {
                                                  Read_Access_Queues__c = 'Clinical Site;Logistics Co-ordinator;Manufacturing Scheduler', Site_Facing__c = false,
                                                  Sponsor_facing__c = true,
                                                  Study_Template_Milestone__c = studyTemplateMilestone[10].Id,
-                                                 Task_Owner__c = '', Verify__c = false,
+                                                 Task_Owner__c = 'Warehouse Operator', Verify__c = false,
                                                  Write_Access_Queues__c = 'Warehouse Operator');
         studyTemplateMilestoneTask.add(task20);
         
@@ -395,7 +396,7 @@ public class StudyTemplateCreation {
                                                  Read_Access_Queues__c = 'Logistics Co-ordinator', Site_Facing__c = false,
                                                  Sponsor_facing__c = true,
                                                  Study_Template_Milestone__c = studyTemplateMilestone[11].Id,
-                                                 Task_Owner__c = '', Verify__c = false,
+                                                 Task_Owner__c = 'Logistics Co-ordinator', Verify__c = false,
                                                  Write_Access_Queues__c = 'Logistics Co-ordinator');
         studyTemplateMilestoneTask.add(task21);
         
@@ -406,7 +407,7 @@ public class StudyTemplateCreation {
                                                  Read_Access_Queues__c = 'Logistics Co-ordinator', Site_Facing__c = true,
                                                  Sponsor_facing__c = false,
                                                  Study_Template_Milestone__c = studyTemplateMilestone[11].Id,
-                                                 Task_Owner__c = 'Clinical Site User Queue', Verify__c = false,
+                                                 Task_Owner__c = 'Clinical Site', Verify__c = false,
                                                  Write_Access_Queues__c = 'Clinical Site');
         studyTemplateMilestoneTask.add(task22);
         
@@ -417,7 +418,7 @@ public class StudyTemplateCreation {
                                                  Read_Access_Queues__c = 'Logistics Co-ordinator', Site_Facing__c = true,
                                                  Sponsor_facing__c = true,
                                                  Study_Template_Milestone__c = studyTemplateMilestone[11].Id,
-                                                 Task_Owner__c = 'Clinical Site User Queue', Verify__c = false,
+                                                 Task_Owner__c = 'Clinical Site', Verify__c = false,
                                                  Write_Access_Queues__c = 'Clinical Site;');
         studyTemplateMilestoneTask.add(task23);
         
@@ -428,7 +429,7 @@ public class StudyTemplateCreation {
                                                  Read_Access_Queues__c = 'Logistics Co-ordinator', Site_Facing__c = true,
                                                  Sponsor_facing__c = true,
                                                  Study_Template_Milestone__c = studyTemplateMilestone[11].Id,
-                                                 Task_Owner__c = 'Clinical Site User Queue', Verify__c = true,
+                                                 Task_Owner__c = 'Clinical Site', Verify__c = true,
                                                  Write_Access_Queues__c = 'Clinical Site');
         studyTemplateMilestoneTask.add(task24);
         
@@ -439,7 +440,7 @@ public class StudyTemplateCreation {
                                                  Read_Access_Queues__c = 'Logistics Co-ordinator', Site_Facing__c = true,
                                                  Sponsor_facing__c = false,
                                                  Study_Template_Milestone__c = studyTemplateMilestone[11].Id,
-                                                 Task_Owner__c = 'Clinical Site User Queue', Verify__c = false,
+                                                 Task_Owner__c = 'Clinical Site', Verify__c = false,
                                                  Write_Access_Queues__c = 'Clinical Site');
         studyTemplateMilestoneTask.add(task25);
         
@@ -450,7 +451,7 @@ public class StudyTemplateCreation {
                                                  Read_Access_Queues__c = 'Logistics Co-ordinator', Site_Facing__c = true,
                                                  Sponsor_facing__c = false,
                                                  Study_Template_Milestone__c = studyTemplateMilestone[12].Id,
-                                                 Task_Owner__c = 'Clinical Site User Queue', Verify__c = false,
+                                                 Task_Owner__c = 'Clinical Site', Verify__c = false,
                                                  Write_Access_Queues__c = 'Clinical Site');
         studyTemplateMilestoneTask.add(task26);
         
@@ -461,7 +462,7 @@ public class StudyTemplateCreation {
                                                  Read_Access_Queues__c = 'Logistics Co-ordinator', Site_Facing__c = true,
                                                  Sponsor_facing__c = true,
                                                  Study_Template_Milestone__c = studyTemplateMilestone[12].Id,
-                                                 Task_Owner__c = 'Clinical Site User Queue', Verify__c = true,
+                                                 Task_Owner__c = 'Clinical Site', Verify__c = true,
                                                  Write_Access_Queues__c = 'Clinical Site');
         studyTemplateMilestoneTask.add(task27);
         
@@ -472,7 +473,7 @@ public class StudyTemplateCreation {
                                                  Read_Access_Queues__c = 'Logistics Co-ordinator', Site_Facing__c = true,
                                                  Sponsor_facing__c = true,
                                                  Study_Template_Milestone__c = studyTemplateMilestone[13].Id,
-                                                 Task_Owner__c = 'Clinical Site User Queue', Verify__c = true,
+                                                 Task_Owner__c = 'Clinical Site', Verify__c = true,
                                                  Write_Access_Queues__c = 'Clinical Site');
         studyTemplateMilestoneTask.add(task28);
         
@@ -565,12 +566,12 @@ public class StudyTemplateCreation {
         Study_Template_Form_Question__c question4 = new Study_Template_Form_Question__c(
             Active__c = TRUE,
             Study_Template_Form_Section__c = studyTemplateFormSection[2].Id,
-            Label__c = 'Upload ICF',
+            Label__c = 'ICF Confirm',
             Order__c = 1,
-            Picklist_Values__c = NULL,
+            Picklist_Values__c = 'Yes, No',
             Read_Only__c = FALSE,
             Required__c = TRUE,
-            Type__c = 'File',
+            Type__c = 'Picklist',
             Visible__c = TRUE,
             Slot_Booking_Task__c = FALSE,
             Is_Subject__c = FALSE,

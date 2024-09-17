@@ -1,0 +1,104 @@
+<apex:page >
+    <div>
+        <div style="text-align: center; font-size: 24px; font-weight: bold; color: #333; margin-bottom: 20px;">
+            Neogene Therapeutics User Report - Zulma Regalo
+        </div>
+
+        <h2 style="font-size: 18px; font-weight: bold; color: #555; margin-bottom: 15px;">
+            Patient Audit Report
+        </h2>
+        <br /><br />
+        <table style="width: 100%; border-collapse: collapse; margin-bottom: 20px;">
+            <thead>
+                <tr>
+                    <th style="border: 1px solid #ddd; padding: 8px; text-align: left; background-color: #f4f4f4; font-weight: bold;">Event Name</th>
+                    <th style="border: 1px solid #ddd; padding: 8px; text-align: left; background-color: #f4f4f4; font-weight: bold;">COI Number</th>
+                    <th style="border: 1px solid #ddd; padding: 8px; text-align: left; background-color: #f4f4f4; font-weight: bold;">Field Name</th>
+                    <th style="border: 1px solid #ddd; padding: 8px; text-align: left; background-color: #f4f4f4; font-weight: bold;">From</th>
+                    <th style="border: 1px solid #ddd; padding: 8px; text-align: left; background-color: #f4f4f4; font-weight: bold;">To</th>
+                    <th style="border: 1px solid #ddd; padding: 8px; text-align: left; background-color: #f4f4f4; font-weight: bold;">Date and Time</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Example Row -->
+                <tr>
+                    <td style="border: 1px solid #ddd; padding: 8px; text-align: left;">Example Event</td>
+                    <td style="border: 1px solid #ddd; padding: 8px; text-align: left;">12345</td>
+                    <td style="border: 1px solid #ddd; padding: 8px; text-align: left;">Example Field</td>
+                    <td style="border: 1px solid #ddd; padding: 8px; text-align: left;">Start Location</td>
+                    <td style="border: 1px solid #ddd; padding: 8px; text-align: left;">End Location</td>
+                    <td style="border: 1px solid #ddd; padding: 8px; text-align: left;">2024-09-16 10:00 AM</td>
+                </tr>
+                <!-- Add more rows as needed -->
+            </tbody>
+        </table>
+
+        <!-- Subheading 2 -->
+        <h2 style="font-size: 18px; font-weight: bold; color: #555; margin-bottom: 15px;">
+            Patient Verifications
+        </h2>
+        <p style="font-size: 14px; color: #777;">
+            No records found
+        </p>
+        
+        <h2 style="font-size: 18px; font-weight: bold; color: #555; margin-bottom: 15px;">
+            Patient Scans
+        </h2>
+        <br /><br />
+        <table style="width: 100%; border-collapse: collapse; margin-bottom: 20px;">
+            <thead>
+                <tr>
+                    <th style="border: 1px solid #ddd; padding: 8px; text-align: left; background-color: #f4f4f4; font-weight: bold;">Event Name</th>
+                    <th style="border: 1px solid #ddd; padding: 8px; text-align: left; background-color: #f4f4f4; font-weight: bold;">Task Type</th>
+                    <th style="border: 1px solid #ddd; padding: 8px; text-align: left; background-color: #f4f4f4; font-weight: bold;">Scan Record</th>
+                    <th style="border: 1px solid #ddd; padding: 8px; text-align: left; background-color: #f4f4f4; font-weight: bold;">Scan Type</th>
+                    <th style="border: 1px solid #ddd; padding: 8px; text-align: left; background-color: #f4f4f4; font-weight: bold;">Scan Result</th>
+                    <th style="border: 1px solid #ddd; padding: 8px; text-align: left; background-color: #f4f4f4; font-weight: bold;">Comments</th>
+                    <th style="border: 1px solid #ddd; padding: 8px; text-align: left; background-color: #f4f4f4; font-weight: bold;">Date and Time</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td style="border: 1px solid #ddd; padding: 8px; text-align: left;">Example Event</td>
+                    <td style="border: 1px solid #ddd; padding: 8px; text-align: left;">Task Type A</td>
+                    <td style="border: 1px solid #ddd; padding: 8px; text-align: left;">Record 123</td>
+                    <td style="border: 1px solid #ddd; padding: 8px; text-align: left;">Type 1</td>
+                    <td style="border: 1px solid #ddd; padding: 8px; text-align: left;">Success</td>
+                    <td style="border: 1px solid #ddd; padding: 8px; text-align: left;">No issues</td>
+                    <td style="border: 1px solid #ddd; padding: 8px; text-align: left;">2024-09-16 10:00 AM</td>
+                </tr>
+            </tbody>
+        </table>
+        
+        <h2 style="font-size: 18px; font-weight: bold; color: #555; margin-bottom: 15px;">
+            Tasks
+        </h2>
+        <p style="font-size: 14px; color: #777;">
+            No records found
+        </p>
+        <h2 style="font-size: 18px; font-weight: bold; color: #555; margin-bottom: 15px;">
+            Studies
+        </h2>
+        <p style="font-size: 14px; color: #777;">
+            No records found
+        </p>
+        <h2 style="font-size: 18px; font-weight: bold; color: #555; margin-bottom: 15px;">
+            Templates
+        </h2>
+        <p style="font-size: 14px; color: #777;">
+            No records found
+        </p>
+        <h2 style="font-size: 18px; font-weight: bold; color: #555; margin-bottom: 15px;">
+            Users
+        </h2>
+        <p style="font-size: 14px; color: #777;">
+            No records found
+        </p>
+        <h2 style="font-size: 18px; font-weight: bold; color: #555; margin-bottom: 15px;">
+            Report downloads
+        </h2>
+        <p style="font-size: 14px; color: #777;">
+            No records found
+        </p>
+    </div>
+</apex:page>

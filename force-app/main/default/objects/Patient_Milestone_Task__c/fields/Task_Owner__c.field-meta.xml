@@ -36,18 +36,6 @@
                 <default>false</default>
                 <label>Warehouse Operator</label>
             </value>
-            <value>
-                <fullName>Clinical site user Queue</fullName>
-                <default>false</default>
-                <isActive>false</isActive>
-                <label>Clinical site user Queue</label>
-            </value>
-            <value>
-                <fullName>Logistic Coordinator Queue</fullName>
-                <default>false</default>
-                <isActive>false</isActive>
-                <label>Logistic Coordinator Queue</label>
-            </value>
         </valueSetDefinition>
     </valueSet>
 </CustomField>

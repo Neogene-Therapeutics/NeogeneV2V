@@ -13,9 +13,9 @@
                             <value>Patient_Registration__c.Verify</value>
                             <visibilityRule>
                                 <criteria>
-                                    <leftValue>{!Record.Status__c}</leftValue>
+                                    <leftValue>{!Record.is_clinical__c}</leftValue>
                                     <operator>EQUAL</operator>
-                                    <rightValue>Yet_to_Verify</rightValue>
+                                    <rightValue>true</rightValue>
                                 </criteria>
                             </visibilityRule>
                         </valueListItems>

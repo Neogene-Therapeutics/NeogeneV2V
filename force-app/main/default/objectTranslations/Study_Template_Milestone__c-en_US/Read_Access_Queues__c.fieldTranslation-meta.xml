@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
-    <label><!-- Read Access Queues --></label>
+    <label><!-- Read Access Role --></label>
     <name>Read_Access_Queues__c</name>
     <picklistValues>
         <masterLabel>Clinical Site</masterLabel>

@@ -588,6 +588,140 @@ public without sharing class PatientJourneyController {
         }
         return false;
     }
+    /*@AuraEnabled(cacheable=true)
+public static List<Patient_Milestone__c> getPatientJourneyMilestonesLst(List<Id> patientIds) {
+    System.debug('Patient IDs: ' + patientIds);  
+    try {
+        if (patientIds == null || patientIds.isEmpty()) {
+            throw new AuraHandledException('No Patient IDs provided');
+        }
+ System.debug('Patient IDs: ' + patientIds);        
+        return [
+            SELECT 
+                Id, 
+                Name, 
+                Study_Milestone__c, 
+                Status__c, 
+                Order__c, 
+                Patient_Journey__c, 
+                Patient_Journey__r.Patient__c
+            FROM Patient_Milestone__c 
+            WHERE Patient_Journey__r.Patient__c IN :patientIds 
+            AND Sponsor_Facing__c = true 
+            ORDER BY Order__c
+        ];
+    } catch (Exception e) {
+        throw new AuraHandledException('Error fetching milestones: ' + e.getMessage());
+    }
+}*/
+  @AuraEnabled(cacheable=true)
+public static List<PatientWrapper> getPatientJourneyMilestonesLst(List<Id> patientIds) {
+    System.debug('Patient IDs: ' + patientIds);  
+    try {
+        if (patientIds == null || patientIds.isEmpty()) {
+            throw new AuraHandledException('No Patient IDs provided');
+        }
+
+        // Fetch all milestones for given patients
+        List<Patient_Milestone__c> milestones = [
+            SELECT 
+                Id, 
+                Name, 
+                Study_Milestone__c, 
+                Status__c, 
+                Order__c, 
+                Patient_Journey__c, 
+                Patient_Journey__r.Patient__c,
+                Sponsor_Facing__c
+            FROM Patient_Milestone__c 
+            WHERE Patient_Journey__r.Patient__c IN :patientIds 
+            AND Sponsor_Facing__c = true 
+            ORDER BY Patient_Journey__r.Patient__c, Order__c
+        ];
+
+        // Map to hold unique milestones per patient
+        Map<Id, Map<String, Patient_Milestone__c>> milestonesByPatient = new Map<Id, Map<String, Patient_Milestone__c>>();
+
+        for (Patient_Milestone__c milestone : milestones) {
+            Id patientId = milestone.Patient_Journey__r.Patient__c;
+
+            // Initialize patient map if not already present
+            if (!milestonesByPatient.containsKey(patientId)) {
+                milestonesByPatient.put(patientId, new Map<String, Patient_Milestone__c>());
+            }
+
+            // Ensure no duplicate milestone names for the patient
+            Map<String, Patient_Milestone__c> patientMilestonesMap = milestonesByPatient.get(patientId);
+            if (!patientMilestonesMap.containsKey(milestone.Name)) {
+                patientMilestonesMap.put(milestone.Name, milestone);
+            }
+        }
+
+        List<PatientWrapper> patientWrappers = new List<PatientWrapper>();
+        Map<Id, Patient_Registration__c> IdvsPatientMap =new Map<Id, Patient_Registration__c>();
+        for(Patient_Registration__c pr: [SELECT Id, Name, Subject_ID__c,Year_of_Birth__c,Status__c FROM Patient_Registration__c WHERE Id in :patientIds]){
+            IdvsPatientMap.put(pr.Id, pr);
+        }
+
+        // Create wrapper to store patient info and current milestone
+        for (Id patientId : patientIds) {
+            // Get milestones for this patient
+            Map<String, Patient_Milestone__c> patientMilestonesMap = milestonesByPatient.get(patientId);
+            
+            List<Patient_Milestone__c> uniqueMilestones = new List<Patient_Milestone__c>();
+            Patient_Milestone__c currentMilestone = null;
+
+            // Check if the patient has milestones
+            if (patientMilestonesMap != null && !patientMilestonesMap.isEmpty()) {
+                uniqueMilestones.addAll(patientMilestonesMap.values());
+
+                // Identify the current milestone (in-progress one)
+                for (Patient_Milestone__c milestone : uniqueMilestones) {
+                    if (milestone.Status__c == 'In Progress') {
+                        currentMilestone = milestone;
+                        break;
+                    }
+                }
+
+                // Add the wrapper to the result
+                patientWrappers.add(new PatientWrapper(patientId,IdvsPatientMap.get(patientId).Name,IdvsPatientMap.get(patientId).Subject_ID__c,IdvsPatientMap.get(patientId).Year_of_Birth__c,IdvsPatientMap.get(patientId).Status__c, uniqueMilestones, currentMilestone));
+            } else {
+                // Handle case where there are no milestones for the patient
+                patientWrappers.add(new PatientWrapper(patientId,IdvsPatientMap.get(patientId).Name,IdvsPatientMap.get(patientId).Subject_ID__c,IdvsPatientMap.get(patientId).Year_of_Birth__c,IdvsPatientMap.get(patientId).Status__c,new List<Patient_Milestone__c>(), null));
+            }
+        }
+
+        return patientWrappers;
+
+    } catch (Exception e) {
+        throw new AuraHandledException('Error fetching milestones: ' + e.getMessage());
+    }
+}
+
+public class PatientWrapper {
+    @AuraEnabled public Id patientId;
+    @AuraEnabled public String name;
+    @AuraEnabled public List<Patient_Milestone__c> milestones;
+    @AuraEnabled public Patient_Milestone__c currentMilestone;
+    @AuraEnabled public String subjectID;
+    @AuraEnabled public String yearOfBirth;
+    @AuraEnabled public String status;
+
+    public PatientWrapper(Id patientId,String name,String subjectID, String yearOfBirth, String status, List<Patient_Milestone__c> milestones, Patient_Milestone__c currentMilestone) {
+        this.patientId = patientId;
+        this.name=name;
+        this.subjectID=subjectID;
+        this.yearOfBirth=yearOfBirth;
+        this.status=status;
+        this.milestones = milestones;
+        this.currentMilestone = currentMilestone;
+    }
+}
+
+
+
+
+
 
 
     public class AddressWrapper{

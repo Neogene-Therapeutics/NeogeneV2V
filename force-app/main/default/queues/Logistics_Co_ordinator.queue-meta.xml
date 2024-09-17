@@ -8,6 +8,9 @@
         </roles>
         <users>
             <user>aakriti_nexus_admin02@neogene.com</user>
+            <user>perrycharr@neogene.com-v2v2dev</user>
+            <user>mmartenmichael@neogene.com-v2vdev</user>
+            <user>test_admin02@neogene.com</user>
         </users>
     </queueMembers>
     <queueSobject>

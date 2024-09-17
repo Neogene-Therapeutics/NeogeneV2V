@@ -4,6 +4,34 @@
             <img src="https://nexushub--nhdev--c.sandbox.vf.force.com/resource/1724737266000/pagebg?" alt="">
         </div>
         <div class="container">
+            <div class="slds-var-m-around_medium">
+                <form action="" class="full-dash-form slds-grid slds-wrap ">
+                    <div class="full-form-input slds-size_1-of-4">
+                        <label for="">Year of Birth</label>
+                        <div class="full-i-fild">
+                            <input readonly value={patientDetailData.yob}>
+                        </div>
+                    </div>
+                    <div class="full-form-input slds-size_1-of-4">
+                        <label for="">Study Protocol</label>
+                        <div class="full-i-fild">
+                            <input readonly value={patientDetailData.studyIdName}>
+                        </div>
+                    </div>
+                    <div class="full-form-input slds-size_1-of-4">
+                        <label for="">Subject Id</label>
+                        <div class="full-i-fild">
+                            <input readonly value={patientDetailData.subjectId}>
+                        </div>
+                    </div>
+                    <div class="full-form-input slds-size_1-of-4">
+                        <label for="">Current Stage</label>
+                        <div class="full-i-fild">
+                            <input readonly value={patientDetailData.currentStage}>
+                        </div>
+                    </div>
+                </form>
+            </div>
             <div class="dash-bord-wrapper">
                 <div class="side-pannel slds-is-fixed slds-p-around_x-small br-10">
                     <div class="side-pannel-box slds-is-relative br-4">
@@ -92,12 +120,56 @@
                     <div class="topheading slds-p-bottom_medium">
                         <h1 class="slds-grid"><button class="btn btn-sec">Back</button><span
                                 class="slds-p-horizontal_x-large">V2V Journey</span></h1>
-                        <div class="actionarea">
+                        <!-- <div class="actionarea">
                             <div class="full-i-fild">
                                 <input type="text" name="" placeholder="Search">
                             </div>
                             <a href="" class="btn solid red">Add New Patient</a>
+                        </div> -->
+                    </div>
+                    <div
+                        class="full-dash-box slds-is-relative slds-p-horizontal_large slds-p-bottom_large slds-p-top_medium">
+                        <div class="full-dash-num slds-is-absolute">
+                            <p></p>
                         </div>
+
+                        <!-- <div class="full-dash-title slds-p-left_xx-large slds-p-bottom_x-large">
+                            <div class="f-title">
+                                <h2>Patient Details</h2>
+                            </div> -->
+                        <!-- <div class="full-dash-btns">
+                                <a href="#" class="btn btn-sec">Save</a>
+                                <a href="#" class="btn btn-pri">Next</a>
+                            </div> -->
+                        <!-- </div> -->
+                        <!-- <div>
+                            <form action="" class="full-dash-form slds-grid slds-wrap ">
+                                <div class="full-form-input slds-size_1-of-4">
+                                    <label for="">Year of Birth</label>
+                                    <div class="full-i-fild">
+                                        <input readonly value={patientDetailData.yob}>
+                                    </div>
+                                </div>
+                                <div class="full-form-input slds-size_1-of-4">
+                                    <label for="">Study Protocol</label>
+                                    <div class="full-i-fild">
+                                        <input readonly value={patientDetailData.studyIdName}>
+                                    </div>
+                                </div>
+                                <div class="full-form-input slds-size_1-of-4">
+                                    <label for="">Subject Id</label>
+                                    <div class="full-i-fild">
+                                        <input readonly value={patientDetailData.subjectId}>
+                                    </div>
+                                </div>
+                                <div class="full-form-input slds-size_1-of-4">
+                                    <label for="">Current Stage</label>
+                                    <div class="full-i-fild">
+                                        <input readonly value={patientDetailData.currentStage}>
+                                    </div>
+                                </div>
+                            </form>
+                        </div> -->
                     </div>
                     <template for:each={currentMilestoneTask} for:item="task">
                         <div key={task.Id} id="1"
