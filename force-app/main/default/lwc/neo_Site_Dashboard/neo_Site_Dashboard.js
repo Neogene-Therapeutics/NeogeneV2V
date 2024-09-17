@@ -86,12 +86,12 @@ export default class Neo_Site_Dashboard extends NavigationMixin(LightningElement
                 label: 'V2V Overview',
                 data: [...this.journeyData],
                 backgroundColor: [
-                    'rgb(131, 0, 81)',
-                    'rgb(196, 214, 0)',
-                    'rgb(240, 171, 0)',
-                    'rgb(0, 56, 101)',
-                    'rgb(208, 0, 111)',
-                    'rgb(60, 16, 83)'
+                    'rgb(255, 99, 132)',
+                    'rgb(54, 162, 235)',
+                    'rgb(255, 205, 86)',
+                    'rgb(122, 165, 86)',
+                    'rgb(32, 178, 170)',
+                    'rgb(192, 115, 86)'
                 ],
                 hoverOffset: 70
             }]
